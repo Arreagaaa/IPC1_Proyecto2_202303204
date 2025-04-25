@@ -1,0 +1,4 @@
+com\example\views\BaseView.class
+com\example\views\MainMenuView.class
+com\example\Main.class
+com\example\controllers\MainController.class
