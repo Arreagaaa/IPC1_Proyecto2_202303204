@@ -75,3 +75,8 @@
 2025-04-26 08:06:37 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
 2025-04-26 08:06:42 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
 2025-04-26 08:06:42 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 08:41:24 | Sistema | Deserialización | ÉXITO | Datos cargados correctamente desde datos_taller.bin
+2025-04-26 08:41:24 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 08:41:24 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 08:41:28 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 08:41:28 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
