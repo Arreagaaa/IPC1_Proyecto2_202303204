@@ -1,0 +1,77 @@
+2025-04-26 08:06:18 | Sistema | Deserialización | ERROR | Error al cargar datos: com.example.models.GestorDatos
+2025-04-26 08:06:18 | Sistema | Inicialización | ÉXITO | Inicializando sistema con datos por defecto
+2025-04-26 08:06:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:18 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-26 08:06:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:29 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-26 08:06:29 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-26 08:06:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:31 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-26 08:06:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:31 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-26 08:06:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:31 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-26 08:06:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:31 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-26 08:06:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-26 08:06:31 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-26 08:06:31 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-26 08:06:37 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 08:06:42 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 08:06:42 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
