@@ -167,4 +167,37 @@ public class Servicio implements Serializable {
     public String toString() {
         return id + " - " + nombre + " (" + marca + " " + modelo + ") - Q" + getPrecioTotal();
     }
+
+    public double getPrecioBase() {
+        //CALCULAR PRECIO BASE
+        double precioBase = 0.0;
+        for (Repuesto repuesto : repuestos) {
+            precioBase += repuesto.getPrecio();
+        }
+        return precioBase;  
+    }
+
+    public String getDescripcion() {
+        // ESCRIBIR DESCRIPCION DEL SERVICIO
+        StringBuilder descripcion = new StringBuilder("Servicio: " + nombre + "\n");
+        descripcion.append("Marca: ").append(marca).append("\n");
+        descripcion.append("Modelo: ").append(modelo).append("\n");
+        descripcion.append("Precio Mano de Obra: Q").append(precioManoObra).append("\n");
+        descripcion.append("Repuestos:\n");
+        for (Repuesto repuesto : repuestos) {
+            descripcion.append("- ").append(repuesto.getNombre()).append(" (Q").append(repuesto.getPrecio()).append(")\n");
+        }
+        descripcion.append("Precio Total: Q").append(getPrecioTotal()).append("\n");
+        descripcion.append("Veces Usado: ").append(vecesUsado).append("\n");
+        return descripcion.toString();  
+    }
+
+    public char[] getCantidad() {
+        // ESCRIBIR CANTIDAD DE REPUESTOS
+        StringBuilder cantidad = new StringBuilder();
+        for (Repuesto repuesto : repuestos) {
+            cantidad.append(repuesto.getCantidad()).append(" ");
+        }
+        return cantidad.toString().toCharArray();
+    }
 }

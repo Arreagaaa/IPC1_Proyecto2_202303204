@@ -2,8 +2,6 @@ package com.tallermecanico.views;
 
 import com.tallermecanico.controllers.ClienteController;
 import com.tallermecanico.models.personas.Cliente;
-import com.tallermecanico.utils.GestorBitacora;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

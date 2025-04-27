@@ -4,20 +4,20 @@ import com.tallermecanico.components.EstatusProgresoPanel;
 import com.tallermecanico.controllers.AutomovilController;
 import com.tallermecanico.controllers.OrdenTrabajoController;
 import com.tallermecanico.controllers.ServicioController;
+import com.tallermecanico.controllers.FacturaController;
 import com.tallermecanico.models.Automovil;
 import com.tallermecanico.models.OrdenTrabajo;
-import com.tallermecanico.models.Repuesto;
 import com.tallermecanico.models.Servicio;
+import com.tallermecanico.models.Factura;
 import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.utils.GestorBitacora;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
@@ -47,18 +47,23 @@ public class ClienteView extends JFrame {
     private JButton btnSolicitarServicio;
     private JButton btnVerDetallesOrden;
     private JButton btnVerOrdenes;
-    private JButton btnPagarFactura;
+    // Removed duplicate declaration of btnPagarFactura
 
     // Componentes para servicios disponibles
     private JTable tablaServicios;
     private DefaultTableModel modeloTablaServicios;
-    private JButton btnVerServicio;
     private JComboBox<Automovil> comboAutomoviles;
     private JButton btnVerDetallesServicio;
     private JButton btnSolicitarServicioTab;
     private JButton btnFiltrarServicios;
     private JComboBox<String> comboMarcaFiltro;
     private JComboBox<String> comboModeloFiltro;
+
+    // Componentes para gestión de facturas
+    private JTable tablaFacturas;
+    private DefaultTableModel modeloTablaFacturas;
+    private JButton btnVerFacturaDetalle;
+    private JButton btnPagarFactura;
 
     // Otros componentes
     private JButton btnCerrarSesion;
@@ -107,6 +112,7 @@ public class ClienteView extends JFrame {
         inicializarPestanaAutomoviles();
         inicializarPestanaOrdenes();
         inicializarPestanaServicios();
+        tabbedPane.addTab("Mis Facturas", inicializarPanelFacturas());
 
         // Panel inferior con botones de acción
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -247,6 +253,67 @@ public class ClienteView extends JFrame {
         panelServicios.add(panelBotonesServicios, BorderLayout.SOUTH);
 
         tabbedPane.addTab("Servicios Disponibles", panelServicios);
+    }
+
+    /**
+     * Inicializa el panel de facturas
+     */
+    private JPanel inicializarPanelFacturas() {
+        JPanel panel = new JPanel(new BorderLayout(10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Etiqueta de título
+        JLabel lblTitulo = new JLabel("Mis Facturas");
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
+        panel.add(lblTitulo, BorderLayout.NORTH);
+
+        // Tabla de facturas
+        String[] columnas = { "Número", "Fecha", "Orden", "Servicio", "Total", "Estado" };
+        modeloTablaFacturas = new DefaultTableModel(columnas, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        tablaFacturas = new JTable(modeloTablaFacturas);
+        JScrollPane scrollTabla = new JScrollPane(tablaFacturas);
+        panel.add(scrollTabla, BorderLayout.CENTER);
+
+        // Panel de botones
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+
+        btnVerFacturaDetalle = new JButton("Ver Detalles");
+        btnPagarFactura = new JButton("Pagar Factura");
+
+        panelBotones.add(btnVerFacturaDetalle);
+        panelBotones.add(btnPagarFactura);
+
+        panel.add(panelBotones, BorderLayout.SOUTH);
+
+        // Configurar eventos
+        btnVerFacturaDetalle.addActionListener(e -> verFacturaSeleccionada());
+        btnPagarFactura.addActionListener(e -> pagarFacturaSeleccionada());
+
+        // Selección en tabla habilita/deshabilita botones
+        tablaFacturas.getSelectionModel().addListSelectionListener(e -> {
+            boolean haySeleccion = tablaFacturas.getSelectedRow() != -1;
+            btnVerFacturaDetalle.setEnabled(haySeleccion);
+
+            // Solo habilitar pago si la factura no está pagada
+            if (haySeleccion) {
+                String estado = (String) tablaFacturas.getValueAt(tablaFacturas.getSelectedRow(), 5);
+                btnPagarFactura.setEnabled("PENDIENTE".equals(estado));
+            } else {
+                btnPagarFactura.setEnabled(false);
+            }
+        });
+
+        // Estado inicial de botones
+        btnVerFacturaDetalle.setEnabled(false);
+        btnPagarFactura.setEnabled(false);
+
+        return panel;
     }
 
     /**
@@ -428,6 +495,9 @@ public class ClienteView extends JFrame {
 
         // Cargar datos en la tabla de servicios
         cargarTablaServicios();
+
+        // Cargar datos en la tabla de facturas
+        actualizarTablaFacturas();
     }
 
     /**
@@ -492,6 +562,28 @@ public class ClienteView extends JFrame {
                     servicio.getMarca(),
                     servicio.getModelo(),
                     servicio.getPrecioTotal()
+            });
+        }
+    }
+
+    /**
+     * Actualiza la tabla de facturas
+     */
+    private void actualizarTablaFacturas() {
+        modeloTablaFacturas.setRowCount(0);
+
+        // Obtener facturas del cliente
+        Vector<Factura> facturas = FacturaController.obtenerFacturasCliente(cliente.getIdentificador());
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+
+        for (Factura factura : facturas) {
+            modeloTablaFacturas.addRow(new Object[] {
+                    "F-" + factura.getNumero(),
+                    factura.getFechaEmisionFormateada(),
+                    "Orden #" + factura.getOrdenTrabajo().getNumero(),
+                    factura.getOrdenTrabajo().getServicio().getNombre(),
+                    "Q " + df.format(factura.calcularTotal()),
+                    factura.isPagada() ? "PAGADA" : "PENDIENTE"
             });
         }
     }
@@ -637,8 +729,9 @@ public class ClienteView extends JFrame {
         }
 
         JDialog dialogo = new JDialog(this, "Editar Automóvil", true);
-        // Implementar similar a agregar pero con los campos precargados
-        // ...
+        dialogo.setSize(400, 300);
+        dialogo.setLocationRelativeTo(this);
+        dialogo.setLayout(new BorderLayout());
     }
 
     private void actualizarTablaAutomoviles() {
@@ -668,6 +761,69 @@ public class ClienteView extends JFrame {
     private void actualizarDetallesServicio(Servicio servicio) {
         // Implementar lógica para actualizar los detalles del servicio seleccionado
         // ...
+    }
+
+    private void verFacturaSeleccionada() {
+        int filaSeleccionada = tablaFacturas.getSelectedRow();
+        if (filaSeleccionada == -1)
+            return;
+
+        // Obtener número de factura (quitar el prefijo "F-")
+        String numeroFacturaStr = (String) tablaFacturas.getValueAt(filaSeleccionada, 0);
+        int numeroFactura = Integer.parseInt(numeroFacturaStr.substring(2));
+
+        // Buscar la factura
+        Factura factura = FacturaController.buscarFacturaPorNumero(numeroFactura);
+        if (factura == null) {
+            JOptionPane.showMessageDialog(this,
+                    "No se pudo encontrar la factura seleccionada.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Mostrar la vista de factura
+        FacturaView vista = new FacturaView(this, factura);
+        vista.setVisible(true);
+
+        // Actualizar tabla después de cerrar la vista
+        actualizarTablaFacturas();
+    }
+
+    private void pagarFacturaSeleccionada() {
+        int filaSeleccionada = tablaFacturas.getSelectedRow();
+        if (filaSeleccionada == -1)
+            return;
+
+        // Verificar si ya está pagada
+        String estado = (String) tablaFacturas.getValueAt(filaSeleccionada, 5);
+        if ("PAGADA".equals(estado)) {
+            JOptionPane.showMessageDialog(this,
+                    "Esta factura ya ha sido pagada.",
+                    "Factura Pagada",
+                    JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        // Obtener número de factura
+        String numeroFacturaStr = (String) tablaFacturas.getValueAt(filaSeleccionada, 0);
+        int numeroFactura = Integer.parseInt(numeroFacturaStr.substring(2));
+
+        // Mostrar la vista de factura para pagar
+        Factura factura = FacturaController.buscarFacturaPorNumero(numeroFactura);
+        if (factura == null) {
+            JOptionPane.showMessageDialog(this,
+                    "No se pudo encontrar la factura seleccionada.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        FacturaView vista = new FacturaView(this, factura);
+        vista.setVisible(true);
+
+        // Actualizar tabla después de cerrar la vista
+        actualizarTablaFacturas();
     }
 
     @Override

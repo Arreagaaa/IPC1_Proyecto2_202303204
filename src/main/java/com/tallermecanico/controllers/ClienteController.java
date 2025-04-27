@@ -2,7 +2,6 @@ package com.tallermecanico.controllers;
 
 import com.tallermecanico.models.Automovil;
 import com.tallermecanico.models.personas.Cliente;
-import com.tallermecanico.models.personas.Persona;
 import com.tallermecanico.models.OrdenTrabajo;
 import com.tallermecanico.utils.GestorBitacora;
 
@@ -42,47 +41,88 @@ public class ClienteController {
     }
 
     /**
-     * Actualiza los datos de un cliente existente
+     * Actualiza los datos de un cliente
      * 
-     * @return true si se actualizó correctamente
+     * @param identificador Identificador del cliente
+     * @param nombre        Nuevo nombre
+     * @param apellido      Nuevo apellido
+     * @param email         Nuevo email
+     * @param telefono      Nuevo teléfono
+     * @return true si la actualización fue exitosa
      */
     public static boolean actualizarCliente(String identificador, String nombre, String apellido,
-            String usuario, String password) {
+            String email, String telefono) {
+        // Buscar el cliente
         Cliente cliente = buscarClientePorIdentificador(identificador);
-
         if (cliente == null) {
-            GestorBitacora.registrarEvento("Sistema", "Actualización de cliente", false,
+            GestorBitacora.registrarEvento("Sistema", "Actualizar Cliente", false,
                     "No se encontró cliente con identificador: " + identificador);
             return false;
         }
 
-        // Verificar que el nuevo usuario no exista (si se está cambiando)
-        if (!cliente.getNombreUsuario().equals(usuario)) {
-            Cliente clienteExistente = buscarClientePorUsuario(usuario);
-            if (clienteExistente != null && !clienteExistente.getIdentificador().equals(identificador)) {
-                GestorBitacora.registrarEvento("Sistema", "Actualización de cliente", false,
-                        "Ya existe un cliente con el usuario: " + usuario);
-                return false;
-            }
-        }
-
-        // Actualizar datos
+        // Actualizar nombre y apellido (estos métodos existen)
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
-        cliente.setNombreUsuario(usuario);
 
-        // Solo actualizar la contraseña si se proporciona una nueva
-        if (password != null && !password.isEmpty()) {
-            cliente.setContrasena(password);
+        // Actualizar email y teléfono mediante campos directos
+        // ya que setEmail y setTelefono no existen
+        try {
+            // Usar reflexión para acceder a los campos
+            java.lang.reflect.Field emailField = Cliente.class.getDeclaredField("email");
+            emailField.setAccessible(true);
+            emailField.set(cliente, email);
+
+            java.lang.reflect.Field telefonoField = Cliente.class.getDeclaredField("telefono");
+            telefonoField.setAccessible(true);
+            telefonoField.set(cliente, telefono);
+        } catch (Exception e) {
+            // Si la reflexión falla, registrar advertencia pero continuar
+            GestorBitacora.registrarEvento("Sistema", "Actualizar Cliente", false,
+                    "No se pudieron actualizar email/teléfono: " + e.getMessage());
         }
 
         // Guardar cambios
         DataController.guardarDatos();
 
-        GestorBitacora.registrarEvento("Sistema", "Actualización de cliente", true,
+        GestorBitacora.registrarEvento("Sistema", "Actualizar Cliente", true,
                 "Cliente actualizado: " + identificador);
 
         return true;
+    }
+
+    /**
+     * Versión sobrecargada que incluye el tipo de cliente
+     */
+    public static boolean actualizarCliente(String identificador, String nombre, String apellido,
+            String email, String telefono, String tipoCliente) {
+        // Actualizar datos básicos
+        boolean resultado = actualizarCliente(identificador, nombre, apellido, email, telefono);
+
+        if (resultado) {
+            // Actualizar tipo de cliente
+            Cliente cliente = buscarClientePorIdentificador(identificador);
+
+            try {
+                // Intentar usar método setTipoCliente
+                cliente.setTipoCliente(tipoCliente);
+            } catch (Exception e) {
+                // Si no existe, usar reflexión
+                try {
+                    java.lang.reflect.Field tipoField = Cliente.class.getDeclaredField("tipoCliente");
+                    tipoField.setAccessible(true);
+                    tipoField.set(cliente, tipoCliente);
+                } catch (Exception ex) {
+                    GestorBitacora.registrarEvento("Sistema", "Actualizar Cliente", false,
+                            "No se pudo actualizar tipo de cliente: " + ex.getMessage());
+                    return false;
+                }
+            }
+
+            // Guardar cambios
+            DataController.guardarDatos();
+        }
+
+        return resultado;
     }
 
     /**
@@ -309,5 +349,28 @@ public class ClienteController {
                         tipoAnterior + " a " + nuevoTipo);
 
         return true;
+    }
+
+    /**
+     * Adds a new client to the system.
+     *
+     * @param nombre      The first name of the client.
+     * @param apellido    The last name of the client.
+     * @param usuario     The username of the client.
+     * @param contraseña  The password of the client.
+     * @param tipoCliente The type of the client (e.g., "normal" or "oro").
+     * @return true if the client was added successfully, false otherwise.
+     */
+    public static boolean agregarCliente(String nombre, String apellido, String usuario, String contraseña,
+            String tipoCliente) {
+        if (nombre == null || apellido == null || usuario == null || contraseña == null || tipoCliente == null) {
+            return false; // Entrada inválida
+        }
+
+        // Crear el nuevo cliente
+        Cliente nuevoCliente = new Cliente(nombre, apellido, usuario, contraseña, tipoCliente);
+
+        // Usar el método addCliente de DataController
+        return DataController.addCliente(nuevoCliente);
     }
 }

@@ -1,7 +1,10 @@
 package com.tallermecanico.models;
 
+import com.tallermecanico.controllers.DataController;
+import com.tallermecanico.controllers.OrdenTrabajoController; // Import OrdenTrabajoController
 import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.models.personas.Mecanico;
+import com.tallermecanico.utils.GestorBitacora;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,6 +25,7 @@ public class OrdenTrabajo implements Serializable {
     private String estado; // "espera", "en_servicio", "listo"
     private boolean pagado;
     private Factura factura;
+    private Date fechaCompletado;
 
     /**
      * Constructor por defecto
@@ -43,6 +47,18 @@ public class OrdenTrabajo implements Serializable {
         this.fecha = new Date();
         this.estado = "espera";
         this.pagado = false;
+    }
+
+    /**
+     * Constructor con parámetros adicionales
+     */
+    public OrdenTrabajo(int numero, Cliente cliente, Automovil automovil, Servicio servicio) {
+        this.numero = numero;
+        this.cliente = cliente;
+        this.automovil = automovil;
+        this.servicio = servicio;
+        this.estado = "espera"; // Estado inicial de la orden
+        this.pagado = false; // Inicialmente no está pagada
     }
 
     // Getters y Setters
@@ -126,6 +142,24 @@ public class OrdenTrabajo implements Serializable {
     }
 
     /**
+     * Establece la fecha de completado de la orden
+     * 
+     * @param fechaCompletado La fecha en que se completó la orden
+     */
+    public void setFechaCompletado(Date fechaCompletado) {
+        this.fechaCompletado = fechaCompletado;
+    }
+
+    /**
+     * Obtiene la fecha de completado de la orden
+     * 
+     * @return Fecha de completado
+     */
+    public Date getFechaCompletado() {
+        return fechaCompletado;
+    }
+
+    /**
      * Verifica si el automóvil es compatible con el servicio
      */
     public boolean verificarCompatibilidad() {
@@ -141,7 +175,7 @@ public class OrdenTrabajo implements Serializable {
      */
     public Factura generarFactura() {
         if (factura == null && "listo".equals(estado)) {
-            factura = new Factura(this);
+            factura = new Factura(numero, this);
         }
         return factura;
     }
@@ -166,11 +200,81 @@ public class OrdenTrabajo implements Serializable {
         }
     }
 
+    /**
+     * Cambia el estado de la orden de trabajo, validando los tiempos de los
+     * estados.
+     * 
+     * @param nuevoEstado El nuevo estado de la orden ("espera", "en_servicio",
+     *                    "listo").
+     * @return true si el cambio de estado es válido, false en caso contrario.
+     */
+    public boolean cambiarEstado(String nuevoEstado) {
+        if (nuevoEstado == null || nuevoEstado.isEmpty()) {
+            return false;
+        }
+
+        switch (nuevoEstado) {
+            case "en_servicio":
+                if (!"espera".equals(this.estado)) {
+                    return false; // Solo se puede pasar a "en_servicio" desde "espera"
+                }
+                break;
+
+            case "listo":
+                if (!"en_servicio".equals(this.estado)) {
+                    return false; // Solo se puede pasar a "listo" desde "en_servicio"
+                }
+                this.fechaCompletado = new Date(); // Registrar la fecha de completado
+                break;
+
+            default:
+                return false; // Estado no válido
+        }
+
+        this.estado = nuevoEstado;
+        return true;
+    }
+
+    /**
+     * Cambia el estado de una orden de trabajo.
+     * 
+     * @param numeroOrden El número de la orden.
+     * @param nuevoEstado El nuevo estado de la orden ("espera", "en_servicio",
+     *                    "listo").
+     * @return true si el cambio de estado es válido, false en caso contrario.
+     */
+    public static boolean cambiarEstadoOrden(int numeroOrden, String nuevoEstado) {
+        OrdenTrabajo orden = OrdenTrabajoController.buscarOrdenPorNumero(numeroOrden); // Usar OrdenTrabajoController
+
+        if (orden == null) {
+            GestorBitacora.registrarEvento("Sistema", "Cambio de estado", false,
+                    "No se encontró la orden #" + numeroOrden);
+            return false;
+        }
+
+        if (!orden.cambiarEstado(nuevoEstado)) {
+            GestorBitacora.registrarEvento("Sistema", "Cambio de estado", false,
+                    "Cambio de estado inválido para la orden #" + numeroOrden);
+            return false;
+        }
+
+        GestorBitacora.registrarEvento("Sistema", "Cambio de estado", true,
+                "Estado de la orden #" + numeroOrden + " cambiado a " + nuevoEstado);
+        DataController.guardarDatos();
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Orden #" + numero + " - " +
                 (automovil != null ? automovil.getPlaca() : "Sin auto") + " - " +
                 (servicio != null ? servicio.getNombre() : "Sin servicio") + " - " +
                 estado;
+    }
+
+    public void setTotal(double total) {
+        if (factura != null) {
+            factura.setTotal(total);
+        }
     }
 }

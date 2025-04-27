@@ -2,7 +2,6 @@ package com.tallermecanico.controllers;
 
 import com.tallermecanico.models.personas.Empleado;
 import com.tallermecanico.models.personas.Mecanico;
-import com.tallermecanico.models.personas.Persona;
 import com.tallermecanico.utils.GestorBitacora;
 
 import java.util.Vector;

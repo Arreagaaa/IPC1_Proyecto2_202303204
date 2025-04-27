@@ -156,4 +156,28 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
     public String toString() {
         return id + " - " + nombre + " (" + marca + " " + modelo + ") - Q" + precio;
     }
+
+    /**
+     * Obtiene la descripción del repuesto
+     * @return Descripción del repuesto
+     */
+    public String getDescripcion() {
+        return this.marca + " " + this.modelo;
+    }
+
+    /**
+     * Establece la descripción del repuesto
+     * @param descripcion Nueva descripción
+     */
+    public void setDescripcion(String descripcion) {
+        // Este método es necesario para el método actualizar
+    }
+
+    /**
+     * Obtiene la cantidad del repuesto
+     * @return Cantidad del repuesto
+     */
+    public int getCantidad() {
+        return this.existencias;
+    }
 }

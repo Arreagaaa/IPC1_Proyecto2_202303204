@@ -30,6 +30,9 @@ public class Main {
                 CargadorArchivos.cargarDatosIniciales();
             }
 
+            // Verificar si existe un administrador por defecto, y crearlo si no existe
+            DataController.verificarAdministradorPorDefecto();
+
             // Iniciar hilos del sistema
             GestorHilos.obtenerInstancia().iniciarHilos();
 

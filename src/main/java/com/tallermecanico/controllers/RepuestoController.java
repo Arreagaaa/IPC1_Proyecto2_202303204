@@ -2,7 +2,6 @@ package com.tallermecanico.controllers;
 
 import com.tallermecanico.models.Automovil;
 import com.tallermecanico.models.Repuesto;
-import com.tallermecanico.models.Servicio;
 import com.tallermecanico.utils.GestorBitacora;
 
 import java.util.Collections;
@@ -78,6 +77,47 @@ public class RepuestoController {
 
         GestorBitacora.registrarEvento("Sistema", "Actualización de repuesto", true,
                 "Repuesto actualizado: " + id);
+
+        return true;
+    }
+
+    /**
+     * Actualiza un repuesto existente (versión adaptada)
+     * 
+     * @param idRepuesto  ID del repuesto a actualizar
+     * @param nombre      Nuevo nombre
+     * @param descripcion Nueva descripción (se usará para marca/modelo)
+     * @param precio      Nuevo precio
+     * @param cantidad    Nueva cantidad (se usará para existencias)
+     * @return true si la operación fue exitosa
+     */
+    public static boolean actualizarRepuesto(int idRepuesto, String nombre, String descripcion, double precio,
+            int cantidad) {
+        // Buscar el repuesto por su ID
+        Repuesto repuesto = buscarRepuestoPorId(idRepuesto);
+
+        if (repuesto == null) {
+            GestorBitacora.registrarEvento("Sistema", "Actualizar Repuesto", false,
+                    "No se encontró repuesto con ID: " + idRepuesto);
+            return false;
+        }
+
+        // Actualizar propiedades que sabemos que existen
+        repuesto.setNombre(nombre);
+        repuesto.setPrecio(precio);
+
+        // Usar marca y modelo como alternativa a descripción
+        repuesto.setMarca(descripcion);
+        repuesto.setModelo(descripcion);
+
+        // Usar setExistencias en lugar de setCantidad
+        repuesto.setExistencias(cantidad);
+
+        // Guardar cambios
+        DataController.guardarDatos();
+
+        GestorBitacora.registrarEvento("Sistema", "Actualizar Repuesto", true,
+                "Repuesto #" + idRepuesto + " actualizado: " + nombre);
 
         return true;
     }
@@ -272,5 +312,34 @@ public class RepuestoController {
         }
 
         return repuestos;
+    }
+
+    /**
+     * Agrega un nuevo repuesto
+     * 
+     * @param nombre      Nombre del repuesto
+     * @param descripcion Descripción (se usará como marca y modelo)
+     * @param precio      Precio del repuesto
+     * @param cantidad    Cantidad inicial
+     * @return true si la operación fue exitosa
+     */
+    public static boolean agregarRepuesto(String nombre, String descripcion, double precio, int cantidad) {
+        // Generar un nuevo ID para el repuesto
+        int nuevoId = DataController.getNuevoIdRepuesto();
+
+        // Crear el repuesto usando el constructor que existe
+        // Formato: (id, nombre, marca, modelo, existencias, precio)
+        Repuesto nuevoRepuesto = new Repuesto(nuevoId, nombre, descripcion, descripcion, cantidad, precio);
+
+        // Agregar a la lista
+        DataController.getRepuestos().add(nuevoRepuesto);
+
+        // Guardar cambios
+        DataController.guardarDatos();
+
+        GestorBitacora.registrarEvento("Sistema", "Agregar Repuesto", true,
+                "Nuevo repuesto #" + nuevoId + " agregado: " + nombre);
+
+        return true;
     }
 }

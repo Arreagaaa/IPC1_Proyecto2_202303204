@@ -1,9 +1,8 @@
 package com.tallermecanico.views;
 
 import com.tallermecanico.controllers.OrdenTrabajoController;
-import com.tallermecanico.controllers.ServicioController;
+import com.tallermecanico.models.Factura;
 import com.tallermecanico.models.OrdenTrabajo;
-import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Mecanico;
 import com.tallermecanico.utils.GestorBitacora;
 import com.tallermecanico.utils.GestorHilos;
@@ -444,131 +443,81 @@ public class MecanicoView extends JFrame implements MonitorOrdenesThread.Observa
     }
 
     /**
-     * Completa la orden actual del mecánico
+     * Completa la orden en la que está trabajando actualmente
      */
     private void completarOrdenActual() {
         OrdenTrabajo ordenActual = mecanico.getOrdenActual();
 
         if (ordenActual == null) {
             JOptionPane.showMessageDialog(this,
-                    "No tiene ninguna orden asignada actualmente",
-                    "Sin Orden Actual",
-                    JOptionPane.WARNING_MESSAGE);
+                    "No hay una orden de trabajo asignada actualmente.",
+                    "Sin orden asignada",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Verificar si es un diagnóstico
-        if (ordenActual.getServicio() != null && ordenActual.getServicio().esDiagnostico()) {
-            // Si es diagnóstico, mostrar diálogo para elegir servicio
-            mostrarDialogoDiagnostico(ordenActual);
-        } else {
-            // Si es un servicio normal, completar directamente
-            completarOrden(ordenActual.getNumero());
-        }
-    }
+        int respuesta = JOptionPane.showConfirmDialog(this,
+                "¿Confirma que ha completado el servicio para la orden #"
+                        + ordenActual.getNumero() + "?",
+                "Confirmar finalización",
+                JOptionPane.YES_NO_OPTION);
 
-    /**
-     * Muestra un diálogo para elegir un servicio después del diagnóstico
-     */
-    private void mostrarDialogoDiagnostico(OrdenTrabajo ordenDiagnostico) {
-        // Obtener servicios compatibles con el automóvil
-        Vector<Servicio> serviciosCompatibles = new Vector<>();
-        for (Servicio servicio : ServicioController.obtenerTodosLosServicios()) {
-            if (!servicio.esDiagnostico() &&
-                    ordenDiagnostico.getAutomovil().esCompatibleConServicio(servicio)) {
-                serviciosCompatibles.add(servicio);
-            }
-        }
+        if (respuesta == JOptionPane.YES_OPTION) {
+            // Completar la orden y generar factura
+            Factura factura = OrdenTrabajoController.completarOrden(
+                    ordenActual.getNumero(),
+                    mecanico.getIdentificador());
 
-        // Verificar que haya servicios compatibles
-        if (serviciosCompatibles.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "No hay servicios compatibles con este automóvil",
-                    "Sin Servicios Disponibles",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // Crear diálogo
-        JDialog dialogoDiagnostico = new JDialog(this, "Resultado de Diagnóstico", true);
-        dialogoDiagnostico.setSize(400, 300);
-        dialogoDiagnostico.setLocationRelativeTo(this);
-
-        // Crear panel principal
-        JPanel panelDialogo = new JPanel();
-        panelDialogo.setLayout(new BoxLayout(panelDialogo, BoxLayout.Y_AXIS));
-        panelDialogo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        // Añadir etiqueta informativa
-        JLabel lblInfo = new JLabel("Seleccione el servicio recomendado:");
-        lblInfo.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panelDialogo.add(lblInfo);
-        panelDialogo.add(Box.createRigidArea(new Dimension(0, 10)));
-
-        // Crear combo para servicios
-        JComboBox<Servicio> comboServicios = new JComboBox<>();
-        for (Servicio servicio : serviciosCompatibles) {
-            comboServicios.addItem(servicio);
-        }
-        comboServicios.setMaximumSize(new Dimension(Integer.MAX_VALUE, comboServicios.getPreferredSize().height));
-        comboServicios.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panelDialogo.add(comboServicios);
-        panelDialogo.add(Box.createRigidArea(new Dimension(0, 20)));
-
-        // Botones
-        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        JButton btnCancelar = new JButton("Cancelar");
-        JButton btnAceptar = new JButton("Recomendar");
-
-        btnCancelar.addActionListener(e -> dialogoDiagnostico.dispose());
-
-        btnAceptar.addActionListener(e -> {
-            Servicio servicioRecomendado = (Servicio) comboServicios.getSelectedItem();
-            if (servicioRecomendado != null) {
-                // Notificar al cliente (simulado)
-                JOptionPane.showMessageDialog(dialogoDiagnostico,
-                        "Se ha notificado al cliente sobre el servicio recomendado: " + servicioRecomendado.getNombre(),
-                        "Notificación Enviada",
+            if (factura != null) {
+                JOptionPane.showMessageDialog(this,
+                        "Orden #" + ordenActual.getNumero() + " completada correctamente.\n" +
+                                "Se ha generado la factura #" + factura.getNumero() + ".",
+                        "Orden Completada",
                         JOptionPane.INFORMATION_MESSAGE);
 
-                // Actualizar servicio y completar diagnóstico
-                ordenDiagnostico.setServicio(servicioRecomendado);
-                completarOrden(ordenDiagnostico.getNumero());
+                // Limpiar orden actual
+                ordenActual = null;
+                actualizarOrdenActual();
 
-                dialogoDiagnostico.dispose();
+                // Actualizar tablas
+                actualizarTablaEspera();
+                actualizarTablaCompletadas();
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "Error al completar la orden.",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
-        });
-
-        panelBotones.add(btnCancelar);
-        panelBotones.add(btnAceptar);
-        panelBotones.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        panelDialogo.add(panelBotones);
-
-        // Añadir panel al diálogo
-        dialogoDiagnostico.setContentPane(panelDialogo);
-        dialogoDiagnostico.setVisible(true);
+        }
     }
 
     /**
-     * Completa una orden de trabajo
+     * Actualiza la tabla de órdenes completadas por el mecánico
      */
-    private void completarOrden(int numeroOrden) {
-        boolean completado = OrdenTrabajoController.completarOrden(numeroOrden);
+    private void actualizarTablaCompletadas() {
+        // Limpiar la tabla
+        modeloTablaCompletadas.setRowCount(0);
 
-        if (completado) {
-            JOptionPane.showMessageDialog(this,
-                    "Orden #" + numeroOrden + " completada correctamente",
-                    "Operación Exitosa",
-                    JOptionPane.INFORMATION_MESSAGE);
+        // Obtener las órdenes completadas por este mecánico
+        Vector<OrdenTrabajo> ordenesCompletadas = OrdenTrabajoController
+                .obtenerOrdenesPorMecanico(mecanico.getIdentificador());
 
-            // Actualizar vistas
-            cargarDatos();
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "No se pudo completar la orden. Verifique que esté en servicio.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+        // Ordenar las órdenes por número
+        OrdenTrabajoController.ordenarOrdenesPorNumero(ordenesCompletadas);
+
+        // Filtrar solo las órdenes que están en estado "listo"
+        for (OrdenTrabajo orden : ordenesCompletadas) {
+            if ("listo".equals(orden.getEstado())) {
+                modeloTablaCompletadas.addRow(new Object[] {
+                        orden.getNumero(),
+                        orden.getCliente().getNombreCompleto(),
+                        orden.getAutomovil().getPlaca() + " - " + orden.getAutomovil().getMarca() + " "
+                                + orden.getAutomovil().getModelo(),
+                        orden.getServicio().getNombre(),
+                        orden.getFecha(),
+                        orden.isPagado() ? "Pagado" : "Pendiente de pago"
+                });
+            }
         }
     }
 

@@ -10,40 +10,41 @@ public class MainView extends BaseView {
 
     public MainView() {
         super("Taller Mecánico - Bienvenido");
-        initComponents();
+        inicializarComponentes();
     }
 
     /**
      * Inicializa y configura los componentes de la interfaz
      */
-    private void initComponents() {
+    @Override
+    protected void inicializarComponentes() {
         // Panel principal de contenido
-        JPanel mainPanel = createContentPanel();
+        JPanel mainPanel = new JPanel(new BorderLayout(20, 20));
+        mainPanel.setOpaque(false); // Fondo transparente para mostrar el wallpaper
         setContentPane(mainPanel);
-        mainPanel.setLayout(new BorderLayout(20, 20));
 
         // Panel superior con logo y título
         JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setOpaque(false);
 
-        // Logo del taller (usar una imagen placeholder)
+        // Logo del taller
         JLabel logoLabel = new JLabel();
         try {
-            ImageIcon logo = new ImageIcon(getClass().getResource("/img_carros/taller_logo.png"));
-            // Redimensionar si es necesario
+            ImageIcon logo = new ImageIcon("resources/logo.png"); // Ruta al logo
             Image img = logo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
             logoLabel.setIcon(new ImageIcon(img));
         } catch (Exception e) {
-            // Si no encuentra la imagen, usar un texto como logo
-            logoLabel = new JLabel("TALLER", JLabel.CENTER);
+            logoLabel.setText("TALLER MECÁNICO");
             logoLabel.setFont(new Font("Arial", Font.BOLD, 48));
-            logoLabel.setForeground(COLOR_PRIMARY);
+            logoLabel.setForeground(new Color(0, 0, 128)); // Azul oscuro
         }
         logoLabel.setHorizontalAlignment(JLabel.CENTER);
         headerPanel.add(logoLabel, BorderLayout.CENTER);
 
         // Título principal
-        JLabel titleLabel = createTitle("Sistema de Gestión de Taller Mecánico");
+        JLabel titleLabel = new JLabel("Sistema de Gestión de Taller Mecánico", JLabel.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        titleLabel.setForeground(new Color(0, 0, 128)); // Azul oscuro
         titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
 
         // Descripción
@@ -56,8 +57,8 @@ public class MainView extends BaseView {
         descriptionArea.setWrapStyleWord(true);
         descriptionArea.setLineWrap(true);
         descriptionArea.setOpaque(false);
-        descriptionArea.setFont(FONT_REGULAR);
-        descriptionArea.setForeground(COLOR_TEXT);
+        descriptionArea.setFont(new Font("Arial", Font.PLAIN, 14));
+        descriptionArea.setForeground(Color.DARK_GRAY);
         descriptionArea.setBorder(BorderFactory.createEmptyBorder(0, 50, 30, 50));
 
         // Panel para botones
@@ -66,12 +67,12 @@ public class MainView extends BaseView {
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 100, 0, 100));
 
         // Botón de inicio de sesión
-        JButton loginButton = createPrimaryButton("Iniciar Sesión");
+        JButton loginButton = crearBoton("Iniciar Sesión");
         loginButton.setPreferredSize(new Dimension(200, 50));
         loginButton.addActionListener(e -> openLoginView());
 
         // Botón de registro (solo para clientes)
-        JButton registerButton = createSecondaryButton("Registrarse como Cliente");
+        JButton registerButton = crearBoton("Registrarse como Cliente");
         registerButton.setPreferredSize(new Dimension(200, 50));
         registerButton.addActionListener(e -> openRegisterView());
 
@@ -83,8 +84,8 @@ public class MainView extends BaseView {
         JPanel footerPanel = new JPanel(new BorderLayout());
         footerPanel.setOpaque(false);
 
-        JLabel footerLabel = new JLabel("© 2023 Taller Mecánico - Todos los derechos reservados", JLabel.CENTER);
-        footerLabel.setFont(FONT_SMALL);
+        JLabel footerLabel = new JLabel("© 2025 Taller Mecánico - Todos los derechos reservados", JLabel.CENTER);
+        footerLabel.setFont(new Font("Arial", Font.ITALIC, 12));
         footerLabel.setForeground(Color.GRAY);
         footerLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
 
@@ -117,7 +118,7 @@ public class MainView extends BaseView {
      * Abre la vista de registro para clientes
      */
     private void openRegisterView() {
-        // Por ahora, mostrar un mensaje informativo
-        showInfoMessage("Funcionalidad de registro en desarrollo. Por favor, utilice la opción 'Iniciar Sesión'.");
+        JOptionPane.showMessageDialog(this,
+                "Funcionalidad de registro en desarrollo. Por favor, utilice la opción 'Iniciar Sesión'.");
     }
 }

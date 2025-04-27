@@ -14,6 +14,8 @@ public class Cliente extends Persona {
     private String tipoCliente; // "normal" o "oro"
     private Vector<Automovil> automoviles;
     private int serviciosRealizados;
+    private String email;
+    private String telefono;
 
     /**
      * Constructor por defecto
@@ -23,6 +25,8 @@ public class Cliente extends Persona {
         this.tipoCliente = "normal";
         this.automoviles = new Vector<>();
         this.serviciosRealizados = 0;
+        this.email = "";
+        this.telefono = "";
     }
 
     /**
@@ -34,6 +38,8 @@ public class Cliente extends Persona {
         this.tipoCliente = "normal";
         this.automoviles = new Vector<>();
         this.serviciosRealizados = 0;
+        this.email = "";
+        this.telefono = "";
     }
 
     /**
@@ -45,6 +51,22 @@ public class Cliente extends Persona {
         this.tipoCliente = tipoCliente;
         this.automoviles = new Vector<>();
         this.serviciosRealizados = 0;
+        this.email = "";
+        this.telefono = "";
+    }
+
+    /**
+     * Constructor completo con email y teléfono
+     */
+    public Cliente(String identificador, String nombre, String apellido,
+            String nombreUsuario, String contrasena, String tipoCliente,
+            String email, String telefono) {
+        super(identificador, nombre, apellido, nombreUsuario, contrasena);
+        this.tipoCliente = tipoCliente;
+        this.automoviles = new Vector<>();
+        this.serviciosRealizados = 0;
+        this.email = email;
+        this.telefono = telefono;
     }
 
     // Getters y Setters
@@ -71,6 +93,22 @@ public class Cliente extends Persona {
 
     public void setServiciosRealizados(int serviciosRealizados) {
         this.serviciosRealizados = serviciosRealizados;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     /**

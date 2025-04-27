@@ -48,6 +48,40 @@ public class ServicioController {
     }
 
     /**
+     * Agrega un nuevo servicio al sistema
+     * @param nombre Nombre del servicio
+     * @param descripcion Descripción del servicio
+     * @param precioBase Precio base del servicio
+     * @return true si la operación fue exitosa
+     */
+    public static boolean agregarServicio(String nombre, String descripcion, double precioBase) {
+        // Verificar datos
+        if (nombre == null || nombre.trim().isEmpty() || precioBase <= 0) {
+            GestorBitacora.registrarEvento("Sistema", "Agregar Servicio", false,
+                    "Datos inválidos para nuevo servicio");
+            return false;
+        }
+        
+        // Generar nuevo ID
+        int nuevoId = DataController.getNuevoIdServicio();
+        
+        // Crear el nuevo servicio
+        Servicio nuevoServicio = new Servicio(nuevoId, nombre, descripcion, descripcion, precioBase);
+        
+        // Agregar a la lista de servicios
+        DataController.getServicios().add(nuevoServicio);
+        
+        // Guardar cambios
+        DataController.guardarDatos();
+        
+        // Registrar en bitácora
+        GestorBitacora.registrarEvento("Sistema", "Agregar Servicio", true,
+                "Servicio #" + nuevoId + " agregado: " + nombre);
+        
+        return true;
+    }
+
+    /**
      * Actualiza los datos de un servicio existente
      * 
      * @return true si se actualizó correctamente

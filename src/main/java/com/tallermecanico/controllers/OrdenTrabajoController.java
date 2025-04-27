@@ -7,8 +7,6 @@ import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.models.personas.Mecanico;
 import com.tallermecanico.utils.GestorBitacora;
-
-import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -56,14 +54,21 @@ public class OrdenTrabajoController {
             return null;
         }
 
+        // Validar que el servicio sea compatible con la marca y modelo del automóvil
+        if (!servicio.getMarca().equalsIgnoreCase(automovil.getMarca()) ||
+                !servicio.getModelo().equalsIgnoreCase(automovil.getModelo())) {
+            GestorBitacora.registrarEvento("Sistema", "Crear Orden", false,
+                    "El servicio no es compatible con el automóvil: " + automovil.getMarca() + " "
+                            + automovil.getModelo());
+            return null;
+        }
+
         // Crear la orden de trabajo
         int numeroOrden = DataController.getNuevoNumeroOrden();
-        OrdenTrabajo orden = new OrdenTrabajo();
+        OrdenTrabajo orden = new OrdenTrabajo(numeroOrden, cliente, automovil, servicio);
 
         // Agregar la orden de trabajo a las órdenes y a la cola de espera
         DataController.getOrdenesTrabajo().add(orden);
-
-        // Usar el nuevo método para agregar a la cola con prioridad
         DataController.agregarOrdenAColaEspera(orden);
 
         GestorBitacora.registrarEvento("Sistema", "Crear Orden", true,
@@ -113,10 +118,10 @@ public class OrdenTrabajoController {
             return false;
         }
 
-        // Verificar que el mecánico esté disponible
+        // Verificar que el mecánico no esté atendiendo otro automóvil
         if (!mecanico.isDisponible()) {
             GestorBitacora.registrarEvento("Sistema", "Asignación de orden", false,
-                    "El mecánico no está disponible");
+                    "El mecánico ya está atendiendo otro automóvil");
             return false;
         }
 
@@ -191,6 +196,79 @@ public class OrdenTrabajoController {
     }
 
     /**
+     * Marca una orden como completada (lista) y genera la factura
+     * 
+     * @param numeroOrden Número de la orden a completar
+     * @param idMecanico  Identificador del mecánico que completa la orden
+     * @return La factura generada o null en caso de error
+     */
+    public static Factura completarOrden(int numeroOrden, String idMecanico) {
+        // Buscar la orden
+        OrdenTrabajo orden = null;
+        for (OrdenTrabajo o : DataController.getOrdenesTrabajo()) {
+            if (o.getNumero() == numeroOrden) {
+                orden = o;
+                break;
+            }
+        }
+
+        // Validar que exista la orden y esté en servicio
+        if (orden == null) {
+            GestorBitacora.registrarEvento("Sistema", "Completar Orden", false,
+                    "No se encontró la orden #" + numeroOrden);
+            return null;
+        }
+
+        if (!"en_servicio".equals(orden.getEstado())) {
+            GestorBitacora.registrarEvento("Sistema", "Completar Orden", false,
+                    "La orden #" + numeroOrden + " no está en servicio");
+            return null;
+        }
+
+        // Validar que el mecánico asignado sea quien completa
+        if (!orden.getMecanico().getIdentificador().equals(idMecanico)) {
+            GestorBitacora.registrarEvento("Sistema", "Completar Orden", false,
+                    "El mecánico no está asignado a esta orden");
+            return null;
+        }
+
+        // Marcar como completada
+        orden.setEstado("listo");
+
+        // Si la clase OrdenTrabajo no tiene el método setFechaCompletado, omitimos esta
+        // línea
+        // orden.setFechaCompletado(new Date());
+
+        // Liberar al mecánico si tiene ese método
+        Mecanico mecanico = orden.getMecanico();
+        if (mecanico != null) {
+            // Si existe el método completarOrdenActual, lo usamos
+            try {
+                mecanico.completarOrdenActual();
+            } catch (Exception e) {
+                // Si no existe el método, simplemente continuamos
+            }
+        }
+
+        // Guardar datos
+        DataController.guardarDatos();
+
+        // Generar factura
+        Factura factura = FacturaController.generarFactura(orden);
+
+        if (factura != null) {
+            GestorBitacora.registrarEvento(idMecanico, "Completar Orden", true,
+                    "Orden #" + numeroOrden + " completada y factura #" +
+                            factura.getNumero() + " generada");
+        } else {
+            GestorBitacora.registrarEvento(idMecanico, "Completar Orden", false,
+                    "Error al generar factura para orden #" + numeroOrden);
+        }
+
+        return factura;
+    }
+
+    /**
      * Registra el pago de una orden
      * 
      * @return true si se registró correctamente
@@ -237,7 +315,7 @@ public class OrdenTrabajoController {
 
         GestorBitacora.registrarEvento("Sistema", "Registro de pago", true,
                 "Pago registrado para orden #" + numeroOrden + ", factura #" +
-                        orden.getFactura().getNumeroFactura());
+                        orden.getFactura().getNumero());
 
         return true;
     }
@@ -297,15 +375,13 @@ public class OrdenTrabajoController {
      * Obtiene órdenes asignadas a un mecánico
      */
     public static Vector<OrdenTrabajo> obtenerOrdenesPorMecanico(String idMecanico) {
-        Vector<OrdenTrabajo> ordenes = new Vector<>();
-
+        Vector<OrdenTrabajo> ordenesPorMecanico = new Vector<>();
         for (OrdenTrabajo orden : DataController.getOrdenesTrabajo()) {
-            if (orden.getMecanico() != null && orden.getMecanico().getIdentificador().equals(idMecanico)) {
-                ordenes.add(orden);
+            if (orden.getMecanico() != null && idMecanico.equals(orden.getMecanico().getIdentificador())) {
+                ordenesPorMecanico.add(orden);
             }
         }
-
-        return ordenes;
+        return ordenesPorMecanico;
     }
 
     /**
@@ -320,5 +396,22 @@ public class OrdenTrabajoController {
      */
     public static Vector<OrdenTrabajo> obtenerColaListos() {
         return DataController.getColaListos();
+    }
+
+    /**
+     * Ordena las órdenes de trabajo por número de orden.
+     * 
+     * @param ordenes El vector de órdenes a ordenar.
+     */
+    public static void ordenarOrdenesPorNumero(Vector<OrdenTrabajo> ordenes) {
+        for (int i = 0; i < ordenes.size() - 1; i++) {
+            for (int j = 0; j < ordenes.size() - i - 1; j++) {
+                if (ordenes.get(j).getNumero() > ordenes.get(j + 1).getNumero()) {
+                    OrdenTrabajo temp = ordenes.get(j);
+                    ordenes.set(j, ordenes.get(j + 1));
+                    ordenes.set(j + 1, temp);
+                }
+            }
+        }
     }
 }

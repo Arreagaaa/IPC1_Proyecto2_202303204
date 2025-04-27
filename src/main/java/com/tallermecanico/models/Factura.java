@@ -3,141 +3,234 @@ package com.tallermecanico.models;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
 
 /**
- * Representa una factura por servicios en el taller
+ * Representa una factura del taller mecánico
  */
 public class Factura implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int numeroFactura;
+    private int numero;
     private OrdenTrabajo ordenTrabajo;
     private Date fechaEmision;
-    private double total;
+    private Date fechaPago;
     private boolean pagada;
+    private String metodoPago;
+    private Vector<DetalleFactura> detalles;
 
     /**
-     * Constructor por defecto
+     * Constructor para crear una nueva factura
+     * 
+     * @param numero       Número de factura
+     * @param ordenTrabajo Orden de trabajo asociada
      */
-    public Factura() {
-        this.fechaEmision = new Date();
-        this.pagada = false;
-    }
-
-    /**
-     * Constructor a partir de una orden de trabajo
-     */
-    public Factura(OrdenTrabajo ordenTrabajo) {
+    public Factura(int numero, OrdenTrabajo ordenTrabajo) {
+        this.numero = numero;
         this.ordenTrabajo = ordenTrabajo;
         this.fechaEmision = new Date();
         this.pagada = false;
+        this.detalles = new Vector<>();
 
-        // Calcular el total basado en el servicio
-        actualizarTotal();
+        // Generar los detalles de la factura automáticamente
+        generarDetalles();
     }
 
-    // Getters y Setters
+    /**
+     * Genera los detalles de la factura basados en el servicio y repuestos
+     */
+    private void generarDetalles() {
+        // Agregar el servicio como un detalle
+        Servicio servicio = ordenTrabajo.getServicio();
+        DetalleFactura detalleServicio = new DetalleFactura(
+                "SERV-" + servicio.getId(),
+                servicio.getNombre(),
+                1,
+                servicio.getPrecioBase(),
+                0);
+        detalles.add(detalleServicio);
 
-    public int getNumeroFactura() {
-        return numeroFactura;
+        // Agregar cada repuesto como un detalle
+        for (Repuesto repuesto : servicio.getRepuestos()) {
+            DetalleFactura detalleRepuesto = new DetalleFactura(
+                    "REP-" + repuesto.getId(),
+                    repuesto.getNombre(),
+                    repuesto.getExistencias(),
+                    repuesto.getPrecio(),
+                    0);
+            detalles.add(detalleRepuesto);
+        }
     }
 
-    public void setNumeroFactura(int numeroFactura) {
-        this.numeroFactura = numeroFactura;
+    /**
+     * Registra el pago de la factura
+     * 
+     * @param metodoPago Método utilizado para el pago
+     */
+    public void registrarPago(String metodoPago) {
+        this.pagada = true;
+        this.fechaPago = new Date();
+        this.metodoPago = metodoPago;
+
+        // También marcar la orden como pagada
+        this.ordenTrabajo.setPagado(true);
+    }
+
+    /**
+     * Calcula el subtotal (suma de todos los detalles sin descuentos)
+     * 
+     * @return Valor del subtotal
+     */
+    public double calcularSubtotal() {
+        double subtotal = 0;
+        for (DetalleFactura detalle : detalles) {
+            subtotal += detalle.calcularTotal();
+        }
+        return subtotal;
+    }
+
+    /**
+     * Calcula el descuento total aplicado
+     * 
+     * @return Valor del descuento
+     */
+    public double calcularDescuento() {
+        // Si es cliente oro, aplicar 10% de descuento
+        if (ordenTrabajo.getCliente().getTipoCliente().equals("oro")) {
+            return calcularSubtotal() * 0.10;
+        }
+        return 0;
+    }
+
+    /**
+     * Calcula el total a pagar (subtotal - descuento)
+     * 
+     * @return Valor total a pagar
+     */
+    public double calcularTotal() {
+        return calcularSubtotal() - calcularDescuento();
+    }
+
+    // Getters y setters
+
+    public int getNumero() {
+        return numero;
     }
 
     public OrdenTrabajo getOrdenTrabajo() {
         return ordenTrabajo;
     }
 
-    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
-        this.ordenTrabajo = ordenTrabajo;
-        actualizarTotal();
-    }
-
     public Date getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
-        this.fechaEmision = fechaEmision;
+    public String getFechaEmisionFormateada() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return sdf.format(fechaEmision);
     }
 
-    public double getTotal() {
-        return total;
+    public Date getFechaPago() {
+        return fechaPago;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    public String getFechaPagoFormateada() {
+        if (fechaPago == null)
+            return "No pagada";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return sdf.format(fechaPago);
     }
 
     public boolean isPagada() {
         return pagada;
     }
 
-    public void setPagada(boolean pagada) {
-        this.pagada = pagada;
+    public String getMetodoPago() {
+        return metodoPago != null ? metodoPago : "No registrado";
+    }
 
-        // Actualizar también la orden de trabajo
-        if (ordenTrabajo != null) {
-            ordenTrabajo.setPagado(pagada);
-        }
+    public Vector<DetalleFactura> getDetalles() {
+        return detalles;
     }
 
     /**
-     * Actualiza el total de la factura basado en el servicio de la orden
+     * Devuelve información resumida de la factura
      */
-    public void actualizarTotal() {
-        if (ordenTrabajo != null && ordenTrabajo.getServicio() != null) {
-            this.total = ordenTrabajo.getServicio().getPrecioTotal();
-        } else {
-            this.total = 0.0;
-        }
-    }
-
-    /**
-     * Obtiene los detalles de la factura en formato texto
-     */
-    public String getDetallesFactura() {
-        StringBuilder sb = new StringBuilder();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
-        sb.append("FACTURA #").append(numeroFactura).append("\n");
-        sb.append("Fecha: ").append(sdf.format(fechaEmision)).append("\n\n");
-
-        if (ordenTrabajo != null) {
-            sb.append("CLIENTE: ").append(ordenTrabajo.getCliente().getNombreCompleto()).append("\n");
-            sb.append("DPI: ").append(ordenTrabajo.getCliente().getIdentificador()).append("\n");
-            sb.append("VEHÍCULO: ").append(ordenTrabajo.getAutomovil().getMarca()).append(" ");
-            sb.append(ordenTrabajo.getAutomovil().getModelo()).append(" (");
-            sb.append(ordenTrabajo.getAutomovil().getPlaca()).append(")\n\n");
-
-            sb.append("ORDEN DE TRABAJO #").append(ordenTrabajo.getNumero()).append("\n");
-            sb.append("Servicio: ").append(ordenTrabajo.getServicio().getNombre()).append("\n");
-            sb.append("Precio mano de obra: Q").append(ordenTrabajo.getServicio().getPrecioManoObra()).append("\n\n");
-
-            sb.append("REPUESTOS UTILIZADOS:\n");
-            if (ordenTrabajo.getServicio().getRepuestos().isEmpty()) {
-                sb.append("Ninguno\n");
-            } else {
-                for (Repuesto repuesto : ordenTrabajo.getServicio().getRepuestos()) {
-                    sb.append("- ").append(repuesto.getNombre()).append(": Q");
-                    sb.append(repuesto.getPrecio()).append("\n");
-                }
-            }
-
-            sb.append("\nTOTAL A PAGAR: Q").append(total).append("\n");
-            sb.append("\nEstado: ").append(pagada ? "PAGADA" : "PENDIENTE");
-        }
-
-        return sb.toString();
-    }
-
     @Override
     public String toString() {
-        return "Factura #" + numeroFactura + " - Orden #" +
-                (ordenTrabajo != null ? ordenTrabajo.getNumero() : "N/A") +
-                " - Q" + total + " - " + (pagada ? "PAGADA" : "PENDIENTE");
+        return "Factura #" + numero + " - Orden #" + ordenTrabajo.getNumero() +
+                " - Cliente: " + ordenTrabajo.getCliente().getNombreCompleto() +
+                " - Total: Q" + String.format("%.2f", calcularTotal()) +
+                " - Estado: " + (pagada ? "Pagada" : "Pendiente");
+    }
+
+    /**
+     * Clase interna para representar una línea de detalle en la factura
+     */
+    public static class DetalleFactura implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+        private String codigo;
+        private String descripcion;
+        private int cantidad;
+        private double precioUnitario;
+        private double descuento;
+
+        public DetalleFactura(String codigo, String descripcion, int cantidad,
+                double precioUnitario, double descuento) {
+            this.codigo = codigo;
+            this.descripcion = descripcion;
+            this.cantidad = cantidad;
+            this.precioUnitario = precioUnitario;
+            this.descuento = descuento;
+        }
+
+        public double calcularTotal() {
+            return (cantidad * precioUnitario) - descuento;
+        }
+
+        // Getters
+        public String getCodigo() {
+            return codigo;
+        }
+
+        public String getDescripcion() {
+            return descripcion;
+        }
+
+        public int getCantidad() {
+            return cantidad;
+        }
+
+        public double getPrecioUnitario() {
+            return precioUnitario;
+        }
+
+        public double getDescuento() {
+            return descuento;
+        }
+    }
+
+    public void actualizarTotal() {
+        double total = 0;
+        for (DetalleFactura detalle : detalles) {
+            total += detalle.calcularTotal();
+        }
+        ordenTrabajo.setTotal(total);
+    }
+
+    public void setTotal(double total) {
+        ordenTrabajo.setTotal(total);
+    }
+
+    public void setPagada(boolean b) {
+        // Funcion para cambiar el estado de la factura a pagada
+        this.pagada = b;
+    }
+
+    public void setNumeroFactura(int nuevoNumeroFactura) {
+        // Cambia el número de la factura
+        this.numero = nuevoNumeroFactura;
     }
 }

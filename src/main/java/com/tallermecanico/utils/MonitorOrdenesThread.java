@@ -97,6 +97,10 @@ public class MonitorOrdenesThread extends Thread {
             GestorBitacora.registrarEvento("Sistema", "Monitor Órdenes", false,
                     "Error en hilo de monitoreo: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            // Registrar que el hilo terminó
+            GestorBitacora.registrarEvento("Sistema", "Monitor Órdenes", true,
+                    "Hilo de monitoreo finalizado.");
         }
     }
 

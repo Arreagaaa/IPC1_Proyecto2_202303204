@@ -2,6 +2,7 @@ package com.tallermecanico.views;
 
 import com.tallermecanico.controllers.ClienteController;
 import com.tallermecanico.controllers.EmpleadoController;
+import com.tallermecanico.models.personas.Administrador;
 import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.models.personas.Empleado;
 import com.tallermecanico.models.personas.Mecanico;
@@ -128,7 +129,7 @@ public class LoginView extends JFrame {
                         autenticarEmpleado(usuario, password);
                         break;
                     case TIPO_MECANICO:
-                        autenticarEmpleado(usuario, password);
+                        iniciarSesion();
                         break;
                     default:
                         JOptionPane.showMessageDialog(LoginView.this,
@@ -198,5 +199,35 @@ public class LoginView extends JFrame {
                     "Error de Autenticación",
                     JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    /**
+     * Inicia sesión para un empleado
+     */
+    private void iniciarSesion() {
+        String usuario = txtUsuario.getText();
+        String contraseña = new String(txtPassword.getPassword());
+
+        // Buscar empleado
+        Empleado empleado = EmpleadoController.buscarEmpleadoPorUsuario(usuario);
+
+        if (empleado == null || !empleado.getContrasena().equals(contraseña)) {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Verificar tipo de empleado
+        if (empleado instanceof Administrador) {
+            JOptionPane.showMessageDialog(this, "El administrador por defecto no puede iniciar sesión.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Abrir la vista correspondiente
+        if (empleado instanceof Mecanico) {
+            new MecanicoView((Mecanico) empleado).setVisible(true);
+        }
+
+        dispose();
     }
 }

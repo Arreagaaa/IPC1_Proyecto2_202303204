@@ -6,10 +6,21 @@ import com.tallermecanico.models.Repuesto;
 import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.models.personas.Empleado;
+import com.tallermecanico.models.personas.Administrador;
+import com.tallermecanico.models.Automovil;
 import com.tallermecanico.utils.GestorBitacora;
 import com.tallermecanico.utils.Serializador;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.Serializable;
+import java.io.ObjectOutputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -33,6 +44,9 @@ public class DataController {
     private static int ultimoIdServicio = 0;
     private static int ultimoNumeroOrden = 0;
     private static int ultimoNumeroFactura = 0;
+
+    // Contador para números de factura
+    private static int contadorFacturas = 1000;
 
     // Variables para controlar la serialización
     private static boolean datosInicializados = false;
@@ -73,16 +87,38 @@ public class DataController {
     }
 
     /**
-     * Guarda todos los datos del sistema usando serialización
-     * 
-     * @return true si se guardaron correctamente
+     * Verifica si existe al menos un administrador en el sistema.
+     * Si no existe, crea un administrador por defecto.
      */
-    public static boolean guardarDatos() {
-        // Crear un objeto serializable con todos los datos del sistema
-        DatosSistema datos = new DatosSistema();
+    public static void verificarAdministradorPorDefecto() {
+        boolean existeAdmin = false;
 
-        Object[] objetosParaGuardar = { datos };
-        return Serializador.guardarDatos(objetosParaGuardar);
+        for (Empleado empleado : empleados) {
+            if (empleado instanceof Administrador) {
+                existeAdmin = true;
+                break;
+            }
+        }
+
+        if (!existeAdmin) {
+            Administrador adminPorDefecto = new Administrador("admin", "Administrador del Sistema", "admin",
+                    "admin123");
+            empleados.add(adminPorDefecto);
+            guardarDatos();
+            GestorBitacora.registrarEvento("Sistema", "Creación de administrador por defecto", true,
+                    "Se creó el administrador por defecto con usuario: admin y contraseña: admin123");
+        }
+    }
+
+    /**
+     * Guarda todos los datos del sistema usando serialización
+     */
+    public static void guardarDatos() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("datosSistema.dat"))) {
+            oos.writeObject(new DatosSistema()); // Aquí se usa el constructor
+        } catch (IOException e) {
+            System.err.println("Error al guardar los datos: " + e.getMessage());
+        }
     }
 
     /**
@@ -90,15 +126,9 @@ public class DataController {
      * 
      * @return true si se cargaron correctamente
      */
-    private static boolean cargarDatos() {
-        Object[] datosRecuperados = Serializador.cargarDatos();
-
-        if (datosRecuperados == null || datosRecuperados.length == 0) {
-            return false;
-        }
-
-        try {
-            DatosSistema datos = (DatosSistema) datosRecuperados[0];
+    public static boolean cargarDatos() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("datosSistema.dat"))) {
+            DatosSistema datos = (DatosSistema) ois.readObject();
 
             // Restaurar los datos en las estructuras del controlador
             clientes = datos.getClientes();
@@ -110,20 +140,13 @@ public class DataController {
             colaEspera = datos.getColaEspera();
             colaListos = datos.getColaListos();
 
-            // Restaurar contadores
-            ultimoIdRepuesto = datos.getUltimoIdRepuesto();
-            ultimoIdServicio = datos.getUltimoIdServicio();
-            ultimoNumeroOrden = datos.getUltimoNumeroOrden();
-            ultimoNumeroFactura = datos.getUltimoNumeroFactura();
-
             GestorBitacora.registrarEvento("Sistema", "Carga de datos", true,
                     "Se cargaron los datos del sistema correctamente");
 
             return true;
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException e) {
             GestorBitacora.registrarEvento("Sistema", "Carga de datos", false,
                     "Error al cargar datos: " + e.getMessage());
-            e.printStackTrace();
             return false;
         }
     }
@@ -174,19 +197,15 @@ public class DataController {
         return ++ultimoNumeroOrden;
     }
 
-    public static int getNuevoNumeroFactura() {
-        return ++ultimoNumeroFactura;
+    public static synchronized int getNuevoNumeroFactura() {
+        return contadorFacturas++;
     }
 
     // Método para ordenamiento de clientes
     public static void ordenarClientesPorDPI() {
-        // Implementar método de burbuja para ordenar clientes por DPI
-        int n = clientes.size();
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (clientes.get(j).getIdentificador().compareTo(
-                        clientes.get(j + 1).getIdentificador()) > 0) {
-                    // Intercambiar elementos
+        for (int i = 0; i < clientes.size() - 1; i++) {
+            for (int j = 0; j < clientes.size() - i - 1; j++) {
+                if (clientes.get(j).getIdentificador().compareTo(clientes.get(j + 1).getIdentificador()) > 0) {
                     Cliente temp = clientes.get(j);
                     clientes.set(j, clientes.get(j + 1));
                     clientes.set(j + 1, temp);
@@ -286,6 +305,234 @@ public class DataController {
     }
 
     /**
+     * Carga repuestos desde un archivo y los agrega al sistema
+     * 
+     * @param rutaArchivo Ruta del archivo a cargar
+     */
+    public static void cargarRepuestosDesdeArchivo(String rutaArchivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Validar formato: nombreRepuesto-marca-modelo-existencias-precio
+                String[] partes = linea.split("-");
+                if (partes.length != 5) {
+                    GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", false,
+                            "Formato inválido en la línea: " + linea);
+                    continue;
+                }
+
+                String nombre = partes[0];
+                String marca = partes[1];
+                String modelo = partes[2];
+                int existencias;
+                double precio;
+
+                try {
+                    existencias = Integer.parseInt(partes[3]);
+                    precio = Double.parseDouble(partes[4]);
+                } catch (NumberFormatException e) {
+                    GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", false,
+                            "Error al convertir existencias o precio en la línea: " + linea);
+                    continue;
+                }
+
+                // Crear y agregar el repuesto
+                Repuesto nuevoRepuesto = new Repuesto(DataController.getNuevoIdRepuesto(), nombre, marca, modelo,
+                        existencias, precio);
+                DataController.getRepuestos().add(nuevoRepuesto);
+                GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", true,
+                        "Repuesto agregado: " + nombre);
+            }
+        } catch (IOException e) {
+            GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", false,
+                    "Error al leer el archivo: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Carga servicios desde un archivo y los agrega al sistema
+     * 
+     * @param rutaArchivo Ruta del archivo a cargar
+     */
+    public static void cargarServiciosDesdeArchivo(String rutaArchivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Validar formato: nombreServicio-marca-modelo-listaRepuestos-precioManoDeObra
+                String[] partes = linea.split("-");
+                if (partes.length != 5) {
+                    GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", false,
+                            "Formato inválido en la línea: " + linea);
+                    continue;
+                }
+
+                String nombre = partes[0];
+                String marca = partes[1];
+                String modelo = partes[2];
+                String[] listaRepuestos = partes[3].split(";");
+                double precioManoDeObra;
+
+                try {
+                    precioManoDeObra = Double.parseDouble(partes[4]);
+                } catch (NumberFormatException e) {
+                    GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", false,
+                            "Error al convertir precio de mano de obra en la línea: " + linea);
+                    continue;
+                }
+
+                // Validar repuestos
+                List<Repuesto> repuestos = new ArrayList<>();
+                for (String idRepuesto : listaRepuestos) {
+                    try {
+                        int id = Integer.parseInt(idRepuesto);
+                        Repuesto repuesto = DataController.buscarRepuestoPorId(id);
+                        if (repuesto == null || !repuesto.getMarca().equals(marca)
+                                || !repuesto.getModelo().equals(modelo)) {
+                            GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", false,
+                                    "Repuesto inválido o no coincide con marca/modelo en la línea: " + linea);
+                            continue;
+                        }
+                        repuestos.add(repuesto);
+                    } catch (NumberFormatException e) {
+                        GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", false,
+                                "ID de repuesto inválido en la línea: " + linea);
+                    }
+                }
+
+                // Crear y agregar el servicio
+                Servicio nuevoServicio = new Servicio(DataController.getNuevoIdServicio(), nombre, marca, modelo,
+                        precioManoDeObra);
+                DataController.getServicios().add(nuevoServicio);
+                GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", true,
+                        "Servicio agregado: " + nombre);
+            }
+        } catch (IOException e) {
+            GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", false,
+                    "Error al leer el archivo: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Carga clientes desde un archivo y los agrega al sistema
+     * 
+     * @param rutaArchivo Ruta del archivo a cargar
+     */
+    public static void cargarClientesDesdeArchivo(String rutaArchivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Validar formato:
+                // identificador-nombreCompleto-usuario-contraseña-tipoCliente-listaAutomoviles
+                String[] partes = linea.split("-");
+                if (partes.length != 6) {
+                    GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", false,
+                            "Formato inválido en la línea: " + linea);
+                    continue;
+                }
+
+                String identificador = partes[0];
+                String nombreCompleto = partes[1];
+                String usuario = partes[2];
+                String contraseña = partes[3];
+                String tipoCliente = partes[4];
+                String[] listaAutomoviles = partes[5].split(";");
+
+                // Validar tipo de cliente
+                if (!tipoCliente.equals("normal") && !tipoCliente.equals("oro")) {
+                    GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", false,
+                            "Tipo de cliente inválido en la línea: " + linea);
+                    continue;
+                }
+
+                // Crear cliente
+                Cliente nuevoCliente = new Cliente(identificador, nombreCompleto, usuario, contraseña, tipoCliente);
+
+                // Validar automóviles
+                for (String autoData : listaAutomoviles) {
+                    String[] autoPartes = autoData.split(",");
+                    if (autoPartes.length != 4) {
+                        GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", false,
+                                "Formato inválido de automóvil en la línea: " + autoData);
+                        continue;
+                    }
+
+                    String placa = autoPartes[0];
+                    String marca = autoPartes[1];
+                    String modelo = autoPartes[2];
+                    String foto = autoPartes[3];
+
+                    // Validar que la foto sea .jpg
+                    if (!foto.endsWith(".jpg")) {
+                        GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", false,
+                                "Formato de foto inválido (debe ser .jpg) en la línea: " + autoData);
+                        continue;
+                    }
+
+                    Automovil nuevoAutomovil = new Automovil(placa, marca, modelo, foto);
+                    nuevoCliente.getAutomoviles().add(nuevoAutomovil);
+                }
+
+                // Agregar cliente
+                DataController.getClientes().add(nuevoCliente);
+                GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", true,
+                        "Cliente agregado: " + nombreCompleto);
+            }
+        } catch (IOException e) {
+            GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", false,
+                    "Error al leer el archivo: " + e.getMessage());
+        }
+    }
+
+    private static Repuesto buscarRepuestoPorId(int id) {
+        for (Repuesto repuesto : repuestos) {
+            if (repuesto.getId() == id) {
+                return repuesto;
+            }
+        }
+        return null; // No se encontró el repuesto
+    }
+
+    /**
+     * Agrega un cliente al sistema
+     * 
+     * @param cliente El cliente a agregar
+     * @return true si se agregó correctamente, false en caso contrario
+     */
+    public static boolean addCliente(Cliente cliente) {
+        if (cliente == null) {
+            return false; // No se puede agregar un cliente nulo
+        }
+
+        // Obtener el vector de clientes
+        Vector<Cliente> clientes = getClientes();
+
+        // Verificar si el cliente ya existe (por identificador o usuario)
+        for (Cliente c : clientes) {
+            if (c.getIdentificador().equals(cliente.getIdentificador())
+                    || c.getNombreUsuario().equals(cliente.getNombreUsuario())) {
+                GestorBitacora.registrarEvento("Sistema", "Agregar Cliente", false,
+                        "El cliente ya existe: " + cliente.getIdentificador());
+                return false; // Cliente duplicado
+            }
+        }
+
+        // Agregar el cliente al vector
+        clientes.add(cliente);
+
+        // Ordenar los clientes por DPI
+        ordenarClientesPorDPI();
+
+        // Guardar los datos
+        guardarDatos();
+
+        // Registrar el evento en la bitácora
+        GestorBitacora.registrarEvento("Sistema", "Agregar Cliente", true,
+                "Cliente agregado: " + cliente.getIdentificador());
+
+        return true;
+    }
+
+    /**
      * Clase interna que encapsula todos los datos a serializar
      */
     private static class DatosSistema implements Serializable {
@@ -305,6 +552,7 @@ public class DataController {
         private int ultimoNumeroFactura;
 
         public DatosSistema() {
+            System.out.println("Constructor DatosSistema llamado");
             // Copiar los datos actuales
             this.clientes = new Vector<>(DataController.clientes);
             this.empleados = new Vector<>(DataController.empleados);
