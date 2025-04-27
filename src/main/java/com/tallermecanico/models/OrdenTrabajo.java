@@ -27,6 +27,10 @@ public class OrdenTrabajo implements Serializable {
     private Factura factura;
     private Date fechaCompletado;
 
+    private boolean enProcesoTiempo = false;
+    private long tiempoInicio = 0;
+    private long tiempoObjetivo = 0;
+
     /**
      * Constructor por defecto
      */
@@ -276,5 +280,59 @@ public class OrdenTrabajo implements Serializable {
         if (factura != null) {
             factura.setTotal(total);
         }
+    }
+
+    public Object getId() {
+        return numero;
+    }
+
+    public boolean isEnProcesoTiempo() {
+        return enProcesoTiempo;
+    }
+
+    public void setEnProcesoTiempo(boolean enProcesoTiempo) {
+        this.enProcesoTiempo = enProcesoTiempo;
+    }
+
+    public long getTiempoInicio() {
+        return tiempoInicio;
+    }
+
+    public void setTiempoInicio(long tiempoInicio) {
+        this.tiempoInicio = tiempoInicio;
+    }
+
+    public long getTiempoObjetivo() {
+        return tiempoObjetivo;
+    }
+
+    public void setTiempoObjetivo(long tiempoObjetivo) {
+        this.tiempoObjetivo = tiempoObjetivo;
+    }
+
+    /**
+     * Obtiene el texto del tiempo restante
+     * 
+     * @return Texto del tiempo restante
+     */
+    public String getTiempoRestanteTexto() {
+        if (!enProcesoTiempo || tiempoObjetivo == 0) {
+            return "Pendiente";
+        }
+
+        long tiempoActual = System.currentTimeMillis();
+        long tiempoRestante = tiempoObjetivo - tiempoActual;
+
+        if (tiempoRestante <= 0) {
+            return "Completando...";
+        }
+
+        // Convertir a segundos
+        tiempoRestante = tiempoRestante / 1000;
+        return tiempoRestante + " seg";
+    }
+
+    public void setFechaFinalizacion(Date date) {
+        this.fechaCompletado = date;
     }
 }

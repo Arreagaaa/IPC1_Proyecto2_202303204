@@ -1,73 +1,149 @@
 package com.tallermecanico.utils;
 
+import com.tallermecanico.components.EstatusProgresoPanel;
+import com.tallermecanico.controllers.DataController;
+import com.tallermecanico.controllers.OrdenTrabajoController;
+import com.tallermecanico.models.OrdenTrabajo;
+
+import java.util.Vector;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
- * Gestor centralizado de hilos del sistema
- * Implementa el patrón Singleton
+ * Gestor de hilos para simulación de tiempos del taller
  */
 public class GestorHilos {
-
-    // Instancia única
     private static GestorHilos instancia;
 
-    // Hilo para monitoreo de órdenes
-    private MonitorOrdenesThread monitorOrdenes;
+    // Tiempos para cada estado en segundos
+    private static final int TIEMPO_ESPERA = 12;
+    private static final int TIEMPO_SERVICIO = 6;
+    private static final int TIEMPO_LISTO = 1;
 
-    /**
-     * Constructor privado (patrón Singleton)
-     */
+    private ExecutorService executor;
+    private AtomicBoolean ejecutando = new AtomicBoolean(false);
+
     private GestorHilos() {
-        // Inicializar el hilo de monitoreo
-        monitorOrdenes = new MonitorOrdenesThread();
+        // Constructor privado para patrón Singleton
     }
 
-    /**
-     * Obtiene la instancia única del gestor
-     */
-    public static synchronized GestorHilos obtenerInstancia() {
+    public static GestorHilos obtenerInstancia() {
         if (instancia == null) {
             instancia = new GestorHilos();
         }
         return instancia;
     }
 
-    /**
-     * Inicia los hilos del sistema
-     */
     public void iniciarHilos() {
-        if (!monitorOrdenes.isAlive()) {
-            monitorOrdenes.start();
-            GestorBitacora.registrarEvento("Sistema", "Hilos", true,
-                    "Iniciado hilo de monitoreo de órdenes");
+        if (ejecutando.get()) {
+            return;
+        }
+
+        ejecutando.set(true);
+        executor = Executors.newFixedThreadPool(2);
+
+        // Hilo para procesar órdenes en espera
+        executor.submit(() -> {
+            try {
+                while (ejecutando.get() && !Thread.currentThread().isInterrupted()) {
+                    procesarOrdenesEnEspera();
+                    Thread.sleep(1000); // Revisar cada segundo
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        // Hilo para procesar órdenes en proceso
+        executor.submit(() -> {
+            try {
+                while (ejecutando.get() && !Thread.currentThread().isInterrupted()) {
+                    procesarOrdenesEnProceso();
+                    Thread.sleep(1000); // Revisar cada segundo
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        GestorBitacora.registrarEvento("Sistema", "Hilos", true, "Sistema de hilos iniciado correctamente");
+    }
+
+    public void detenerHilos() {
+        ejecutando.set(false);
+        if (executor != null) {
+            executor.shutdownNow();
+            GestorBitacora.registrarEvento("Sistema", "Hilos", true, "Sistema de hilos detenido correctamente");
         }
     }
 
-    /**
-     * Detiene los hilos del sistema
-     */
-    public void detenerHilos() {
-        monitorOrdenes.detener();
-        GestorBitacora.registrarEvento("Sistema", "Hilos", true,
-                "Detenido hilo de monitoreo de órdenes");
+    private void procesarOrdenesEnEspera() {
+        Vector<OrdenTrabajo> ordenesEnEspera = OrdenTrabajoController.obtenerOrdenesPorEstado("ESPERA");
+        for (OrdenTrabajo orden : ordenesEnEspera) {
+            // Verificar si está asignada al hilo de espera
+            if (!orden.isEnProcesoTiempo()) {
+                // Marcar como en proceso de tiempo y calcular tiempo objetivo
+                orden.setEnProcesoTiempo(true);
+                orden.setTiempoInicio(System.currentTimeMillis());
+                orden.setTiempoObjetivo(orden.getTiempoInicio() + (TIEMPO_ESPERA * 1000));
+                GestorBitacora.registrarEvento("Sistema", "Cola Espera", true,
+                        "Orden #" + orden.getId() + " iniciando espera de " + TIEMPO_ESPERA + " segundos");
+            } else if (System.currentTimeMillis() >= orden.getTiempoObjetivo() && orden.getMecanico() == null) {
+                // Si el tiempo objetivo se alcanzó, asignar el primer mecánico disponible
+                OrdenTrabajoController.asignarPrimerMecanicoDisponible(orden);
+                GestorBitacora.registrarEvento("Sistema", "Cola Espera", true,
+                        "Orden #" + orden.getId() + " tiempo de espera completado");
+            }
+        }
     }
 
-    /**
-     * Obtiene el monitor de órdenes
-     */
-    public MonitorOrdenesThread getMonitorOrdenes() {
-        return monitorOrdenes;
+    private void procesarOrdenesEnProceso() {
+        Vector<OrdenTrabajo> ordenesEnProceso = OrdenTrabajoController.obtenerOrdenesPorEstado("PROCESO");
+        for (OrdenTrabajo orden : ordenesEnProceso) {
+            // Verificar si está asignada al hilo de proceso
+            if (!orden.isEnProcesoTiempo() && orden.getMecanico() != null) {
+                // Marcar como en proceso de tiempo y calcular tiempo objetivo
+                orden.setEnProcesoTiempo(true);
+                orden.setTiempoInicio(System.currentTimeMillis());
+                orden.setTiempoObjetivo(orden.getTiempoInicio() + (TIEMPO_SERVICIO * 1000));
+                GestorBitacora.registrarEvento("Sistema", "En Servicio", true,
+                        "Orden #" + orden.getId() + " iniciando servicio de " + TIEMPO_SERVICIO + " segundos");
+            } else if (System.currentTimeMillis() >= orden.getTiempoObjetivo()) {
+                // Si el tiempo objetivo se alcanzó, finalizar la orden
+                OrdenTrabajoController.finalizarOrden(orden);
+                GestorBitacora.registrarEvento("Sistema", "En Servicio", true,
+                        "Orden #" + orden.getId() + " servicio completado automáticamente");
+            }
+        }
+
+        // También procesamos las órdenes finalizadas para pasarlas a listas
+        Vector<OrdenTrabajo> ordenesFinalizadas = OrdenTrabajoController.obtenerOrdenesPorEstado("FINALIZADO");
+        for (OrdenTrabajo orden : ordenesFinalizadas) {
+            if (!orden.isEnProcesoTiempo()) {
+                // Marcar como en proceso de tiempo y calcular tiempo objetivo
+                orden.setEnProcesoTiempo(true);
+                orden.setTiempoInicio(System.currentTimeMillis());
+                orden.setTiempoObjetivo(orden.getTiempoInicio() + (TIEMPO_LISTO * 1000));
+                GestorBitacora.registrarEvento("Sistema", "Finalizado", true,
+                        "Orden #" + orden.getId() + " iniciando tiempo finalizado de " + TIEMPO_LISTO + " segundos");
+            } else if (System.currentTimeMillis() >= orden.getTiempoObjetivo()) {
+                // Si el tiempo objetivo se alcanzó, generar factura
+                OrdenTrabajoController.generarFactura(orden);
+                GestorBitacora.registrarEvento("Sistema", "Finalizado", true,
+                        "Orden #" + orden.getId() + " factura generada automáticamente");
+            }
+        }
     }
 
-    /**
-     * Registra un observador para monitoreo de órdenes
-     */
-    public void registrarObservadorOrdenes(MonitorOrdenesThread.ObservadorOrdenes observador) {
-        monitorOrdenes.agregarObservador(observador);
+    public void registrarObservadorOrdenes(EstatusProgresoPanel estatusProgresoPanel) {
+        // Registrar el observador para actualizar el estado del panel
+        estatusProgresoPanel.actualizarEstado();
     }
 
-    /**
-     * Elimina un observador de monitoreo de órdenes
-     */
-    public void eliminarObservadorOrdenes(MonitorOrdenesThread.ObservadorOrdenes observador) {
-        monitorOrdenes.eliminarObservador(observador);
+    public void eliminarObservadorOrdenes(EstatusProgresoPanel estatusProgresoPanel) {
+        // Eliminar el observador
+        estatusProgresoPanel.destruir();
+        estatusProgresoPanel = null; // Liberar referencia
     }
 }

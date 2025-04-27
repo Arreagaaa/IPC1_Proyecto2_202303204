@@ -310,3 +310,458 @@
 2025-04-27 10:36:42 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
 2025-04-27 10:36:44 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
 2025-04-27 10:36:51 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 10:50:30 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:50:30 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:50:36 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 10:53:41 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 10:53:41 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 10:53:41 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 10:55:09 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:55:09 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:55:16 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:01:17 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:01:17 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:01:24 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:03:23 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:03:23 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:03:29 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:05:59 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 11:05:59 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 11:05:59 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 11:06:40 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:06:40 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:06:46 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:10:43 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:10:43 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:10:50 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:32:34 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:32:34 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:32:45 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:33:00 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 1 - ref
+2025-04-27 11:33:16 | Sistema | Actualización de repuesto | ÉXITO | Repuesto actualizado: 1
+2025-04-27 11:33:26 | Sistema | Eliminación de repuesto | ÉXITO | Repuesto eliminado: 1
+2025-04-27 11:42:17 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:42:17 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:42:25 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:43:08 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 2 - ref
+2025-04-27 11:43:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 3 - aa
+2025-04-27 11:49:06 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:49:06 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:49:15 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:54:17 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:54:17 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:54:27 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 4 - Pistón
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 5 - Bujía
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 6 - Filtro Aire
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 7 - Radiador
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 8 - Amortiguador
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 9 - Alternador
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 10 - Pastillas Freno
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 11 - Embrague
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 12 - Sensor Oxigeno
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 13 - Faro Delantero
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 14 - Correa Tiempo
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 15 - Termostato
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 16 - Disco Freno
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 17 - Bobina Encendido
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 18 - Bomba Agua
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 19 - Compresor Aire
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 20 - Manguera Radiador
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 21 - Palanca Cambios
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 22 - Luz Freno
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 23 - Parabrisas
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 24 - Espejo Retrovisor
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 25 - Filtro Cabina
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 26 - Motor Arranque
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 27 - Rotula Suspension
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 28 - Radiador
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 29 - Sensor Temperatura
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 30 - Alternador
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 31 - Pastillas Freno
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 32 - Faro Trasero
+2025-04-27 11:54:45 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 33 - Bomba Gasolina
+2025-04-27 11:55:39 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 11:55:43 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 11:55:43 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 11:55:43 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 11:55:50 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 11:55:50 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 11:55:58 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 11:58:07 | Sistema | Eliminación de repuesto | ÉXITO | Repuesto eliminado: 2
+2025-04-27 11:58:11 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 11:58:25 | ref | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: ref
+2025-04-27 11:58:25 | Sistema | Intento de inicio de sesión fallido | ERROR | Usuario intentó iniciar sesión con credenciales incorrectas: ref
+2025-04-27 11:58:36 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 11:58:36 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 11:58:36 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:07:26 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:07:26 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:07:34 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:07:41 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 12:07:41 | Sistema | Creación de administrador | ÉXITO | Administrador por defecto creado
+2025-04-27 12:07:41 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 12:07:43 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 12:07:43 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 12:07:43 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 12:07:43 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:07:48 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:07:48 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 12:07:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 12:07:50 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 12:07:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 12:07:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 12:07:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 12:07:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 12:07:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 12:07:51 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 12:07:56 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:08:03 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 1 - Pistón
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 2 - Bujía
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 3 - Filtro Aire
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 4 - Radiador
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 5 - Amortiguador
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 6 - Alternador
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 7 - Pastillas Freno
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 8 - Embrague
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 9 - Sensor Oxigeno
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 10 - Faro Delantero
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 11 - Correa Tiempo
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 12 - Termostato
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 13 - Disco Freno
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 14 - Bobina Encendido
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 15 - Bomba Agua
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 16 - Compresor Aire
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 17 - Manguera Radiador
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 18 - Palanca Cambios
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 19 - Luz Freno
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 20 - Parabrisas
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 21 - Espejo Retrovisor
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 22 - Filtro Cabina
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 23 - Motor Arranque
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 24 - Rotula Suspension
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 25 - Radiador
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 26 - Sensor Temperatura
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 27 - Alternador
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 28 - Pastillas Freno
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 29 - Faro Trasero
+2025-04-27 12:08:19 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 30 - Bomba Gasolina
+2025-04-27 12:09:13 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:09:13 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:09:43 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:10:16 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:10:16 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:10:20 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 12:10:20 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 12:10:20 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 12:10:20 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:10:46 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:10:46 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:11:01 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:11:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 12:11:09 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 12:11:09 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 12:11:09 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:11:23 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:11:24 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:11:45 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:15:41 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 12:15:42 | Sistema | Creación de administrador | ÉXITO | Administrador por defecto creado
+2025-04-27 12:15:42 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 12:15:51 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:15:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 12:15:55 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 12:15:55 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 12:15:55 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:15:58 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:15:58 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 12:16:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 12:16:02 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 12:16:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 12:16:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 12:16:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 12:16:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 12:16:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 12:16:04 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 12:16:07 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:16:15 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:18:22 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 12:18:26 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 12:18:26 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 12:18:28 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 12:18:28 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 12:18:28 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 12:18:28 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 12:18:28 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 12:18:28 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 12:20:54 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:20:54 | Sistema | Creación de administrador | ÉXITO | Administrador por defecto creado
+2025-04-27 12:20:54 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:21:03 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:21:12 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 12:21:12 | Sistema | Creación de administrador | ÉXITO | Administrador por defecto creado
+2025-04-27 12:21:12 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 12:21:16 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 12:21:16 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 12:21:16 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 12:21:16 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:21:18 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:21:19 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 12:21:22 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 12:21:23 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 12:21:24 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 12:21:24 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 12:21:24 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 12:21:24 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 12:21:24 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 12:21:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 12:21:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 12:21:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 12:21:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 12:21:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 12:21:34 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 12:29:12 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:29:12 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:29:19 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 12:29:24 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 12:29:24 | Sistema | Creación de administrador | ÉXITO | Administrador por defecto creado
+2025-04-27 12:29:24 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 12:29:28 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 12:29:28 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 12:29:28 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 12:29:28 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 12:29:31 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 12:29:31 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 12:29:31 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 12:29:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 12:29:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 12:29:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 12:29:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 12:29:34 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 12:29:34 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 12:29:40 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 12:29:46 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:01:20 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:01:20 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:01:30 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:03:00 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:03:21 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-04-27 15:03:21 | Sistema | Registro de cliente | ÉXITO | Cliente registrado con DPI: 1111111111111
+2025-04-27 15:03:26 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:03:26 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:03:57 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:04:15 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:04:41 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:04:41 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:04:48 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:07:45 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:07:45 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:07:54 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:11:52 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:11:52 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:12:00 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:12:31 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:12:35 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:12:35 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:15:06 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:15:33 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:17:55 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:17:55 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:18:04 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:18:04 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:18:06 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: ref - Cannot invoke "java.net.URL.toExternalForm()" because "location" is null
+2025-04-27 15:18:10 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:18:10 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:18:11 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: ref - Cannot invoke "java.net.URL.toExternalForm()" because "location" is null
+2025-04-27 15:18:15 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 15:18:15 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 15:18:19 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:18:19 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:18:24 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:18:24 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:18:26 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: ref - Cannot invoke "java.net.URL.toExternalForm()" because "location" is null
+2025-04-27 15:18:54 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:19:04 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:19:08 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:19:08 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:19:10 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: ref - Cannot invoke "java.net.URL.toExternalForm()" because "location" is null
+2025-04-27 15:20:22 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:20:22 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:20:27 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:20:27 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:23:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 15:23:47 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 15:25:03 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:25:03 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:25:09 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:25:09 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:25:48 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:25:49 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:25:53 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:25:53 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:26:10 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:26:10 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:26:15 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:26:15 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:26:33 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:28:16 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:29:13 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:29:13 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:29:18 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:29:18 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:30:49 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:30:49 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:30:54 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:30:54 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:31:09 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:31:09 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:31:14 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:31:14 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:34:38 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:34:38 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:34:44 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:34:44 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:35:38 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:36:24 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:36:24 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:36:29 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:36:29 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:39:46 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:39:46 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref

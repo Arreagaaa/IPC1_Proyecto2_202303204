@@ -49,9 +49,10 @@ public class ServicioController {
 
     /**
      * Agrega un nuevo servicio al sistema
-     * @param nombre Nombre del servicio
+     * 
+     * @param nombre      Nombre del servicio
      * @param descripcion Descripción del servicio
-     * @param precioBase Precio base del servicio
+     * @param precioBase  Precio base del servicio
      * @return true si la operación fue exitosa
      */
     public static boolean agregarServicio(String nombre, String descripcion, double precioBase) {
@@ -61,23 +62,23 @@ public class ServicioController {
                     "Datos inválidos para nuevo servicio");
             return false;
         }
-        
+
         // Generar nuevo ID
         int nuevoId = DataController.getNuevoIdServicio();
-        
+
         // Crear el nuevo servicio
         Servicio nuevoServicio = new Servicio(nuevoId, nombre, descripcion, descripcion, precioBase);
-        
+
         // Agregar a la lista de servicios
         DataController.getServicios().add(nuevoServicio);
-        
+
         // Guardar cambios
         DataController.guardarDatos();
-        
+
         // Registrar en bitácora
         GestorBitacora.registrarEvento("Sistema", "Agregar Servicio", true,
                 "Servicio #" + nuevoId + " agregado: " + nombre);
-        
+
         return true;
     }
 
@@ -175,7 +176,7 @@ public class ServicioController {
 
         // Verificar si el repuesto ya está en el servicio
         for (Repuesto r : servicio.getRepuestos()) {
-            if (r.getId() == idRepuesto) {
+            if (r.getId().equals(String.valueOf(idRepuesto))) {
                 GestorBitacora.registrarEvento("Sistema", "Agregar repuesto a servicio", false,
                         "El repuesto ya está en el servicio: " + idRepuesto);
                 return false;
@@ -318,5 +319,19 @@ public class ServicioController {
         }
 
         return servicios;
+    }
+
+    public static Vector<Servicio> buscarServicios(String texto) {
+        Vector<Servicio> serviciosEncontrados = new Vector<>();
+
+        for (Servicio servicio : DataController.getServicios()) {
+            if (servicio.getNombre().toLowerCase().contains(texto.toLowerCase()) ||
+                    servicio.getMarca().toLowerCase().contains(texto.toLowerCase()) ||
+                    servicio.getModelo().toLowerCase().contains(texto.toLowerCase())) {
+                serviciosEncontrados.add(servicio);
+            }
+        }
+
+        return serviciosEncontrados;
     }
 }

@@ -9,7 +9,7 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
 
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private String id;
     private String nombre;
     private String marca;
     private String modelo;
@@ -27,8 +27,8 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
     /**
      * Constructor con parámetros
      */
-    public Repuesto(int id, String nombre, String marca, String modelo, int existencias, double precio) {
-        this.id = id;
+    public Repuesto(String id, String nombre, String marca, String modelo, int existencias, double precio) {
+        this.id = String.valueOf(id);
         this.nombre = nombre;
         this.marca = marca;
         this.modelo = modelo;
@@ -39,12 +39,19 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
 
     // Getters y Setters
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = String.valueOf(id);
+    }
+
+    /**
+     * Establece un ID personalizado para el repuesto
+     */
+    public void setId(String idPersonalizado) {
+        this.id = idPersonalizado;
     }
 
     public String getNombre() {
@@ -159,6 +166,7 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
 
     /**
      * Obtiene la descripción del repuesto
+     * 
      * @return Descripción del repuesto
      */
     public String getDescripcion() {
@@ -167,6 +175,7 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
 
     /**
      * Establece la descripción del repuesto
+     * 
      * @param descripcion Nueva descripción
      */
     public void setDescripcion(String descripcion) {
@@ -175,6 +184,7 @@ public class Repuesto implements Serializable, Comparable<Repuesto> {
 
     /**
      * Obtiene la cantidad del repuesto
+     * 
      * @return Cantidad del repuesto
      */
     public int getCantidad() {

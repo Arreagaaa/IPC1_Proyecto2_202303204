@@ -97,4 +97,8 @@ public class Automovil implements Serializable {
     public String toString() {
         return placa + " - " + marca + " " + modelo;
     }
+
+    public Object getDescripcion() {
+        return marca + " " + modelo + " - " + placa;
+    }
 }

@@ -127,95 +127,89 @@ public class CargadorArchivos {
 
     /**
      * Carga repuestos desde un archivo con extensión .tmr
-     * Formato: nombreRepuesto-marca-modelo-Existencias-Precio
+     * Formato: ID-Nombre-Marca-Modelo-Existencias-Precio
+     * O simplemente: Nombre-Marca-Modelo-Existencias-Precio
      * 
      * @param archivo File con el archivo a cargar
      * @return Número de repuestos cargados con éxito
      */
     public static int cargarRepuestos(File archivo) {
-        if (archivo == null || !archivo.exists() || !archivo.getName().endsWith(".tmr")) {
-            GestorBitacora.registrarEvento("Sistema", "Carga de repuestos", false,
-                    "Archivo inválido o no encontrado: " + (archivo != null ? archivo.getName() : "null"));
+        if (archivo == null || !archivo.exists()) {
+            System.err.println(
+                    "Archivo de repuestos no encontrado: " + (archivo != null ? archivo.getAbsolutePath() : "null"));
             return 0;
         }
 
+        System.out.println("Cargando repuestos desde: " + archivo.getAbsolutePath());
         int contadorExito = 0;
-        int lineaActual = 0;
-        List<String> errores = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
+            int lineaNum = 0;
 
             while ((linea = br.readLine()) != null) {
-                lineaActual++;
-
+                lineaNum++;
                 // Omitir líneas vacías o comentarios
                 if (linea.trim().isEmpty() || linea.trim().startsWith("#")) {
                     continue;
                 }
 
-                // Procesar la línea
                 try {
+                    // El formato esperado es: ID-Nombre-Marca-Modelo-Existencias-Precio
+                    // O simplemente: Nombre-Marca-Modelo-Existencias-Precio
                     String[] partes = linea.split("-");
+                    int startIndex = 0;
 
-                    if (partes.length < 5) {
-                        errores.add("Línea " + lineaActual + ": Formato incorrecto, se esperaban 5 campos");
+                    // Si la primera parte parece un ID (empieza con REP), ignorarlo
+                    if (partes.length >= 6 && partes[0].trim().toUpperCase().startsWith("REP")) {
+                        startIndex = 1;
+                    }
+
+                    if (partes.length < (startIndex + 5)) {
+                        System.err.println("Línea " + lineaNum + " inválida, formato incorrecto: " + linea);
                         continue;
                     }
 
-                    String nombre = partes[0].trim();
-                    String marca = partes[1].trim();
-                    String modelo = partes[2].trim();
-                    int existencias = Integer.parseInt(partes[3].trim());
-                    double precio = Double.parseDouble(partes[4].trim());
+                    String nombre = partes[startIndex].trim();
+                    String marca = partes[startIndex + 1].trim();
+                    String modelo = partes[startIndex + 2].trim();
 
-                    if (existencias < 0) {
-                        errores.add("Línea " + lineaActual + ": Las existencias deben ser mayores o iguales a cero");
+                    // Intentar diferentes formatos de números
+                    String existenciasStr = partes[startIndex + 3].trim().replace(",", ".");
+                    String precioStr = partes[startIndex + 4].trim().replace(",", ".");
+
+                    int existencias = Integer.parseInt(existenciasStr);
+                    double precio = Double.parseDouble(precioStr);
+
+                    if (nombre.isEmpty() || existencias < 0 || precio < 0) {
+                        System.err.println("Línea " + lineaNum + " inválida, valores incorrectos: " + linea);
                         continue;
                     }
 
-                    if (precio <= 0) {
-                        errores.add("Línea " + lineaActual + ": El precio debe ser mayor que cero");
-                        continue;
-                    }
-
-                    // Registrar el repuesto en el sistema
-                    Repuesto repuesto = RepuestoController.registrarRepuesto(nombre, marca, modelo, existencias,
-                            precio);
-
-                    if (repuesto != null) {
-                        contadorExito++;
+                    // Registrar el repuesto con un ID específico si viene en la línea
+                    boolean exitoso;
+                    if (startIndex == 1) {
+                        String idRepuesto = partes[0].trim();
+                        exitoso = RepuestoController.registrarRepuestoConId(idRepuesto, nombre, marca, modelo,
+                                existencias, precio) != null;
                     } else {
-                        errores.add("Línea " + lineaActual + ": No se pudo registrar el repuesto");
+                        exitoso = RepuestoController.registrarRepuesto(nombre, marca, modelo, existencias,
+                                precio) != null;
                     }
 
-                } catch (NumberFormatException e) {
-                    errores.add("Línea " + lineaActual + ": Error en formato numérico - " + e.getMessage());
+                    if (exitoso) {
+                        contadorExito++;
+                        System.out.println("Repuesto cargado: " + nombre + " (" + marca + " " + modelo + ")");
+                    }
                 } catch (Exception e) {
-                    errores.add("Línea " + lineaActual + ": " + e.getMessage());
+                    System.err.println("Error en línea " + lineaNum + ": " + e.getMessage());
                 }
             }
-
-            // Reportar resultados
-            String mensaje = "Repuestos cargados: " + contadorExito + " de " + lineaActual + " líneas.";
-            GestorBitacora.registrarEvento("Sistema", "Carga de repuestos", contadorExito > 0, mensaje);
-
-            // Mostrar errores si los hay
-            if (!errores.isEmpty()) {
-                mostrarErroresCarga(errores, "Errores en carga de repuestos");
-            }
-
-            return contadorExito;
-
         } catch (IOException e) {
-            GestorBitacora.registrarEvento("Sistema", "Carga de repuestos", false,
-                    "Error al leer el archivo: " + e.getMessage());
-            JOptionPane.showMessageDialog(null,
-                    "Error al leer el archivo: " + e.getMessage(),
-                    "Error de lectura",
-                    JOptionPane.ERROR_MESSAGE);
-            return 0;
+            System.err.println("Error al leer archivo de repuestos: " + e.getMessage());
         }
+
+        return contadorExito;
     }
 
     /**

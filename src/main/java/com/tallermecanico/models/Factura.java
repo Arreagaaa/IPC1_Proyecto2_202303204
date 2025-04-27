@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 
+import com.tallermecanico.models.personas.Persona;
+
 /**
  * Representa una factura del taller mecánico
  */
@@ -233,4 +235,32 @@ public class Factura implements Serializable {
         // Cambia el número de la factura
         this.numero = nuevoNumeroFactura;
     }
+
+    public Persona getCliente() {
+        // Devuelve el cliente asociado a la factura
+        return ordenTrabajo.getCliente();
+    }
+
+    public Object getEstado() {
+        // Devuelve el estado de la factura
+        return pagada ? "Pagada" : "Pendiente";
+    }
+
+    public Object getTotal() {
+        // Devuelve el total de la factura
+        return calcularTotal();
+    }
+
+    public void setDescuento(double descuento) {
+        // Cambia el descuento de la factura
+        for (DetalleFactura detalle : detalles) {
+            detalle.descuento = descuento;
+        }
+    }
+
+    public void setFecha(Date date) {
+        // Cambia la fecha de la factura
+        this.fechaEmision = date;
+    }
+
 }

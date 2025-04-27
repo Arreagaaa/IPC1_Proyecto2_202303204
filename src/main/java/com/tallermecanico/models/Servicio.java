@@ -141,7 +141,7 @@ public class Servicio implements Serializable {
      */
     public boolean quitarRepuesto(int idRepuesto) {
         for (int i = 0; i < repuestos.size(); i++) {
-            if (repuestos.get(i).getId() == idRepuesto) {
+            if (Integer.parseInt(repuestos.get(i).getId()) == idRepuesto) {
                 repuestos.remove(i);
                 return true;
             }
@@ -169,12 +169,12 @@ public class Servicio implements Serializable {
     }
 
     public double getPrecioBase() {
-        //CALCULAR PRECIO BASE
+        // CALCULAR PRECIO BASE
         double precioBase = 0.0;
         for (Repuesto repuesto : repuestos) {
             precioBase += repuesto.getPrecio();
         }
-        return precioBase;  
+        return precioBase;
     }
 
     public String getDescripcion() {
@@ -185,11 +185,12 @@ public class Servicio implements Serializable {
         descripcion.append("Precio Mano de Obra: Q").append(precioManoObra).append("\n");
         descripcion.append("Repuestos:\n");
         for (Repuesto repuesto : repuestos) {
-            descripcion.append("- ").append(repuesto.getNombre()).append(" (Q").append(repuesto.getPrecio()).append(")\n");
+            descripcion.append("- ").append(repuesto.getNombre()).append(" (Q").append(repuesto.getPrecio())
+                    .append(")\n");
         }
         descripcion.append("Precio Total: Q").append(getPrecioTotal()).append("\n");
         descripcion.append("Veces Usado: ").append(vecesUsado).append("\n");
-        return descripcion.toString();  
+        return descripcion.toString();
     }
 
     public char[] getCantidad() {

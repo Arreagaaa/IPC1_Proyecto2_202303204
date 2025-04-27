@@ -4,8 +4,10 @@ import com.tallermecanico.utils.GestorBitacora;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +28,7 @@ public abstract class BaseView extends JFrame {
     protected static final Color COLOR_SUCCESS = new Color(46, 125, 50);
     protected static final Color COLOR_WARNING = new Color(251, 140, 0);
     protected static final Color COLOR_ERROR = new Color(198, 40, 40);
+    protected static final Color COLOR_PRIMARY_DARK = new Color(20, 40, 70);
 
     // Fuentes
     protected static final Font FONT_TITLE = new Font("Segoe UI", Font.BOLD, 24);
@@ -399,5 +402,91 @@ public abstract class BaseView extends JFrame {
         header.setForeground(COLOR_LIGHT);
         header.setFont(FONT_NORMAL);
         header.setBorder(BorderFactory.createEmptyBorder());
+    }
+
+    /**
+     * Configura una tabla con el estilo estándar de la aplicación
+     */
+    protected void configureTable(JTable table) {
+        table.getTableHeader().setBackground(COLOR_PRIMARY);
+        table.getTableHeader().setForeground(Color.WHITE);
+        table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 12));
+        table.setRowHeight(30);
+        table.setSelectionBackground(new Color(225, 234, 245));
+        table.setSelectionForeground(COLOR_PRIMARY_DARK);
+        table.setShowGrid(true);
+        table.setGridColor(new Color(230, 230, 230));
+        table.setFocusable(false);
+        table.setIntercellSpacing(new Dimension(10, 5));
+
+        // Centrar el contenido de las celdas
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < table.getColumnCount(); i++) {
+            if (i != table.getColumnCount() - 1) { // Excepto la última columna (acciones)
+                table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+            }
+        }
+    }
+
+    /**
+     * Clase para renderizar botones en tablas
+     */
+    protected class ButtonRenderer extends JButton implements TableCellRenderer {
+        private String text;
+
+        public ButtonRenderer(String text) {
+            this.text = text;
+            setOpaque(true);
+            setFont(new Font("Arial", Font.BOLD, 12));
+        }
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                boolean isSelected, boolean hasFocus, int row, int column) {
+            setText(text);
+            setForeground(Color.WHITE);
+            setBackground(COLOR_PRIMARY);
+            return this;
+        }
+    }
+
+    /**
+     * Clase para manejar eventos de botones en tablas
+     */
+    protected abstract class ButtonEditor extends DefaultCellEditor {
+        protected JButton button;
+        private String text;
+        private boolean isPushed;
+
+        public ButtonEditor(JCheckBox checkbox, String text) {
+            super(checkbox);
+            this.text = text;
+            button = new JButton(text);
+            button.setOpaque(true);
+            button.setFont(new Font("Arial", Font.BOLD, 12));
+            button.setForeground(Color.WHITE);
+            button.setBackground(COLOR_PRIMARY);
+
+            button.addActionListener(e -> fireEditingStopped());
+        }
+
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value,
+                boolean isSelected, int row, int column) {
+            isPushed = true;
+            return button;
+        }
+
+        @Override
+        public Object getCellEditorValue() {
+            if (isPushed) {
+                buttonClicked();
+            }
+            isPushed = false;
+            return text;
+        }
+
+        public abstract void buttonClicked();
     }
 }

@@ -75,7 +75,7 @@ public class EstatusProgresoPanel extends JPanel implements MonitorOrdenesThread
     /**
      * Actualiza el estado del panel con los datos actuales
      */
-    private void actualizarEstado() {
+    public void actualizarEstado() {
         // Contar órdenes por estado
         int totalOrdenes = DataController.getOrdenesTrabajo().size();
         if (totalOrdenes == 0)

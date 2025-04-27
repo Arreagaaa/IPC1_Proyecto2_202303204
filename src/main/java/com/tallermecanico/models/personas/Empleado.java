@@ -61,4 +61,8 @@ public class Empleado extends Persona implements Serializable {
     public boolean isMecanico() {
         return "mecanico".equals(tipo);
     }
+
+    public String getId() {
+        return getIdentificador();
+    }
 }

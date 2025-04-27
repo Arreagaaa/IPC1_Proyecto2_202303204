@@ -125,4 +125,23 @@ public class Serializador {
 
         return reporte.toString();
     }
+
+    /**
+     * Elimina los archivos de datos serializados
+     */
+    public static void limpiarDatos() {
+        File archivo = new File("datosSistema.dat");
+        if (archivo.exists()) {
+            if (archivo.delete()) {
+                GestorBitacora.registrarEvento("Sistema", "Limpieza de datos", true,
+                        "Archivo de datos eliminado correctamente");
+            } else {
+                GestorBitacora.registrarEvento("Sistema", "Limpieza de datos", false,
+                        "No se pudo eliminar el archivo de datos");
+            }
+        }
+
+        // Reiniciar datos en memoria
+        DataController.reiniciarDatos();
+    }
 }

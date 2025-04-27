@@ -149,6 +149,36 @@ public class DataController {
         }
     }
 
+    /**
+     * Reinicia todos los vectores de datos en memoria
+     */
+    public static void reiniciarDatos() {
+        clientes = new Vector<>();
+        repuestos = new Vector<>();
+        servicios = new Vector<>();
+        ordenesTrabajo = new Vector<>();
+        facturas = new Vector<>();
+        empleados = new Vector<>();
+        colaEspera = new Vector<>();
+        colaListos = new Vector<>();
+
+        // Corregido: usar los nombres de variables que existen en la clase
+        ultimoIdRepuesto = 0;
+        ultimoIdServicio = 0;
+        ultimoNumeroOrden = 0;
+        ultimoNumeroFactura = 0;
+        contadorFacturas = 1000;
+
+        // Añadir el administrador por defecto
+        verificarAdministradorPorDefecto();
+
+        // Guardar los datos reiniciados
+        guardarDatos();
+
+        GestorBitacora.registrarEvento("Sistema", "Reinicio", true,
+                "Datos del sistema reiniciados completamente");
+    }
+
     // Getters para acceder a los vectores de datos
     public static Vector<Cliente> getClientes() {
         return clientes != null ? clientes : new Vector<>();
@@ -335,8 +365,7 @@ public class DataController {
                 }
 
                 // Crear y agregar el repuesto
-                Repuesto nuevoRepuesto = new Repuesto(DataController.getNuevoIdRepuesto(), nombre, marca, modelo,
-                        existencias, precio);
+                Repuesto nuevoRepuesto = new Repuesto();
                 DataController.getRepuestos().add(nuevoRepuesto);
                 GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", true,
                         "Repuesto agregado: " + nombre);
@@ -487,7 +516,7 @@ public class DataController {
 
     private static Repuesto buscarRepuestoPorId(int id) {
         for (Repuesto repuesto : repuestos) {
-            if (repuesto.getId() == id) {
+            if (Integer.parseInt(repuesto.getId()) == id) {
                 return repuesto;
             }
         }

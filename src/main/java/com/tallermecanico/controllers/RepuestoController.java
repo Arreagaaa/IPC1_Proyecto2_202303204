@@ -28,7 +28,7 @@ public class RepuestoController {
 
         // Crear el nuevo repuesto
         int nuevoId = DataController.getNuevoIdRepuesto();
-        Repuesto nuevoRepuesto = new Repuesto(nuevoId, nombre, marca, modelo, existencias, precio);
+        Repuesto nuevoRepuesto = new Repuesto();
 
         // Agregarlo al vector de repuestos
         DataController.getRepuestos().add(nuevoRepuesto);
@@ -40,6 +40,31 @@ public class RepuestoController {
                 "Repuesto registrado: " + nuevoId + " - " + nombre);
 
         return nuevoRepuesto;
+    }
+
+    /**
+     * Registra un repuesto con un ID específico
+     */
+    public static Repuesto registrarRepuestoConId(String idRepuesto, String nombre, String marca, String modelo,
+            int existencias, double precio) {
+        // Validar que los datos sean correctos
+        if (nombre == null || nombre.isEmpty() || existencias < 0 || precio < 0) {
+            return null;
+        }
+
+        // Crear el repuesto con ID específico
+        Repuesto repuesto = new Repuesto();
+        repuesto.setId(idRepuesto); // Método que debes agregar a la clase Repuesto
+        repuesto.setNombre(nombre);
+        repuesto.setMarca(marca);
+        repuesto.setModelo(modelo);
+        repuesto.setExistencias(existencias);
+        repuesto.setPrecio(precio);
+
+        // Agregar el repuesto al vector
+        DataController.getRepuestos().add(repuesto);
+
+        return repuesto;
     }
 
     /**
@@ -131,7 +156,7 @@ public class RepuestoController {
         Vector<Repuesto> repuestos = DataController.getRepuestos();
 
         for (int i = 0; i < repuestos.size(); i++) {
-            if (repuestos.get(i).getId() == id) {
+            if (repuestos.get(i).getId().equals(String.valueOf(id))) {
                 repuestos.remove(i);
 
                 // Guardar cambios
@@ -194,7 +219,7 @@ public class RepuestoController {
      */
     public static Repuesto buscarRepuestoPorId(int id) {
         for (Repuesto repuesto : DataController.getRepuestos()) {
-            if (repuesto.getId() == id) {
+            if (repuesto.getId().equals(String.valueOf(id))) {
                 return repuesto;
             }
         }
@@ -329,7 +354,7 @@ public class RepuestoController {
 
         // Crear el repuesto usando el constructor que existe
         // Formato: (id, nombre, marca, modelo, existencias, precio)
-        Repuesto nuevoRepuesto = new Repuesto(nuevoId, nombre, descripcion, descripcion, cantidad, precio);
+        Repuesto nuevoRepuesto = new Repuesto();
 
         // Agregar a la lista
         DataController.getRepuestos().add(nuevoRepuesto);

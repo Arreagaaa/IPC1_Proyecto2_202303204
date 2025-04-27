@@ -373,4 +373,62 @@ public class ClienteController {
         // Usar el método addCliente de DataController
         return DataController.addCliente(nuevoCliente);
     }
+
+    public static Vector<Cliente> buscarClientes(String texto) {
+        Vector<Cliente> resultado = new Vector<>();
+
+        for (Cliente cliente : DataController.getClientes()) {
+            if (cliente.getNombre().toLowerCase().contains(texto.toLowerCase()) ||
+                    cliente.getApellido().toLowerCase().contains(texto.toLowerCase()) ||
+                    cliente.getIdentificador().toLowerCase().contains(texto.toLowerCase())) {
+                resultado.add(cliente);
+            }
+        }
+
+        return resultado;
+    }
+
+    public static boolean agregarAutomovilACliente(Cliente clienteActual, Automovil auto) {
+        if (clienteActual != null && auto != null) {
+            clienteActual.agregarAutomovil(auto);
+            DataController.guardarDatos();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Verifica si un cliente cumple con los requisitos para ser promocionado a tipo ORO
+     * y lo actualiza si corresponde
+     * @param cliente Cliente a verificar
+     * @return true si fue promocionado, false en caso contrario
+     */
+    public static boolean verificarPromocionClienteOro(Cliente cliente) {
+        // Si ya es cliente oro, no hacer nada
+        if (cliente.getTipoCliente().equalsIgnoreCase("oro")) {
+            return false;
+        }
+        
+        // Obtener todas las órdenes finalizadas o facturadas del cliente
+        Vector<OrdenTrabajo> ordenes = OrdenTrabajoController.obtenerOrdenesPorCliente(cliente);
+        int serviciosCompletados = 0;
+        
+        for (OrdenTrabajo orden : ordenes) {
+            String estado = orden.getEstado();
+            if (estado.equals("FINALIZADO") || estado.equals("FACTURADO")) {
+                serviciosCompletados++;
+            }
+        }
+        
+        // Si cumple con 4 o más servicios, promocionar a oro
+        if (serviciosCompletados >= 4) {
+            cliente.setTipoCliente("oro");
+            GestorBitacora.registrarEvento("Sistema", "Promoción Cliente", true,
+                    "Cliente " + cliente.getNombreCompleto() + " promocionado a Cliente Oro");
+            return true;
+        }
+        
+        return false;
+    }
 }

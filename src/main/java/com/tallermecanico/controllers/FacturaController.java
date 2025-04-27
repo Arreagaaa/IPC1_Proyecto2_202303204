@@ -2,6 +2,7 @@ package com.tallermecanico.controllers;
 
 import com.tallermecanico.models.Factura;
 import com.tallermecanico.models.OrdenTrabajo;
+import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.utils.GestorBitacora;
 
 import java.util.Vector;
@@ -115,14 +116,14 @@ public class FacturaController {
     /**
      * Obtiene todas las facturas de un cliente específico
      * 
-     * @param idCliente Identificador del cliente
+     * @param clienteActual Identificador del cliente
      * @return Vector con las facturas del cliente
      */
-    public static Vector<Factura> obtenerFacturasCliente(String idCliente) {
+    public static Vector<Factura> obtenerFacturasCliente(Cliente clienteActual) {
         Vector<Factura> facturasCliente = new Vector<>();
 
         for (Factura factura : DataController.getFacturas()) {
-            if (factura.getOrdenTrabajo().getCliente().getIdentificador().equals(idCliente)) {
+            if (factura.getOrdenTrabajo().getCliente().getIdentificador().equals(clienteActual)) {
                 facturasCliente.add(factura);
             }
         }
@@ -158,5 +159,45 @@ public class FacturaController {
             }
         }
         return null;
+    }
+
+    public static Vector<Factura> obtenerTodasLasFacturas() {
+        return DataController.getFacturas();
+    }
+
+    public static boolean pagarFactura(Factura factura) {
+        if (factura == null) {
+            return false;
+        }
+        if (factura.isPagada()) {
+            return false;
+        }
+        factura.setPagada(true);
+        DataController.guardarDatos();
+        GestorBitacora.registrarEvento("Sistema", "Pagar Factura", true,
+                "Factura #" + factura.getNumero() + " pagada.");
+        return true;
+    }
+
+    public static Object obtenerSiguienteNumero() {
+        int numero = 0;
+        for (Factura factura : DataController.getFacturas()) {
+            if (factura.getNumero() > numero) {
+                numero = factura.getNumero();
+            }
+        }
+        return numero + 1;
+    }
+
+    public static void agregarFactura(Factura factura) {
+        if (factura != null) {
+            DataController.getFacturas().add(factura);
+            DataController.guardarDatos();
+            GestorBitacora.registrarEvento("Sistema", "Agregar Factura", true,
+                    "Factura #" + factura.getNumero() + " agregada.");
+        } else {
+            GestorBitacora.registrarEvento("Sistema", "Agregar Factura", false,
+                    "No se pudo agregar la factura, es nula.");
+        }
     }
 }
