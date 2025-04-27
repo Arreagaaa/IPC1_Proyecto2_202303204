@@ -11,14 +11,7 @@ import com.tallermecanico.models.Automovil;
 import com.tallermecanico.utils.GestorBitacora;
 import com.tallermecanico.utils.Serializador;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Serializable;
-import java.io.ObjectOutputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -78,7 +71,8 @@ public class DataController {
 
         // Crear al menos un empleado administrador
         if (empleados.isEmpty()) {
-            Empleado admin = new Empleado("admin", "Administrador", "Sistema", "admin", "admin", "admin");
+            // Cambiar esta línea para incluir la contraseña:
+            Empleado admin = new Administrador("1", "Administrador", "General", "admin");
             empleados.add(admin);
         }
 
@@ -91,22 +85,20 @@ public class DataController {
      * Si no existe, crea un administrador por defecto.
      */
     public static void verificarAdministradorPorDefecto() {
-        boolean existeAdmin = false;
-
-        for (Empleado empleado : empleados) {
-            if (empleado instanceof Administrador) {
-                existeAdmin = true;
+        boolean existe = false;
+        for (Empleado emp : empleados) {
+            if ("admin".equals(emp.getNombreUsuario())) {
+                existe = true;
                 break;
             }
         }
-
-        if (!existeAdmin) {
-            Administrador adminPorDefecto = new Administrador("admin", "Administrador del Sistema", "admin",
-                    "admin123");
-            empleados.add(adminPorDefecto);
+        if (!existe) {
+            // Crear un administrador (asegúrate que el tipo "admin" sea correcto)
+            Empleado admin = new Administrador("1", "Administrador", "General", "admin");
+            empleados.add(admin);
             guardarDatos();
-            GestorBitacora.registrarEvento("Sistema", "Creación de administrador por defecto", true,
-                    "Se creó el administrador por defecto con usuario: admin y contraseña: admin123");
+            GestorBitacora.registrarEvento("Sistema", "Creación de administrador", true,
+                    "Administrador por defecto creado");
         }
     }
 
@@ -115,7 +107,7 @@ public class DataController {
      */
     public static void guardarDatos() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("datosSistema.dat"))) {
-            oos.writeObject(new DatosSistema()); // Aquí se usa el constructor
+            oos.writeObject(new DatosSistema());
         } catch (IOException e) {
             System.err.println("Error al guardar los datos: " + e.getMessage());
         }
@@ -123,7 +115,7 @@ public class DataController {
 
     /**
      * Carga los datos del sistema desde un archivo serializado
-     * 
+     *
      * @return true si se cargaron correctamente
      */
     public static boolean cargarDatos() {
@@ -131,14 +123,20 @@ public class DataController {
             DatosSistema datos = (DatosSistema) ois.readObject();
 
             // Restaurar los datos en las estructuras del controlador
-            clientes = datos.getClientes();
-            empleados = datos.getEmpleados();
-            repuestos = datos.getRepuestos();
-            servicios = datos.getServicios();
-            ordenesTrabajo = datos.getOrdenesTrabajo();
-            facturas = datos.getFacturas();
-            colaEspera = datos.getColaEspera();
-            colaListos = datos.getColaListos();
+            clientes = datos.getClientes() != null ? datos.getClientes() : new Vector<>();
+            empleados = datos.getEmpleados() != null ? datos.getEmpleados() : new Vector<>();
+            repuestos = datos.getRepuestos() != null ? datos.getRepuestos() : new Vector<>();
+            servicios = datos.getServicios() != null ? datos.getServicios() : new Vector<>();
+            ordenesTrabajo = datos.getOrdenesTrabajo() != null ? datos.getOrdenesTrabajo() : new Vector<>();
+            facturas = datos.getFacturas() != null ? datos.getFacturas() : new Vector<>();
+            colaEspera = datos.getColaEspera() != null ? datos.getColaEspera() : new Vector<>();
+            colaListos = datos.getColaListos() != null ? datos.getColaListos() : new Vector<>();
+
+            // Restaurar contadores
+            ultimoIdRepuesto = datos.getUltimoIdRepuesto();
+            ultimoIdServicio = datos.getUltimoIdServicio();
+            ultimoNumeroOrden = datos.getUltimoNumeroOrden();
+            ultimoNumeroFactura = datos.getUltimoNumeroFactura();
 
             GestorBitacora.registrarEvento("Sistema", "Carga de datos", true,
                     "Se cargaron los datos del sistema correctamente");
@@ -153,35 +151,35 @@ public class DataController {
 
     // Getters para acceder a los vectores de datos
     public static Vector<Cliente> getClientes() {
-        return clientes;
+        return clientes != null ? clientes : new Vector<>();
     }
 
     public static Vector<Empleado> getEmpleados() {
-        return empleados;
+        return empleados != null ? empleados : new Vector<>();
     }
 
     public static Vector<Repuesto> getRepuestos() {
-        return repuestos;
+        return repuestos != null ? repuestos : new Vector<>();
     }
 
     public static Vector<Servicio> getServicios() {
-        return servicios;
+        return servicios != null ? servicios : new Vector<>();
     }
 
     public static Vector<OrdenTrabajo> getOrdenesTrabajo() {
-        return ordenesTrabajo;
+        return ordenesTrabajo != null ? ordenesTrabajo : new Vector<>();
     }
 
     public static Vector<Factura> getFacturas() {
-        return facturas;
+        return facturas != null ? facturas : new Vector<>();
     }
 
     public static Vector<OrdenTrabajo> getColaEspera() {
-        return colaEspera;
+        return colaEspera != null ? colaEspera : new Vector<>();
     }
 
     public static Vector<OrdenTrabajo> getColaListos() {
-        return colaListos;
+        return colaListos != null ? colaListos : new Vector<>();
     }
 
     // Métodos para obtener nuevos IDs
@@ -217,7 +215,7 @@ public class DataController {
     /**
      * Agrega una orden de trabajo a la cola de espera respetando prioridades
      * Los clientes oro tienen mayor prioridad y van al frente
-     * 
+     *
      * @param orden La orden de trabajo a agregar
      */
     public static void agregarOrdenAColaEspera(OrdenTrabajo orden) {
@@ -233,7 +231,7 @@ public class DataController {
         }
 
         // Verificar si el cliente es tipo oro
-        boolean esClienteOro = "oro".equals(orden.getCliente().getTipoCliente());
+        boolean esClienteOro = "oro".equalsIgnoreCase(orden.getCliente().getTipoCliente());
 
         if (esClienteOro) {
             // Si es cliente oro, buscar la posición donde debe insertarse
@@ -242,7 +240,7 @@ public class DataController {
 
             for (int i = 0; i < colaEspera.size(); i++) {
                 OrdenTrabajo ordenEnCola = colaEspera.get(i);
-                if (!"oro".equals(ordenEnCola.getCliente().getTipoCliente())) {
+                if (!"oro".equalsIgnoreCase(ordenEnCola.getCliente().getTipoCliente())) {
                     // Encontramos el primer cliente normal, insertamos antes de él
                     posicion = i;
                     break;
@@ -280,7 +278,7 @@ public class DataController {
         Vector<OrdenTrabajo> ordenesNormales = new Vector<>();
 
         for (OrdenTrabajo orden : colaEspera) {
-            if ("oro".equals(orden.getCliente().getTipoCliente())) {
+            if ("oro".equalsIgnoreCase(orden.getCliente().getTipoCliente())) {
                 ordenesOro.add(orden);
             } else {
                 ordenesNormales.add(orden);
@@ -306,7 +304,7 @@ public class DataController {
 
     /**
      * Carga repuestos desde un archivo y los agrega al sistema
-     * 
+     *
      * @param rutaArchivo Ruta del archivo a cargar
      */
     public static void cargarRepuestosDesdeArchivo(String rutaArchivo) {
@@ -343,6 +341,7 @@ public class DataController {
                 GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", true,
                         "Repuesto agregado: " + nombre);
             }
+            guardarDatos();
         } catch (IOException e) {
             GestorBitacora.registrarEvento("Sistema", "Carga Masiva Repuestos", false,
                     "Error al leer el archivo: " + e.getMessage());
@@ -351,7 +350,7 @@ public class DataController {
 
     /**
      * Carga servicios desde un archivo y los agrega al sistema
-     * 
+     *
      * @param rutaArchivo Ruta del archivo a cargar
      */
     public static void cargarServiciosDesdeArchivo(String rutaArchivo) {
@@ -406,6 +405,7 @@ public class DataController {
                 GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", true,
                         "Servicio agregado: " + nombre);
             }
+            guardarDatos();
         } catch (IOException e) {
             GestorBitacora.registrarEvento("Sistema", "Carga Masiva Servicios", false,
                     "Error al leer el archivo: " + e.getMessage());
@@ -414,7 +414,7 @@ public class DataController {
 
     /**
      * Carga clientes desde un archivo y los agrega al sistema
-     * 
+     *
      * @param rutaArchivo Ruta del archivo a cargar
      */
     public static void cargarClientesDesdeArchivo(String rutaArchivo) {
@@ -477,6 +477,8 @@ public class DataController {
                 GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", true,
                         "Cliente agregado: " + nombreCompleto);
             }
+            ordenarClientesPorDPI();
+            guardarDatos();
         } catch (IOException e) {
             GestorBitacora.registrarEvento("Sistema", "Carga Masiva Clientes", false,
                     "Error al leer el archivo: " + e.getMessage());
@@ -494,7 +496,7 @@ public class DataController {
 
     /**
      * Agrega un cliente al sistema
-     * 
+     *
      * @param cliente El cliente a agregar
      * @return true si se agregó correctamente, false en caso contrario
      */
@@ -572,35 +574,35 @@ public class DataController {
 
         // Getters para todos los campos
         public Vector<Cliente> getClientes() {
-            return clientes;
+            return clientes != null ? clientes : new Vector<>();
         }
 
         public Vector<Empleado> getEmpleados() {
-            return empleados;
+            return empleados != null ? empleados : new Vector<>();
         }
 
         public Vector<Repuesto> getRepuestos() {
-            return repuestos;
+            return repuestos != null ? repuestos : new Vector<>();
         }
 
         public Vector<Servicio> getServicios() {
-            return servicios;
+            return servicios != null ? servicios : new Vector<>();
         }
 
         public Vector<OrdenTrabajo> getOrdenesTrabajo() {
-            return ordenesTrabajo;
+            return ordenesTrabajo != null ? ordenesTrabajo : new Vector<>();
         }
 
         public Vector<Factura> getFacturas() {
-            return facturas;
+            return facturas != null ? facturas : new Vector<>();
         }
 
         public Vector<OrdenTrabajo> getColaEspera() {
-            return colaEspera;
+            return colaEspera != null ? colaEspera : new Vector<>();
         }
 
         public Vector<OrdenTrabajo> getColaListos() {
-            return colaListos;
+            return colaListos != null ? colaListos : new Vector<>();
         }
 
         public int getUltimoIdRepuesto() {

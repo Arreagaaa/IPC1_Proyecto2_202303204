@@ -2,15 +2,15 @@ package com.tallermecanico.views;
 
 import com.tallermecanico.controllers.ClienteController;
 import com.tallermecanico.models.personas.Cliente;
+import com.tallermecanico.utils.GestorBitacora;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Vista para registro de nuevos clientes
  */
-public class RegistroClienteView extends JFrame {
+public class RegistroClienteView extends BaseView {
 
     private JTextField txtDPI;
     private JTextField txtNombre;
@@ -18,110 +18,184 @@ public class RegistroClienteView extends JFrame {
     private JTextField txtUsuario;
     private JPasswordField txtPassword;
     private JPasswordField txtConfirmPassword;
-    private JButton btnRegistrar;
-    private JButton btnCancelar;
-    private JFrame ventanaAnterior;
 
-    /**
-     * Constructor
-     */
-    public RegistroClienteView(JFrame ventanaAnterior) {
-        this.ventanaAnterior = ventanaAnterior;
+    public RegistroClienteView() {
+        super("Registro de Cliente");
         inicializarComponentes();
     }
 
-    /**
-     * Inicializa los componentes de la interfaz
-     */
-    private void inicializarComponentes() {
-        // Configuración del JFrame
-        setTitle("Registro de Nuevo Cliente");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(500, 400);
-        setLocationRelativeTo(null);
-        setResizable(false);
+    @Override
+    protected void inicializarComponentes() {
+        // Configurar layout del panel de contenido (igual que LoginView)
+        contentPanel.setLayout(new GridBagLayout());
 
-        // Panel principal
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
+        // Panel del formulario de registro
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
+        formPanel.setOpaque(false);
+        formPanel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(200, 200, 200, 70), 1, true),
+                BorderFactory.createEmptyBorder(30, 40, 30, 40)));
+        formPanel.setMaximumSize(new Dimension(520, 650)); // Aumentado desde 450x600
+        formPanel.setPreferredSize(new Dimension(520, 620)); // Aumentado desde 450x550
 
         // Título
-        JLabel lblTitulo = new JLabel("REGISTRO DE CLIENTE", JLabel.CENTER);
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
-        lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
-        panel.add(lblTitulo, BorderLayout.NORTH);
+        JLabel lblTitle = crearTitulo("Taller Mecánico");
+        lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblTitle);
 
-        // Panel de formulario
-        JPanel panelForm = new JPanel(new GridLayout(7, 2, 10, 10));
-        panelForm.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
+        // Subtítulo
+        JLabel lblSubtitle = crearSubtitulo("Registro de Cliente");
+        lblSubtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblSubtitle);
+        formPanel.add(Box.createVerticalStrut(30)); // Aumentado desde 20
 
-        // DPI
-        panelForm.add(new JLabel("DPI:"));
-        txtDPI = new JTextField();
-        panelForm.add(txtDPI);
+        // Campo DPI
+        JLabel lblDPI = crearEtiqueta("DPI (13 dígitos):");
+        lblDPI.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblDPI);
+        formPanel.add(Box.createVerticalStrut(5));
 
-        // Nombre
-        panelForm.add(new JLabel("Nombre:"));
-        txtNombre = new JTextField();
-        panelForm.add(txtNombre);
+        txtDPI = crearCampoTexto();
+        txtDPI.setMaximumSize(new Dimension(400, 35)); // Aumentado desde 300x35
+        formPanel.add(txtDPI);
+        formPanel.add(Box.createVerticalStrut(15)); // Aumentado desde 10
 
-        // Apellido
-        panelForm.add(new JLabel("Apellido:"));
-        txtApellido = new JTextField();
-        panelForm.add(txtApellido);
+        // Campo Nombre
+        JLabel lblNombre = crearEtiqueta("Nombre:");
+        lblNombre.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblNombre);
+        formPanel.add(Box.createVerticalStrut(5));
 
-        // Usuario
-        panelForm.add(new JLabel("Usuario:"));
-        txtUsuario = new JTextField();
-        panelForm.add(txtUsuario);
+        txtNombre = crearCampoTexto();
+        txtNombre.setMaximumSize(new Dimension(400, 35)); // Aumentado desde 300x35
+        formPanel.add(txtNombre);
+        formPanel.add(Box.createVerticalStrut(15)); // Aumentado desde 10
 
-        // Contraseña
-        panelForm.add(new JLabel("Contraseña:"));
-        txtPassword = new JPasswordField();
-        panelForm.add(txtPassword);
+        // Campo Apellido
+        JLabel lblApellido = crearEtiqueta("Apellido:");
+        lblApellido.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblApellido);
+        formPanel.add(Box.createVerticalStrut(5));
 
-        // Confirmar Contraseña
-        panelForm.add(new JLabel("Confirmar Contraseña:"));
-        txtConfirmPassword = new JPasswordField();
-        panelForm.add(txtConfirmPassword);
+        txtApellido = crearCampoTexto();
+        txtApellido.setMaximumSize(new Dimension(400, 35)); // Aumentado desde 300x35
+        formPanel.add(txtApellido);
+        formPanel.add(Box.createVerticalStrut(15)); // Aumentado desde 10
 
-        // Botones
-        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        btnRegistrar = new JButton("Registrar");
-        btnCancelar = new JButton("Cancelar");
-        panelBotones.add(btnRegistrar);
-        panelBotones.add(btnCancelar);
+        // Campo Usuario
+        JLabel lblUsuario = crearEtiqueta("Usuario:");
+        lblUsuario.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblUsuario);
+        formPanel.add(Box.createVerticalStrut(5));
 
-        panel.add(panelForm, BorderLayout.CENTER);
-        panel.add(panelBotones, BorderLayout.SOUTH);
+        txtUsuario = crearCampoTexto();
+        txtUsuario.setMaximumSize(new Dimension(400, 35)); // Aumentado desde 300x35
+        formPanel.add(txtUsuario);
+        formPanel.add(Box.createVerticalStrut(15)); // Aumentado desde 10
 
-        // Eventos
-        btnRegistrar.addActionListener(new ActionListener() {
+        // Campo Contraseña
+        JLabel lblPassword = crearEtiqueta("Contraseña:");
+        lblPassword.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblPassword);
+        formPanel.add(Box.createVerticalStrut(5));
+
+        txtPassword = crearCampoPassword();
+        txtPassword.setMaximumSize(new Dimension(400, 35)); // Aumentado desde 300x35
+        formPanel.add(txtPassword);
+        formPanel.add(Box.createVerticalStrut(15)); // Aumentado desde 10
+
+        // Campo Confirmar Contraseña
+        JLabel lblConfirmPassword = crearEtiqueta("Confirmar Contraseña:");
+        lblConfirmPassword.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblConfirmPassword);
+        formPanel.add(Box.createVerticalStrut(5));
+
+        txtConfirmPassword = crearCampoPassword();
+        txtConfirmPassword.setMaximumSize(new Dimension(400, 35)); // Aumentado desde 300x35
+        formPanel.add(txtConfirmPassword);
+        formPanel.add(Box.createVerticalStrut(30)); // Aumentado desde 20
+
+        // Panel de botones con mejor configuración - Modificado para mantener tamaños
+        // consistentes
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(1, 2, 20, 0)); // Cambio a GridLayout para tamaños iguales
+        buttonPanel.setOpaque(false);
+        buttonPanel.setMaximumSize(new Dimension(340, 40));
+        buttonPanel.setPreferredSize(new Dimension(340, 40));
+
+        // Botón Registrar mejorado
+        JButton btnRegistrar = new JButton("Registrar");
+        btnRegistrar.setFont(new Font("Arial", Font.BOLD, 14));
+        btnRegistrar.setForeground(Color.WHITE);
+        btnRegistrar.setBackground(new Color(0, 120, 215));
+        btnRegistrar.setFocusPainted(false);
+        btnRegistrar.setBorderPainted(false);
+        btnRegistrar.setOpaque(true);
+        btnRegistrar.addActionListener(e -> registrarCliente());
+
+        // Botón Cancelar mejorado
+        JButton btnCancelar = new JButton("Cancelar");
+        btnCancelar.setFont(new Font("Arial", Font.BOLD, 14));
+        btnCancelar.setForeground(Color.WHITE);
+        btnCancelar.setBackground(new Color(160, 160, 160));
+        btnCancelar.setFocusPainted(false);
+        btnCancelar.setBorderPainted(false);
+        btnCancelar.setOpaque(true);
+        btnCancelar.addActionListener(e -> cancelar());
+
+        buttonPanel.add(btnRegistrar);
+        buttonPanel.add(btnCancelar);
+        formPanel.add(buttonPanel);
+
+        formPanel.add(Box.createVerticalStrut(25)); // Aumentado desde 20 (después de botones)
+
+        // Enlace para volver al login (siguiendo el estilo de LoginView)
+        JPanel linkPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        linkPanel.setOpaque(false);
+
+        JLabel loginLink = new JLabel("¿Ya tienes cuenta? Inicia sesión aquí");
+        loginLink.setFont(FONT_SMALL);
+        loginLink.setForeground(new Color(135, 206, 250));
+        loginLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        loginLink.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                registrarCliente();
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dispose();
+                new LoginView().setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginLink.setForeground(Color.WHITE);
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginLink.setForeground(new Color(135, 206, 250));
             }
         });
 
-        btnCancelar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cancelar();
-            }
-        });
+        linkPanel.add(loginLink);
+        formPanel.add(linkPanel);
 
-        // Agregar panel al frame
-        add(panel);
+        // Agregar el formulario al panel de contenido
+        contentPanel.add(formPanel);
+
+        // Configuraciones finales
+        setSize(620, 720); // Aumentado desde 600x700
+        setLocationRelativeTo(null);
     }
 
     /**
      * Registra un nuevo cliente
      */
     private void registrarCliente() {
-        String dpi = txtDPI.getText();
-        String nombre = txtNombre.getText();
-        String apellido = txtApellido.getText();
-        String usuario = txtUsuario.getText();
+        String dpi = txtDPI.getText().trim();
+        String nombre = txtNombre.getText().trim();
+        String apellido = txtApellido.getText().trim();
+        String usuario = txtUsuario.getText().trim();
         String password = new String(txtPassword.getPassword());
         String confirmPassword = new String(txtConfirmPassword.getPassword());
 
@@ -154,13 +228,20 @@ public class RegistroClienteView extends JFrame {
         Cliente nuevoCliente = ClienteController.registrarCliente(dpi, nombre, apellido, usuario, password);
 
         if (nuevoCliente != null) {
+            GestorBitacora.registrarEvento("Sistema", "Registro de cliente", true,
+                    "Cliente registrado con DPI: " + dpi);
+
             JOptionPane.showMessageDialog(this,
                     "Cliente registrado exitosamente",
                     "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
 
             // Volver a la pantalla de login
-            cancelar();
+            dispose();
+            new LoginView().setVisible(true);
         } else {
+            GestorBitacora.registrarEvento("Sistema", "Registro de cliente", false,
+                    "Fallo al registrar cliente con DPI: " + dpi);
+
             JOptionPane.showMessageDialog(this,
                     "Error al registrar cliente. Verifique que el DPI o usuario no estén duplicados",
                     "Error de registro", JOptionPane.ERROR_MESSAGE);
@@ -168,10 +249,10 @@ public class RegistroClienteView extends JFrame {
     }
 
     /**
-     * Cancelar registro y volver a pantalla anterior
+     * Cancelar registro y volver a pantalla de login
      */
     private void cancelar() {
         dispose();
-        ventanaAnterior.setVisible(true);
+        new LoginView().setVisible(true);
     }
 }

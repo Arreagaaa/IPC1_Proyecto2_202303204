@@ -4,7 +4,7 @@ import com.tallermecanico.controllers.DataController;
 import com.tallermecanico.utils.CargadorArchivos;
 import com.tallermecanico.utils.GestorHilos;
 import com.tallermecanico.utils.Serializador;
-import com.tallermecanico.views.MenuView;
+import com.tallermecanico.views.LoginView;
 
 import javax.swing.*;
 
@@ -36,9 +36,9 @@ public class Main {
             // Iniciar hilos del sistema
             GestorHilos.obtenerInstancia().iniciarHilos();
 
-            // Crear y mostrar la vista principal
-            MenuView menuView = new MenuView();
-            menuView.setVisible(true);
+            // Crear y mostrar la vista de login
+            LoginView loginView = new LoginView();
+            loginView.setVisible(true);
         });
 
         // Agregar un gancho de cierre para detener hilos al cerrar la aplicación
@@ -48,11 +48,15 @@ public class Main {
     }
 
     /**
-     * Verifica si hay datos cargados en memoria del sistema
+     * Verifica si el sistema está vacío (sin datos)
      */
     private static boolean sistemaSinDatos() {
-        return DataController.getClientes().isEmpty() &&
-                DataController.getRepuestos().isEmpty() &&
-                DataController.getServicios().isEmpty();
+        // Verificar los vectores principales
+        boolean clientesVacios = DataController.getClientes() == null || DataController.getClientes().isEmpty();
+        boolean repuestosVacios = DataController.getRepuestos() == null || DataController.getRepuestos().isEmpty();
+        boolean serviciosVacios = DataController.getServicios() == null || DataController.getServicios().isEmpty();
+
+        // Retornar true si todos están vacíos
+        return clientesVacios && repuestosVacios && serviciosVacios;
     }
 }

@@ -1,26 +1,12 @@
 package com.tallermecanico.controllers;
 
-import com.itextpdf.io.font.constants.StandardFonts;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.kernel.geom.Rectangle;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.io.image.ImageDataFactory;
 import com.tallermecanico.models.Automovil;
-import com.tallermecanico.models.OrdenTrabajo;
 import com.tallermecanico.models.Repuesto;
 import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
+import com.tallermecanico.utils.GestorBitacora;
+import com.tallermecanico.utils.GeneradorPDF;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -29,7 +15,7 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
- * Controlador para generar reportes en formato PDF
+ * Controlador para la generación de reportes del sistema
  */
 public class ReporteController {
 
@@ -38,45 +24,23 @@ public class ReporteController {
      * 
      * @param rutaArchivo Ruta donde se guardará el archivo PDF
      */
-    public static void generarReporteRepuestosMasCaros(String rutaArchivo) throws IOException {
-        validarCarpetaReportes(); // Validar la carpeta antes de generar el reporte
+    public static void generarReporteRepuestosMasCaros(String rutaArchivo) {
+        try {
+            validarCarpetaReportes(); // Validar la carpeta antes de generar el reporte
 
-        PdfWriter writer = new PdfWriter(rutaArchivo);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
+            // Obtener datos
+            Vector<Repuesto> repuestos = obtenerRepuestosMasCaros(10);
 
-        document.add(new Paragraph("TOP 10 Repuestos Más Caros").setBold().setFontSize(16));
+            // Delegar la generación a la clase GeneradorPDF
+            GeneradorPDF.generarReporteRepuestosMasCaros(repuestos);
 
-        // Obtener datos
-        Vector<Repuesto> repuestos = DataController.getRepuestos();
-        for (int i = 0; i < repuestos.size() - 1; i++) {
-            for (int j = 0; j < repuestos.size() - i - 1; j++) {
-                if (repuestos.get(j).getPrecio() < repuestos.get(j + 1).getPrecio()) {
-                    Repuesto temp = repuestos.get(j);
-                    repuestos.set(j, repuestos.get(j + 1));
-                    repuestos.set(j + 1, temp);
-                }
-            }
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", true,
+                    "Reporte de repuestos más caros generado: " + rutaArchivo);
+        } catch (Exception e) {
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", false,
+                    "Error al generar reporte de repuestos más caros: " + e.getMessage());
+            e.printStackTrace();
         }
-
-        if (repuestos.size() > 10) {
-            repuestos.setSize(10); // Limitar a los 10 más caros
-        }
-
-        // Crear tabla
-        Table table = new Table(3);
-        table.addCell("ID");
-        table.addCell("Nombre");
-        table.addCell("Precio");
-
-        for (Repuesto repuesto : repuestos) {
-            table.addCell(String.valueOf(repuesto.getId()));
-            table.addCell(repuesto.getNombre());
-            table.addCell(String.format("Q %.2f", repuesto.getPrecio()));
-        }
-
-        document.add(table);
-        document.close();
     }
 
     /**
@@ -84,42 +48,24 @@ public class ReporteController {
      * 
      * @param rutaArchivo Ruta donde se guardará el archivo PDF
      */
-    public static void generarReporteClientesPorTipo(String rutaArchivo) throws IOException {
-        validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
+    public static void generarReporteClientesPorTipo(String rutaArchivo) {
+        try {
+            validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
 
-        PdfWriter writer = new PdfWriter(rutaArchivo);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
+            // Obtener datos
+            Vector<Cliente> clientesNormales = obtenerClientesPorTipo("normal");
+            Vector<Cliente> clientesOro = obtenerClientesPorTipo("oro");
 
-        document.add(new Paragraph("Reporte de Clientes por Tipo").setBold().setFontSize(16));
+            // Delegar la generación a la clase GeneradorPDF
+            GeneradorPDF.generarReporteClientesPorTipo(clientesOro, clientesNormales);
 
-        // Contar clientes por tipo
-        int clientesNormales = 0;
-        int clientesOro = 0;
-
-        Vector<Cliente> clientes = DataController.getClientes();
-        for (Cliente cliente : clientes) {
-            if ("normal".equals(cliente.getTipoCliente())) {
-                clientesNormales++;
-            } else if ("oro".equals(cliente.getTipoCliente())) {
-                clientesOro++;
-            }
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", true,
+                    "Reporte de clientes por tipo generado: " + rutaArchivo);
+        } catch (Exception e) {
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", false,
+                    "Error al generar reporte de clientes por tipo: " + e.getMessage());
+            e.printStackTrace();
         }
-
-        // Crear tabla con datos
-        Table table = new Table(2);
-        table.addCell("Tipo de Cliente");
-        table.addCell("Cantidad");
-        table.addCell("Normal");
-        table.addCell(String.valueOf(clientesNormales));
-        table.addCell("Oro");
-        table.addCell(String.valueOf(clientesOro));
-        document.add(table);
-
-        // Agregar gráfico de pastel
-        agregarGraficoPastel(document, clientesNormales, clientesOro);
-
-        document.close();
     }
 
     /**
@@ -127,74 +73,23 @@ public class ReporteController {
      * 
      * @param rutaArchivo Ruta donde se guardará el archivo PDF
      */
-    public static void generarReporteRepuestosMasUsados(String rutaArchivo) throws IOException {
-        validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
+    public static void generarReporteRepuestosMasUsados(String rutaArchivo) {
+        try {
+            validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
 
-        PdfWriter writer = new PdfWriter(rutaArchivo);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
+            // Obtener datos
+            Vector<Repuesto> repuestos = obtenerRepuestosMasUtilizados(10);
 
-        document.add(new Paragraph("TOP 10 Repuestos Más Usados").setBold().setFontSize(16));
+            // Delegar la generación a la clase GeneradorPDF
+            GeneradorPDF.generarReporteRepuestosMasUsados(repuestos);
 
-        Map<Integer, Integer> frecuenciaUso = new HashMap<>();
-        Map<Integer, Repuesto> mapRepuestos = new HashMap<>();
-
-        for (OrdenTrabajo orden : DataController.getOrdenesTrabajo()) {
-            Servicio servicio = orden.getServicio();
-            if (servicio != null) {
-                for (Repuesto repuesto : servicio.getRepuestos()) {
-                    int idRepuesto = repuesto.getId();
-                    mapRepuestos.put(idRepuesto, repuesto);
-                    frecuenciaUso.put(idRepuesto, frecuenciaUso.getOrDefault(idRepuesto, 0) + 1);
-                }
-            }
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", true,
+                    "Reporte de repuestos más usados generado: " + rutaArchivo);
+        } catch (Exception e) {
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", false,
+                    "Error al generar reporte de repuestos más usados: " + e.getMessage());
+            e.printStackTrace();
         }
-
-        Vector<Map.Entry<Repuesto, Integer>> resultado = new Vector<>();
-        for (Map.Entry<Integer, Integer> entry : frecuenciaUso.entrySet()) {
-            Repuesto repuesto = mapRepuestos.get(entry.getKey());
-            resultado.add(new AbstractMap.SimpleEntry<>(repuesto, entry.getValue()));
-        }
-
-        // Ordenar usando el método de burbuja
-        for (int i = 0; i < resultado.size() - 1; i++) {
-            for (int j = 0; j < resultado.size() - i - 1; j++) {
-                if (resultado.get(j).getValue() < resultado.get(j + 1).getValue()) {
-                    Map.Entry<Repuesto, Integer> temp = resultado.get(j);
-                    resultado.set(j, resultado.get(j + 1));
-                    resultado.set(j + 1, temp);
-                }
-            }
-        }
-
-        if (resultado.size() > 10) {
-            resultado.setSize(10); // Limitar a los 10 más usados
-        }
-
-        Table table = new Table(3);
-        table.addCell("ID");
-        table.addCell("Nombre");
-        table.addCell("Frecuencia de Uso");
-
-        for (Map.Entry<Repuesto, Integer> entry : resultado) {
-            Repuesto repuesto = entry.getKey();
-            table.addCell(String.valueOf(repuesto.getId()));
-            table.addCell(repuesto.getNombre());
-            table.addCell(String.valueOf(entry.getValue()));
-        }
-
-        document.add(table);
-
-        // Convertir los datos a un Vector para el gráfico de barras
-        Vector<Map.Entry<String, Integer>> datosGrafico = new Vector<>();
-        for (Map.Entry<Repuesto, Integer> entry : resultado) {
-            datosGrafico.add(new AbstractMap.SimpleEntry<>(entry.getKey().getNombre(), entry.getValue()));
-        }
-
-        // Agregar gráfico de barras
-        agregarGraficoBarras(document, datosGrafico, "Frecuencia de Uso de Repuestos");
-
-        document.close();
     }
 
     /**
@@ -202,65 +97,23 @@ public class ReporteController {
      * 
      * @param rutaArchivo Ruta donde se guardará el archivo PDF
      */
-    public static void generarReporteServiciosMasUsados(String rutaArchivo) throws IOException {
-        File carpetaReportes = new File("reportes");
-        if (!carpetaReportes.exists()) {
-            carpetaReportes.mkdir();
+    public static void generarReporteServiciosMasUsados(String rutaArchivo) {
+        try {
+            validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
+
+            // Obtener datos
+            Vector<Servicio> servicios = obtenerServiciosMasUtilizados(10);
+
+            // Delegar la generación a la clase GeneradorPDF
+            GeneradorPDF.generarReporteServiciosMasUsados(servicios);
+
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", true,
+                    "Reporte de servicios más usados generado: " + rutaArchivo);
+        } catch (Exception e) {
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", false,
+                    "Error al generar reporte de servicios más usados: " + e.getMessage());
+            e.printStackTrace();
         }
-
-        PdfWriter writer = new PdfWriter(rutaArchivo);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
-
-        document.add(new Paragraph("TOP 10 Servicios Más Usados").setBold().setFontSize(16));
-
-        Map<Integer, Integer> frecuenciaUso = new HashMap<>();
-        Map<Integer, Servicio> mapServicios = new HashMap<>();
-
-        for (OrdenTrabajo orden : DataController.getOrdenesTrabajo()) {
-            Servicio servicio = orden.getServicio();
-            if (servicio != null) {
-                int idServicio = servicio.getId();
-                mapServicios.put(idServicio, servicio);
-                frecuenciaUso.put(idServicio, frecuenciaUso.getOrDefault(idServicio, 0) + 1);
-            }
-        }
-
-        Vector<Map.Entry<Servicio, Integer>> resultado = new Vector<>();
-        for (Map.Entry<Integer, Integer> entry : frecuenciaUso.entrySet()) {
-            Servicio servicio = mapServicios.get(entry.getKey());
-            resultado.add(new AbstractMap.SimpleEntry<>(servicio, entry.getValue()));
-        }
-
-        // Ordenar usando burbuja
-        for (int i = 0; i < resultado.size() - 1; i++) {
-            for (int j = 0; j < resultado.size() - i - 1; j++) {
-                if (resultado.get(j).getValue() < resultado.get(j + 1).getValue()) {
-                    Map.Entry<Servicio, Integer> temp = resultado.get(j);
-                    resultado.set(j, resultado.get(j + 1));
-                    resultado.set(j + 1, temp);
-                }
-            }
-        }
-
-        if (resultado.size() > 10) {
-            resultado.setSize(10); // Limitar a los 10 más usados
-        }
-
-        Table table = new Table(3);
-        table.addCell("ID");
-        table.addCell("Nombre");
-        table.addCell("Frecuencia de Uso");
-
-        for (Map.Entry<Servicio, Integer> entry : resultado) {
-            Servicio servicio = entry.getKey();
-            table.addCell(String.valueOf(servicio.getId()));
-            table.addCell(servicio.getNombre());
-            table.addCell(String.valueOf(entry.getValue()));
-        }
-
-        document.add(table);
-        document.close();
     }
 
     /**
@@ -268,142 +121,278 @@ public class ReporteController {
      * 
      * @param rutaArchivo Ruta donde se guardará el archivo PDF
      */
-    public static void generarReporteAutomovilesMasRepetidos(String rutaArchivo) throws IOException {
-        validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
+    public static void generarReporteAutomovilesMasRepetidos(String rutaArchivo) {
+        try {
+            validarCarpetaReportes(); // Validar que la carpeta "reportes" exista
 
-        PdfWriter writer = new PdfWriter(rutaArchivo);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
+            // Obtener datos
+            Map<String, Object> datos = obtenerAutomovilesMasRepetidos(5);
+            Vector<Map.Entry<String, Integer>> topModelos = (Vector<Map.Entry<String, Integer>>) datos
+                    .get("topModelos");
+            Map<String, Automovil> ejemplares = (Map<String, Automovil>) datos.get("ejemplares");
+            Map<String, Vector<Cliente>> clientesPorModelo = (Map<String, Vector<Cliente>>) datos
+                    .get("clientesPorModelo");
 
-        document.add(new Paragraph("TOP 5 Automóviles Más Repetidos").setBold().setFontSize(16));
+            // Delegar la generación a la clase GeneradorPDF
+            GeneradorPDF.generarReporteAutomovilesMasRepetidos(topModelos, ejemplares, clientesPorModelo);
 
-        // Contar la frecuencia de los modelos
-        Map<String, Integer> frecuenciaModelos = new HashMap<>();
-        for (Cliente cliente : DataController.getClientes()) {
-            for (Automovil auto : cliente.getAutomoviles()) {
-                String modeloKey = auto.getMarca() + " " + auto.getModelo();
-                frecuenciaModelos.put(modeloKey, frecuenciaModelos.getOrDefault(modeloKey, 0) + 1);
-            }
-        }
-
-        // Convertir el mapa a un Vector
-        Vector<Map.Entry<String, Integer>> resultado = new Vector<>();
-        for (Map.Entry<String, Integer> entry : frecuenciaModelos.entrySet()) {
-            resultado.add(entry);
-        }
-
-        // Ordenar usando el método de burbuja
-        for (int i = 0; i < resultado.size() - 1; i++) {
-            for (int j = 0; j < resultado.size() - i - 1; j++) {
-                if (resultado.get(j).getValue() < resultado.get(j + 1).getValue()) {
-                    Map.Entry<String, Integer> temp = resultado.get(j);
-                    resultado.set(j, resultado.get(j + 1));
-                    resultado.set(j + 1, temp);
-                }
-            }
-        }
-
-        // Limitar a los 5 más repetidos
-        if (resultado.size() > 5) {
-            resultado.setSize(5);
-        }
-
-        // Crear tabla
-        Table table = new Table(2);
-        table.addCell("Modelo");
-        table.addCell("Cantidad");
-
-        for (Map.Entry<String, Integer> entry : resultado) {
-            table.addCell(entry.getKey());
-            table.addCell(String.valueOf(entry.getValue()));
-        }
-
-        document.add(table);
-        document.close();
-    }
-
-    private static void agregarGraficoBarras(Document document, Vector<Map.Entry<String, Integer>> datos, String titulo)
-            throws IOException {
-        PdfCanvas canvas = new PdfCanvas(document.getPdfDocument().addNewPage());
-        Rectangle rect = new Rectangle(50, 500, 500, 200); // Posición y tamaño del gráfico
-        canvas.rectangle(rect);
-        canvas.stroke();
-
-        // Dibujar título
-        canvas.beginText();
-        canvas.setFontAndSize(PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD), 12);
-        canvas.moveText(50, 720);
-        canvas.showText(titulo);
-        canvas.endText();
-
-        int maxValor = 1;
-        for (Map.Entry<String, Integer> entry : datos) {
-            if (entry.getValue() > maxValor) {
-                maxValor = entry.getValue();
-            }
-        }
-
-        int barWidth = 40;
-        int x = 60;
-
-        for (Map.Entry<String, Integer> entry : datos) {
-            int barHeight = (int) ((entry.getValue() / (double) maxValor) * 150);
-            canvas.rectangle(x, 500, barWidth, barHeight);
-            canvas.fill();
-            x += barWidth + 10;
-
-            // Etiquetas de barras
-            canvas.beginText();
-            canvas.setFontAndSize(PdfFontFactory.createFont(StandardFonts.HELVETICA), 10);
-            canvas.moveText(x - barWidth - 10, 490);
-            canvas.showText(entry.getKey());
-            canvas.endText();
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", true,
+                    "Reporte de automóviles más repetidos generado: " + rutaArchivo);
+        } catch (Exception e) {
+            GestorBitacora.registrarEvento("Sistema", "Generación de PDF", false,
+                    "Error al generar reporte de automóviles más repetidos: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    private static void agregarGraficoPastel(Document document, int clientesNormales, int clientesOro)
-            throws IOException {
-        // Crear una imagen para el gráfico
-        int width = 500;
-        int height = 300;
-        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g2d = image.createGraphics();
-
-        // Fondo blanco
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(0, 0, width, height);
-
-        // Dibujar el gráfico de pastel
-        int totalClientes = clientesNormales + clientesOro;
-        int anguloNormales = (int) Math.round((clientesNormales / (double) totalClientes) * 360);
-        int anguloOro = 360 - anguloNormales;
-
-        g2d.setColor(Color.BLUE);
-        g2d.fillArc(50, 50, 200, 200, 0, anguloNormales);
-
-        g2d.setColor(Color.YELLOW);
-        g2d.fillArc(50, 50, 200, 200, anguloNormales, anguloOro);
-
-        // Etiquetas
-        g2d.setColor(Color.BLACK);
-        g2d.drawString("Clientes Normales: " + clientesNormales, 300, 100);
-        g2d.drawString("Clientes Oro: " + clientesOro, 300, 130);
-
-        g2d.dispose();
-
-        // Agregar la imagen al PDF
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "png", baos);
-        Image img = new Image(ImageDataFactory.create(baos.toByteArray()));
-        img.setWidth(500);
-        img.setHeight(300);
-        document.add(img);
-    }
-
+    /**
+     * Valida que la carpeta de reportes exista, si no, la crea
+     */
     private static void validarCarpetaReportes() {
         File carpetaReportes = new File("reportes");
         if (!carpetaReportes.exists()) {
             carpetaReportes.mkdir();
         }
+    }
+
+    /**
+     * Obtiene la lista de clientes separados por tipo
+     * 
+     * @param tipo Tipo de cliente a filtrar ("oro" o "normal")
+     * @return Vector con los clientes del tipo especificado
+     */
+    public static Vector<Cliente> obtenerClientesPorTipo(String tipo) {
+        Vector<Cliente> resultado = new Vector<>();
+        Vector<Cliente> clientes = DataController.getClientes();
+
+        if (clientes == null || clientes.isEmpty() || tipo == null) {
+            return resultado; // Vector vacío
+        }
+
+        // Buscar los clientes del tipo especificado
+        for (Cliente cliente : clientes) {
+            if (tipo.equalsIgnoreCase(cliente.getTipoCliente())) {
+                resultado.add(cliente);
+            }
+        }
+
+        GestorBitacora.registrarEvento("Sistema", "Reporte", true,
+                "Obtenidos " + resultado.size() + " clientes de tipo " + tipo);
+
+        return resultado;
+    }
+
+    /**
+     * Obtiene los repuestos más utilizados en el sistema
+     * 
+     * @param limite Cantidad máxima de repuestos a retornar
+     * @return Vector con los repuestos más utilizados, ordenados por frecuencia
+     */
+    public static Vector<Repuesto> obtenerRepuestosMasUtilizados(int limite) {
+        // Obtener copia de todos los repuestos
+        Vector<Repuesto> repuestos = new Vector<>();
+        if (DataController.getRepuestos() != null) {
+            repuestos = new Vector<>(DataController.getRepuestos());
+        }
+
+        if (repuestos.isEmpty()) {
+            return repuestos; // Vector vacío
+        }
+
+        // Ordenar por veces usado (descendente) - usando método burbuja
+        for (int i = 0; i < repuestos.size() - 1; i++) {
+            for (int j = 0; j < repuestos.size() - i - 1; j++) {
+                if (repuestos.get(j).getVecesUsado() < repuestos.get(j + 1).getVecesUsado()) {
+                    // Intercambiar posiciones
+                    Repuesto temp = repuestos.get(j);
+                    repuestos.set(j, repuestos.get(j + 1));
+                    repuestos.set(j + 1, temp);
+                }
+            }
+        }
+
+        // Limitar cantidad de resultados
+        if (repuestos.size() > limite) {
+            Vector<Repuesto> limitados = new Vector<>();
+            for (int i = 0; i < limite && i < repuestos.size(); i++) {
+                limitados.add(repuestos.get(i));
+            }
+            repuestos = limitados;
+        }
+
+        GestorBitacora.registrarEvento("Sistema", "Reporte", true,
+                "Obtenidos TOP " + repuestos.size() + " repuestos más utilizados");
+
+        return repuestos;
+    }
+
+    /**
+     * Obtiene los repuestos más caros del sistema
+     * 
+     * @param limite Cantidad máxima de repuestos a retornar
+     * @return Vector con los repuestos más caros, ordenados por precio
+     */
+    public static Vector<Repuesto> obtenerRepuestosMasCaros(int limite) {
+        // Obtener copia de todos los repuestos
+        Vector<Repuesto> repuestos = new Vector<>();
+        if (DataController.getRepuestos() != null) {
+            repuestos = new Vector<>(DataController.getRepuestos());
+        }
+
+        if (repuestos.isEmpty()) {
+            return repuestos; // Vector vacío
+        }
+
+        // Ordenar por precio (descendente) - usando método burbuja
+        for (int i = 0; i < repuestos.size() - 1; i++) {
+            for (int j = 0; j < repuestos.size() - i - 1; j++) {
+                if (repuestos.get(j).getPrecio() < repuestos.get(j + 1).getPrecio()) {
+                    // Intercambiar posiciones
+                    Repuesto temp = repuestos.get(j);
+                    repuestos.set(j, repuestos.get(j + 1));
+                    repuestos.set(j + 1, temp);
+                }
+            }
+        }
+
+        // Limitar cantidad de resultados
+        if (repuestos.size() > limite) {
+            Vector<Repuesto> limitados = new Vector<>();
+            for (int i = 0; i < limite && i < repuestos.size(); i++) {
+                limitados.add(repuestos.get(i));
+            }
+            repuestos = limitados;
+        }
+
+        GestorBitacora.registrarEvento("Sistema", "Reporte", true,
+                "Obtenidos TOP " + repuestos.size() + " repuestos más caros");
+
+        return repuestos;
+    }
+
+    /**
+     * Obtiene los servicios más utilizados en el sistema
+     * 
+     * @param limite Cantidad máxima de servicios a retornar
+     * @return Vector con los servicios más utilizados, ordenados por frecuencia
+     */
+    public static Vector<Servicio> obtenerServiciosMasUtilizados(int limite) {
+        // Obtener copia de todos los servicios
+        Vector<Servicio> servicios = new Vector<>();
+        if (DataController.getServicios() != null) {
+            servicios = new Vector<>(DataController.getServicios());
+        }
+
+        if (servicios.isEmpty()) {
+            return servicios; // Vector vacío
+        }
+
+        // Ordenar por veces usado (descendente) - usando método burbuja
+        for (int i = 0; i < servicios.size() - 1; i++) {
+            for (int j = 0; j < servicios.size() - i - 1; j++) {
+                if (servicios.get(j).getVecesUsado() < servicios.get(j + 1).getVecesUsado()) {
+                    // Intercambiar posiciones
+                    Servicio temp = servicios.get(j);
+                    servicios.set(j, servicios.get(j + 1));
+                    servicios.set(j + 1, temp);
+                }
+            }
+        }
+
+        // Limitar cantidad de resultados
+        if (servicios.size() > limite) {
+            Vector<Servicio> limitados = new Vector<>();
+            for (int i = 0; i < limite && i < servicios.size(); i++) {
+                limitados.add(servicios.get(i));
+            }
+            servicios = limitados;
+        }
+
+        GestorBitacora.registrarEvento("Sistema", "Reporte", true,
+                "Obtenidos TOP " + servicios.size() + " servicios más utilizados");
+
+        return servicios;
+    }
+
+    /**
+     * Obtiene los automóviles más repetidos entre todos los clientes
+     * 
+     * @param limite Cantidad máxima de modelos a retornar
+     * @return Mapa con los datos necesarios para el reporte
+     */
+    public static Map<String, Object> obtenerAutomovilesMasRepetidos(int limite) {
+        Map<String, Object> resultado = new HashMap<>();
+        Map<String, Integer> conteoModelos = new HashMap<>();
+        Map<String, Automovil> ejemplares = new HashMap<>();
+        Map<String, Vector<Cliente>> clientesPorModelo = new HashMap<>();
+
+        // Contar ocurrencias de cada modelo de automóvil
+        Vector<Cliente> clientes = DataController.getClientes();
+        if (clientes != null) {
+            for (Cliente cliente : clientes) {
+                if (cliente.getAutomoviles() == null)
+                    continue;
+
+                for (Automovil auto : cliente.getAutomoviles()) {
+                    String clave = auto.getMarca() + " " + auto.getModelo();
+
+                    // Contar ocurrencia
+                    conteoModelos.put(clave, conteoModelos.getOrDefault(clave, 0) + 1);
+
+                    // Guardar un ejemplar
+                    if (!ejemplares.containsKey(clave)) {
+                        ejemplares.put(clave, auto);
+                    }
+
+                    // Agregar cliente a la lista
+                    if (!clientesPorModelo.containsKey(clave)) {
+                        clientesPorModelo.put(clave, new Vector<>());
+                    }
+                    clientesPorModelo.get(clave).add(cliente);
+                }
+            }
+        }
+
+        // Ordenar y obtener los más comunes
+        Vector<Map.Entry<String, Integer>> entradas = new Vector<>(conteoModelos.entrySet());
+        entradas.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
+
+        // Tomar solo los primeros (según el límite)
+        int cantidad = Math.min(limite, entradas.size());
+        Vector<Map.Entry<String, Integer>> topModelos = new Vector<>();
+        for (int i = 0; i < cantidad; i++) {
+            topModelos.add(entradas.get(i));
+        }
+
+        // Guardar los resultados en el mapa
+        resultado.put("topModelos", topModelos);
+        resultado.put("ejemplares", ejemplares);
+        resultado.put("clientesPorModelo", clientesPorModelo);
+
+        GestorBitacora.registrarEvento("Sistema", "Reporte", true,
+                "Obtenidos TOP " + topModelos.size() + " automóviles más repetidos");
+
+        return resultado;
+    }
+
+    /**
+     * Obtiene todos los clientes del sistema para reportes
+     * 
+     * @return Vector con todos los clientes
+     */
+    public static Vector<Cliente> obtenerTodosLosClientes() {
+        Vector<Cliente> clientes = DataController.getClientes();
+
+        if (clientes == null) {
+            return new Vector<>();
+        }
+
+        // Ordenar por DPI
+        DataController.ordenarClientesPorDPI();
+
+        GestorBitacora.registrarEvento("Sistema", "Reporte", true,
+                "Obtenidos " + clientes.size() + " clientes totales");
+
+        return clientes;
     }
 }

@@ -80,3 +80,233 @@
 2025-04-26 08:41:24 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
 2025-04-26 08:41:28 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
 2025-04-26 08:41:28 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:01:49 | Sistema | Carga de datos | ERROR | Error al cargar datos: datosSistema.dat (El sistema no puede encontrar el archivo especificado)
+2025-04-26 20:01:49 | Sistema | Inicialización | ÉXITO | Inicializando sistema con datos por defecto
+2025-04-26 20:01:49 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-26 20:01:53 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-26 20:01:53 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-26 20:01:55 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-26 20:01:55 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-26 20:01:55 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-26 20:01:55 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-26 20:01:55 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-26 20:01:55 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-26 20:01:59 | Sistema | Creación de administrador por defecto | ÉXITO | Se creó el administrador por defecto con usuario: admin y contraseña: admin123
+2025-04-26 20:01:59 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:02:07 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:02:07 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:02:07 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:02:11 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:02:11 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:02:18 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:02:18 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:02:18 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:02:38 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:02:38 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:02:42 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:02:42 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:02:42 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:11:36 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:11:36 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:11:40 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:11:40 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:11:40 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:13:36 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:13:36 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:13:41 |  | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: 
+2025-04-26 20:13:45 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:13:45 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:13:45 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:31:20 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:31:20 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:31:25 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:31:25 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:31:25 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:31:53 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:31:53 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:32:02 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:32:02 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:32:04 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:32:04 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:32:04 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:32:25 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:32:25 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:38:07 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:38:07 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:38:07 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:40:17 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:40:17 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:40:40 |  | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: 
+2025-04-26 20:40:42 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:40:42 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:40:42 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:46:42 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:46:42 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:46:46 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:46:46 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:46:46 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-26 20:51:39 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-26 20:51:39 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-26 20:51:56 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-26 20:51:56 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-26 20:51:56 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 08:50:29 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 08:50:30 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 08:51:28 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - Javier Rivas
+2025-04-27 08:51:31 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 08:51:31 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 08:51:31 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 09:04:28 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:04:28 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 09:04:38 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 09:04:39 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 09:04:39 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 09:04:39 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 09:04:52 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:04:52 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 09:05:06 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 09:05:07 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 09:05:07 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 09:05:07 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 09:05:13 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:05:13 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 09:05:43 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-04-27 09:05:50 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: Javier Rivas
+2025-04-27 09:05:50 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: Javier Rivas
+2025-04-27 09:06:27 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 09:06:29 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 09:06:29 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 09:06:29 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 09:07:32 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:07:32 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 09:07:51 | admin | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: admin
+2025-04-27 09:07:51 | Sistema | Intento de inicio de sesión fallido | ERROR | Usuario intentó iniciar sesión con credenciales incorrectas: admin
+2025-04-27 09:07:57 | admin | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: admin
+2025-04-27 09:07:57 | Sistema | Intento de inicio de sesión fallido | ERROR | Usuario intentó iniciar sesión con credenciales incorrectas: admin
+2025-04-27 09:08:06 | admin | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: admin
+2025-04-27 09:08:06 | Sistema | Intento de inicio de sesión fallido | ERROR | Usuario intentó iniciar sesión con credenciales incorrectas: admin
+2025-04-27 09:08:11 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 09:08:12 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 09:08:12 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 09:08:12 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 09:56:35 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:56:35 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 09:57:23 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:57:24 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 09:57:39 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 09:57:39 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 09:57:39 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 09:58:30 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 09:58:30 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:03:05 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:03:05 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:03:16 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 10:03:16 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 10:03:16 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 10:06:50 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:06:50 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:08:45 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:08:45 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:09:52 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:09:52 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:11:16 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:11:16 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:11:47 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:11:47 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:12:05 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:12:05 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:12:54 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:12:54 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:14:26 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:14:26 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:15:47 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:15:47 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:19:11 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 10:19:12 | Sistema | Hilos | ÉXITO | Detenido hilo de monitoreo de órdenes
+2025-04-27 10:19:12 | Sistema | Monitor Órdenes | ERROR | Hilo de monitoreo interrumpido: sleep interrupted
+2025-04-27 10:19:12 | Sistema | Monitor Órdenes | ÉXITO | Hilo de monitoreo finalizado.
+2025-04-27 10:21:19 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:21:20 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:21:34 | admin | Autenticación de cliente | ERROR | Credenciales incorrectas para usuario: admin
+2025-04-27 10:21:34 | Sistema | Intento de inicio de sesión fallido | ERROR | Usuario intentó iniciar sesión con credenciales incorrectas: admin
+2025-04-27 10:21:38 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 10:23:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-04-27 10:23:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado con DPI: 1111111111111
+2025-04-27 10:23:13 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: Javier Rivas
+2025-04-27 10:23:13 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: Javier Rivas
+2025-04-27 10:24:25 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:24:25 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:24:37 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 10:24:40 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 10:25:13 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador Sistema
+2025-04-27 10:36:23 | Sistema | Carga de datos | ERROR | Error al cargar datos: datosSistema.dat (El sistema no puede encontrar el archivo especificado)
+2025-04-27 10:36:23 | Sistema | Inicialización | ÉXITO | Inicializando sistema con datos por defecto
+2025-04-27 10:36:23 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 10:36:40 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 10:36:40 | Sistema | Carga de repuestos | ERROR | Repuestos cargados: 0 de 30 líneas.
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 10:36:41 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 10:36:42 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 10:36:42 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 10:36:42 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 10:36:42 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 10:36:42 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 10:36:42 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 10:36:42 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 10:36:42 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 10:36:44 | Sistema | Hilos | ÉXITO | Iniciado hilo de monitoreo de órdenes
+2025-04-27 10:36:51 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General

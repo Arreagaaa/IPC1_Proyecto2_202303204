@@ -1,6 +1,7 @@
 package com.tallermecanico.views;
 
 import com.tallermecanico.controllers.ClienteController;
+import com.tallermecanico.controllers.DataController;
 import com.tallermecanico.controllers.EmpleadoController;
 import com.tallermecanico.models.personas.Administrador;
 import com.tallermecanico.models.personas.Cliente;
@@ -10,224 +11,236 @@ import com.tallermecanico.utils.GestorBitacora;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
- * Vista de login del sistema
+ * Vista de inicio de sesión del sistema
  */
-public class LoginView extends JFrame {
-
-    // Constantes para los tipos de login
-    public static final int TIPO_ADMIN = 1;
-    public static final int TIPO_CLIENTE = 2;
-    public static final int TIPO_MECANICO = 3;
-
-    private int tipoLogin;
-
-    // Componentes de la interfaz
-    private JPanel panel;
-    private JLabel lblTitulo;
-    private JLabel lblUsuario;
+public class LoginView extends BaseView {
     private JTextField txtUsuario;
-    private JLabel lblPassword;
     private JPasswordField txtPassword;
-    private JButton btnIngresar;
-    private JButton btnVolver;
+    private List<Empleado> empleados;
 
-    /**
-     * Constructor por defecto (login de cliente)
-     */
     public LoginView() {
-        this(TIPO_CLIENTE);
-    }
-
-    /**
-     * Constructor con tipo de login específico
-     */
-    public LoginView(int tipoLogin) {
-        this.tipoLogin = tipoLogin;
+        super("Inicio de Sesión");
         inicializarComponentes();
-        configurarEventos();
     }
 
-    /**
-     * Inicializa los componentes de la interfaz
-     */
-    private void inicializarComponentes() {
-        // Configuración del JFrame
-        setTitle("Taller Mecánico - Login");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
-        setLocationRelativeTo(null);
+    @Override
+    protected void inicializarComponentes() {
+        // Configurar layout del panel de contenido
+        contentPanel.setLayout(new GridBagLayout());
 
-        // Panel principal
-        panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
-        setContentPane(panel);
+        // Panel del formulario de login
+        JPanel formPanel = new JPanel();
+        formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
+        formPanel.setOpaque(false);
+        formPanel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(200, 200, 200, 70), 1, true),
+                BorderFactory.createEmptyBorder(30, 40, 30, 40)));
+        formPanel.setMaximumSize(new Dimension(400, 500));
+        formPanel.setPreferredSize(new Dimension(400, 450));
+
+        // Logo del taller (si existe)
+        try {
+            ImageIcon logoIcon = new ImageIcon("src\\main\\resources\\servicio_icon.png");
+            Image img = logoIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+            JLabel logoLabel = new JLabel(new ImageIcon(img));
+            logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            formPanel.add(logoLabel);
+            formPanel.add(Box.createVerticalStrut(20));
+        } catch (Exception e) {
+            // Si no existe el logo, no mostrar nada
+        }
 
         // Título
-        lblTitulo = new JLabel("Iniciar Sesión");
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
-        lblTitulo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(lblTitulo);
-        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        JLabel lblTitle = crearTitulo("Taller Mecánico");
+        lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblTitle);
+
+        // Subtítulo
+        JLabel lblSubtitle = crearSubtitulo("Inicio de Sesión");
+        lblSubtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblSubtitle);
+        formPanel.add(Box.createVerticalStrut(30));
+
+        // Etiqueta de usuario
+        JLabel lblUsuario = crearEtiqueta("Usuario:");
+        lblUsuario.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblUsuario);
+        formPanel.add(Box.createVerticalStrut(5));
 
         // Campo de usuario
-        lblUsuario = new JLabel("Usuario:");
-        txtUsuario = new JTextField(20);
-        txtUsuario.setMaximumSize(new Dimension(Integer.MAX_VALUE, txtUsuario.getPreferredSize().height));
-        panel.add(lblUsuario);
-        panel.add(Box.createRigidArea(new Dimension(0, 5)));
-        panel.add(txtUsuario);
-        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        txtUsuario = crearCampoTexto();
+        txtUsuario.setMaximumSize(new Dimension(300, 35));
+        formPanel.add(txtUsuario);
+        formPanel.add(Box.createVerticalStrut(15));
+
+        // Etiqueta de contraseña
+        JLabel lblPassword = crearEtiqueta("Contraseña:");
+        lblPassword.setAlignmentX(Component.CENTER_ALIGNMENT);
+        formPanel.add(lblPassword);
+        formPanel.add(Box.createVerticalStrut(5));
 
         // Campo de contraseña
-        lblPassword = new JLabel("Contraseña:");
-        txtPassword = new JPasswordField(20);
-        txtPassword.setMaximumSize(new Dimension(Integer.MAX_VALUE, txtPassword.getPreferredSize().height));
-        panel.add(lblPassword);
-        panel.add(Box.createRigidArea(new Dimension(0, 5)));
-        panel.add(txtPassword);
-        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        txtPassword = crearCampoPassword();
+        txtPassword.setMaximumSize(new Dimension(300, 35));
+        formPanel.add(txtPassword);
+        formPanel.add(Box.createVerticalStrut(25));
 
-        // Botones
-        btnIngresar = new JButton("Ingresar");
-        btnIngresar.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnVolver = new JButton("Volver");
-        btnVolver.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(btnIngresar);
-        panel.add(Box.createRigidArea(new Dimension(0, 10)));
-        panel.add(btnVolver);
-    }
+        // Botón de inicio de sesión
+        JButton btnLogin = crearBotonPrimario("Iniciar Sesión");
+        btnLogin.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnLogin.setMaximumSize(new Dimension(200, 40));
+        btnLogin.addActionListener(e -> iniciarSesion());
+        formPanel.add(btnLogin);
+        formPanel.add(Box.createVerticalStrut(20));
 
-    /**
-     * Configura los eventos de los componentes
-     */
-    private void configurarEventos() {
-        // Botón Ingresar
-        btnIngresar.addActionListener(new ActionListener() {
+        // Enlace para registrarse (si aplica)
+        JPanel linkPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        linkPanel.setOpaque(false);
+
+        JLabel registerLink = new JLabel("¿Eres cliente nuevo? Regístrate aquí");
+        registerLink.setFont(FONT_SMALL);
+        registerLink.setForeground(new Color(135, 206, 250));
+        registerLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        registerLink.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                String usuario = txtUsuario.getText();
-                String password = new String(txtPassword.getPassword());
-
-                if (usuario.isEmpty() || password.isEmpty()) {
-                    JOptionPane.showMessageDialog(LoginView.this,
-                            "Debe ingresar usuario y contraseña",
-                            "Error de Autenticación",
-                            JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                switch (tipoLogin) {
-                    case TIPO_CLIENTE:
-                        autenticarCliente(usuario, password);
-                        break;
-                    case TIPO_ADMIN:
-                        autenticarEmpleado(usuario, password);
-                        break;
-                    case TIPO_MECANICO:
-                        iniciarSesion();
-                        break;
-                    default:
-                        JOptionPane.showMessageDialog(LoginView.this,
-                                "Tipo de login no soportado",
-                                "Error",
-                                JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
-
-        // Botón Volver
-        btnVolver.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dispose();
-                new LoginView().setVisible(true);
+                new RegistroClienteView().setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registerLink.setForeground(Color.WHITE);
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registerLink.setForeground(new Color(135, 206, 250));
             }
         });
+
+        linkPanel.add(registerLink);
+        formPanel.add(linkPanel);
+
+        // Agregar el formulario al panel de contenido
+        contentPanel.add(formPanel);
     }
 
     /**
-     * Autentica a un cliente
-     */
-    private void autenticarCliente(String usuario, String password) {
-        Cliente cliente = ClienteController.autenticarCliente(usuario, password);
-
-        if (cliente != null) {
-            GestorBitacora.registrarEvento(usuario, "Inicio de sesión", true,
-                    "Cliente inició sesión: " + cliente.getNombreCompleto());
-
-            dispose();
-            new ClienteView(cliente).setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "Credenciales incorrectas",
-                    "Error de Autenticación",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    /**
-     * Autentica a un empleado
-     */
-    private void autenticarEmpleado(String usuario, String password) {
-        Empleado empleado = EmpleadoController.autenticarEmpleado(usuario, password);
-
-        if (empleado != null) {
-            GestorBitacora.registrarEvento(usuario, "Inicio de sesión", true,
-                    "Empleado inició sesión: " + empleado.getNombreCompleto());
-
-            dispose();
-
-            if (empleado.isAdmin()) {
-                new AdminView(empleado).setVisible(true);
-            } else if (empleado instanceof Mecanico) {
-                new MecanicoView((Mecanico) empleado).setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this,
-                        "Tipo de empleado no soportado",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                new LoginView().setVisible(true);
-            }
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "Credenciales incorrectas",
-                    "Error de Autenticación",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    /**
-     * Inicia sesión para un empleado
+     * Realiza el proceso de inicio de sesión
      */
     private void iniciarSesion() {
         String usuario = txtUsuario.getText();
         String contraseña = new String(txtPassword.getPassword());
 
-        // Buscar empleado
-        Empleado empleado = EmpleadoController.buscarEmpleadoPorUsuario(usuario);
-
-        if (empleado == null || !empleado.getContrasena().equals(contraseña)) {
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+        // Validar campos vacíos
+        if (usuario.isEmpty() || contraseña.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Por favor complete todos los campos",
+                    "Campos requeridos",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Verificar tipo de empleado
-        if (empleado instanceof Administrador) {
-            JOptionPane.showMessageDialog(this, "El administrador por defecto no puede iniciar sesión.", "Error",
+        try {
+            // Buscar empleado
+            Empleado empleado = EmpleadoController.buscarEmpleadoPorUsuario(usuario);
+
+            if (empleado != null && empleado.getContrasena().equals(contraseña)) {
+                System.out.println("Tipo de empleado encontrado: " + empleado.getClass().getName());
+
+                GestorBitacora.registrarEvento(
+                        usuario,
+                        "Inicio de sesión",
+                        true,
+                        "Empleado inició sesión: " + empleado.getNombreCompleto());
+
+                // Redirigir según el tipo de empleado
+                if (empleado instanceof Administrador) {
+                    System.out.println("Creando vista de administrador...");
+                    AdminView adminView = new AdminView(empleado);
+                    adminView.setVisible(true);
+                    dispose();
+                } else if (empleado instanceof Mecanico) {
+                    System.out.println("Creando vista de mecánico...");
+                    MecanicoView mecanicoView = new MecanicoView((Mecanico) empleado);
+                    mecanicoView.setVisible(true);
+                    dispose();
+                } else {
+                    System.err.println("ERROR: Tipo de empleado inesperado: " + empleado.getClass().getName());
+                    // Corregir el tipo de empleado en memoria si es el admin por defecto
+                    if ("admin".equals(empleado.getNombreUsuario())) {
+                        Empleado nuevoAdmin = new Administrador(
+                                empleado.getIdentificador(),
+                                empleado.getNombre(),
+                                empleado.getApellido(),
+                                empleado.getNombreUsuario());
+
+                        // Reemplazar en el vector de empleados
+                        int index = empleados.indexOf(empleado);
+                        if (index >= 0) {
+                            empleados.set(index, nuevoAdmin);
+                            DataController.guardarDatos();
+                            // Reintentar con el nuevo objeto
+                            AdminView adminView = new AdminView(nuevoAdmin);
+                            adminView.setVisible(true);
+                            dispose();
+                            return;
+                        }
+                    }
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Tipo de empleado no reconocido: " + empleado.getClass().getName(),
+                            "Error de sistema",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                // Buscar cliente
+                Cliente cliente = ClienteController.autenticarCliente(usuario, contraseña);
+                if (cliente != null) {
+                    GestorBitacora.registrarEvento(
+                            usuario,
+                            "Inicio de sesión",
+                            true,
+                            "Cliente inició sesión: " + cliente.getNombreCompleto());
+                    ClienteView clienteView = new ClienteView(cliente);
+                    clienteView.setVisible(true);
+                    dispose();
+                } else {
+                    GestorBitacora.registrarEvento(
+                            "Sistema",
+                            "Intento de inicio de sesión fallido",
+                            false,
+                            "Usuario intentó iniciar sesión con credenciales incorrectas: " + usuario);
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Usuario o contraseña incorrectos",
+                            "Error de autenticación",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (Exception e) {
+            // Capturar cualquier excepción para evitar que el programa se cierre
+            e.printStackTrace();
+
+            GestorBitacora.registrarEvento(
+                    "Sistema",
+                    "Error crítico de inicio de sesión",
+                    false,
+                    "Error al procesar inicio de sesión para usuario: " + usuario + " - " + e.getMessage());
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ha ocurrido un error al procesar el inicio de sesión.\nError: " + e.getMessage(),
+                    "Error de sistema",
                     JOptionPane.ERROR_MESSAGE);
-            return;
         }
-
-        // Abrir la vista correspondiente
-        if (empleado instanceof Mecanico) {
-            new MecanicoView((Mecanico) empleado).setVisible(true);
-        }
-
-        dispose();
     }
 }

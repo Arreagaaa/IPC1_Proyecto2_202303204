@@ -342,4 +342,34 @@ public class RepuestoController {
 
         return true;
     }
+
+    /**
+     * Obtiene los repuestos más caros (top N)
+     */
+    public static Vector<Repuesto> obtenerRepuestosMasCaros(int limite) {
+        // Hacer una copia del vector de repuestos
+        Vector<Repuesto> repuestos = new Vector<>(DataController.getRepuestos());
+
+        // Ordenar por precio (orden descendente)
+        for (int i = 0; i < repuestos.size() - 1; i++) {
+            for (int j = 0; j < repuestos.size() - i - 1; j++) {
+                if (repuestos.get(j).getPrecio() < repuestos.get(j + 1).getPrecio()) {
+                    Repuesto temp = repuestos.get(j);
+                    repuestos.set(j, repuestos.get(j + 1));
+                    repuestos.set(j + 1, temp);
+                }
+            }
+        }
+
+        // Limitar el número de resultados
+        if (repuestos.size() > limite) {
+            Vector<Repuesto> limitados = new Vector<>();
+            for (int i = 0; i < limite; i++) {
+                limitados.add(repuestos.get(i));
+            }
+            return limitados;
+        }
+
+        return repuestos;
+    }
 }
