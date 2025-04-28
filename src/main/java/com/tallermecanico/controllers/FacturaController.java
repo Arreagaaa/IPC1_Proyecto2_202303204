@@ -201,7 +201,7 @@ public class FacturaController {
         }
     }
 
-    public static Vector<Factura> obtenerFacturasPorCliente(Cliente clienteActual) {
+    public static Vector<Factura> obtenerFacturasPorCliente(String clienteActual) {
         Vector<Factura> facturasCliente = new Vector<>();
 
         for (Factura factura : DataController.getFacturas()) {

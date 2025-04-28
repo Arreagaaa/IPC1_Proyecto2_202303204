@@ -48,17 +48,17 @@ public class Factura implements Serializable {
         DetalleFactura detalleServicio = new DetalleFactura(
                 "SERV-" + servicio.getId(),
                 servicio.getNombre(),
-                1,
+                1, // Un servicio
                 servicio.getPrecioBase(),
                 0);
         detalles.add(detalleServicio);
 
-        // Agregar cada repuesto como un detalle
+        // Agregar cada repuesto como un detalle, pero SOLO 1 UNIDAD de cada repuesto
         for (Repuesto repuesto : servicio.getRepuestos()) {
             DetalleFactura detalleRepuesto = new DetalleFactura(
                     "REP-" + repuesto.getId(),
                     repuesto.getNombre(),
-                    repuesto.getExistencias(),
+                    1, // UN repuesto, no todas las existencias
                     repuesto.getPrecio(),
                     0);
             detalles.add(detalleRepuesto);
@@ -106,12 +106,42 @@ public class Factura implements Serializable {
     }
 
     /**
-     * Calcula el total a pagar (subtotal - descuento)
+     * Obtiene el valor base después de descuentos (antes de IVA)
+     * 
+     * @return Valor base para calcular IVA
+     */
+    public double getBaseImponible() {
+        return calcularSubtotal() - calcularDescuento();
+    }
+
+    /**
+     * Calcula el IVA (12% de la base imponible)
+     * 
+     * @return Valor del IVA
+     */
+    public Object getIva() {
+        // El IVA se calcula sobre el monto después de descuentos
+        return getBaseImponible() * 0.12;
+    }
+
+    /**
+     * Calcula el total a pagar (base imponible + IVA)
      * 
      * @return Valor total a pagar
      */
     public double calcularTotal() {
-        return calcularSubtotal() - calcularDescuento();
+        // Total = monto con descuento aplicado + IVA
+        return getBaseImponible() + (double) getIva();
+    }
+
+    /**
+     * Devuelve el total de la factura para interfaces
+     * 
+     * @return Valor total a pagar
+     */
+    public Object getTotal() {
+        // Devuelve el total de la factura
+        return calcularTotal();
     }
 
     // Getters y setters
@@ -246,11 +276,6 @@ public class Factura implements Serializable {
         return pagada ? "Pagada" : "Pendiente";
     }
 
-    public Object getTotal() {
-        // Devuelve el total de la factura
-        return calcularTotal();
-    }
-
     public void setDescuento(double descuento) {
         // Cambia el descuento de la factura
         for (DetalleFactura detalle : detalles) {
@@ -276,11 +301,6 @@ public class Factura implements Serializable {
     public Servicio getServicioAsociado() {
         // Devuelve el servicio asociado a la factura
         return ordenTrabajo.getServicio();
-    }
-
-    public Object getIva() {
-        // Devuelve el IVA de la factura
-        return calcularTotal() * 0.12;
     }
 
     public void setEstado(String nuevoEstado) {

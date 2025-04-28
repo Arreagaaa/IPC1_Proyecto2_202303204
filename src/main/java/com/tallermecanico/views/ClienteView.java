@@ -15,8 +15,10 @@ public class ClienteView extends BaseView {
     private JTabbedPane tabbedPane;
     private DefaultTableModel modeloAutomoviles;
     private DefaultTableModel modeloServiciosPendientes;
+    private DefaultTableModel modeloFacturas;
     private JTable tablaAutomoviles;
     private JTable tablaServiciosPendientes;
+    private JTable tablaFacturas;
 
     public ClienteView(Cliente cliente) {
         super("Taller Mecánico - Cliente");
@@ -217,30 +219,20 @@ public class ClienteView extends BaseView {
         titleLabel.setForeground(COLOR_PRIMARY_DARK);
         panel.add(titleLabel, BorderLayout.NORTH);
 
-        String[] columnas = {"Factura", "Vehículo", "Servicio", "Total", "Estado", "Acciones"};
-        DefaultTableModel modeloFacturas = new DefaultTableModel(columnas, 0) {
+        String[] columnas = { "Factura", "Vehículo", "Servicio", "Total", "Estado", "Acciones" };
+        modeloFacturas = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return column == 5; // Solo la columna de acciones es editable
             }
         };
 
-        JTable tablaFacturas = new JTable(modeloFacturas);
+        tablaFacturas = new JTable(modeloFacturas);
         JScrollPane scrollPane = new JScrollPane(tablaFacturas);
         estilizarTabla(tablaFacturas);
 
         // Llenar la tabla con las facturas del cliente
-        Vector<Factura> facturas = FacturaController.obtenerFacturasPorCliente(clienteActual);
-        for (Factura factura : facturas) {
-            modeloFacturas.addRow(new Object[]{
-                factura.getId(),
-                factura.getAutomovil().getMarca() + " " + factura.getAutomovil().getModelo(),
-                factura.getServicioAsociado().getNombre(),
-                "Q" + factura.getTotal(),
-                factura.getEstado(),
-                "Descargar PDF"
-            });
-        }
+        cargarFacturasCliente();
 
         // Botón para descargar PDF
         tablaFacturas.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer("Descargar PDF"));
@@ -261,6 +253,22 @@ public class ClienteView extends BaseView {
 
         panel.add(scrollPane, BorderLayout.CENTER);
         return panel;
+    }
+
+    private void cargarFacturasCliente() {
+        modeloFacturas.setRowCount(0);
+        Vector<Factura> facturas = FacturaController.obtenerFacturasPorCliente(clienteActual.getIdentificador());
+        for (Factura f : facturas) {
+            modeloFacturas.addRow(new Object[] {
+                    f.getId(),
+                    f.getServicioAsociado().getNombre(),
+                    f.getAutomovil().getMarca() + " " + f.getAutomovil().getModelo(),
+                    String.format("Q %.2f", f.getTotal()),
+                    f.getFechaEmision(),
+                    f.getEstado(),
+                    "Acciones"
+            });
+        }
     }
 
     private void cargarDatos() {

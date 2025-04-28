@@ -1229,6 +1229,14 @@ public class AdminView extends BaseView {
             btnCambiar.setText(textoCambio);
             btnCambiar.setBackground(colorBoton);
 
+            // Elimina todos los listeners previos para evitar duplicados
+            for (ActionListener al : btnCambiar.getActionListeners()) {
+                btnCambiar.removeActionListener(al);
+            }
+            for (ActionListener al : btnPDF.getActionListeners()) {
+                btnPDF.removeActionListener(al);
+            }
+
             final int capturedRow = row;
 
             btnCambiar.addActionListener(e -> {
