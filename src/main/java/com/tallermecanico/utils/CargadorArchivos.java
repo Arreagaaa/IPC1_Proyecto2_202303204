@@ -5,6 +5,7 @@ import com.tallermecanico.controllers.RepuestoController;
 import com.tallermecanico.controllers.ServicioController;
 import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
+import com.tallermecanico.views.AdminView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -591,6 +592,119 @@ public class CargadorArchivos {
                     mensaje.toString(),
                     "Carga inicial de datos",
                     JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    public static File seleccionarArchivo(AdminView adminView, String string, String string2, String string3) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle(string);
+        fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                return f.isDirectory() || f.getName().toLowerCase().endsWith(string2);
+            }
+
+            @Override
+            public String getDescription() {
+                return string3;
+            }
+        });
+
+        int resultado = fileChooser.showOpenDialog(adminView);
+
+        if (resultado == JFileChooser.APPROVE_OPTION) {
+            return fileChooser.getSelectedFile();
+        }
+
+        return null; // Cancelado o tipo no reconocido
+    }
+
+    public static int cargarClientes(File archivo) {
+        if (archivo == null || !archivo.exists() || !archivo.getName().endsWith(".tmca")) {
+            GestorBitacora.registrarEvento("Sistema", "Carga de clientes", false,
+                    "Archivo inválido o no encontrado: " + (archivo != null ? archivo.getName() : "null"));
+            return 0;
+        }
+
+        int contadorExito = 0;
+        int lineaActual = 0;
+        List<String> errores = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                lineaActual++;
+
+                // Omitir líneas vacías o comentarios
+                if (linea.trim().isEmpty() || linea.trim().startsWith("#")) {
+                    continue;
+                }
+
+                // Procesar la línea
+                try {
+                    String[] partes = linea.split("-");
+
+                    if (partes.length < 5) {
+                        errores.add("Línea " + lineaActual + ": Formato incorrecto, se esperaban al menos 5 campos");
+                        continue;
+                    }
+
+                    String identificador = partes[0].trim();
+                    String nombreCompleto = partes[1].trim();
+                    String usuario = partes[2].trim();
+                    String password = partes[3].trim();
+                    String tipoCliente = partes[4].trim().toLowerCase();
+
+                    // Separar nombre y apellido (asumiendo formato "Nombre Apellido")
+                    String[] nombrePartes = nombreCompleto.split(" ", 2);
+                    String nombre = nombrePartes[0];
+                    String apellido = nombrePartes.length > 1 ? nombrePartes[1] : "";
+
+                    // Verificar tipo de cliente
+                    if (!tipoCliente.equals("normal") && !tipoCliente.equals("oro")) {
+                        tipoCliente = "normal"; // Default a normal si no es válido
+                    }
+
+                    // Registrar el cliente
+                    Cliente cliente = ClienteController.registrarCliente(identificador, nombre, apellido, usuario,
+                            password);
+
+                    if (cliente == null) {
+                        errores.add("Línea " + lineaActual + ": No se pudo registrar el cliente " + identificador);
+                        continue;
+                    }
+
+                    // Establecer tipo de cliente
+                    if (tipoCliente.equals("oro")) {
+                        cliente.setTipoCliente("oro");
+                    }
+
+                    contadorExito++;
+                } catch (Exception e) {
+                    errores.add("Línea " + lineaActual + ": " + e.getMessage());
+                }
+            }
+
+            // Reportar resultados
+            String mensaje = "Clientes cargados: " + contadorExito + " de " + lineaActual + " líneas.";
+            GestorBitacora.registrarEvento("Sistema", "Carga de clientes", contadorExito > 0, mensaje);
+
+            // Mostrar errores si los hay
+            if (!errores.isEmpty()) {
+                mostrarErroresCarga(errores, "Errores en carga de clientes");
+            }
+
+            return contadorExito;
+
+        } catch (IOException e) {
+            GestorBitacora.registrarEvento("Sistema", "Carga de clientes", false,
+                    "Error al leer el archivo: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,
+                    "Error al leer el archivo: " + e.getMessage(),
+                    "Error de lectura",
+                    JOptionPane.ERROR_MESSAGE);
+            return 0;
         }
     }
 }

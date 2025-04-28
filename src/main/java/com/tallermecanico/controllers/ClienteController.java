@@ -399,8 +399,10 @@ public class ClienteController {
     }
 
     /**
-     * Verifica si un cliente cumple con los requisitos para ser promocionado a tipo ORO
+     * Verifica si un cliente cumple con los requisitos para ser promocionado a tipo
+     * ORO
      * y lo actualiza si corresponde
+     * 
      * @param cliente Cliente a verificar
      * @return true si fue promocionado, false en caso contrario
      */
@@ -409,18 +411,18 @@ public class ClienteController {
         if (cliente.getTipoCliente().equalsIgnoreCase("oro")) {
             return false;
         }
-        
+
         // Obtener todas las órdenes finalizadas o facturadas del cliente
         Vector<OrdenTrabajo> ordenes = OrdenTrabajoController.obtenerOrdenesPorCliente(cliente);
         int serviciosCompletados = 0;
-        
+
         for (OrdenTrabajo orden : ordenes) {
             String estado = orden.getEstado();
             if (estado.equals("FINALIZADO") || estado.equals("FACTURADO")) {
                 serviciosCompletados++;
             }
         }
-        
+
         // Si cumple con 4 o más servicios, promocionar a oro
         if (serviciosCompletados >= 4) {
             cliente.setTipoCliente("oro");
@@ -428,7 +430,100 @@ public class ClienteController {
                     "Cliente " + cliente.getNombreCompleto() + " promocionado a Cliente Oro");
             return true;
         }
-        
+
         return false;
+    }
+
+    public static void actualizarCliente(Cliente nuevoCliente) {
+        // Buscar el cliente existente
+        Cliente clienteExistente = buscarClientePorIdentificador(nuevoCliente.getIdentificador());
+
+        if (clienteExistente != null) {
+            // Actualizar los datos del cliente existente
+            clienteExistente.setNombre(nuevoCliente.getNombre());
+            clienteExistente.setApellido(nuevoCliente.getApellido());
+            clienteExistente.setEmail(nuevoCliente.getEmail());
+            clienteExistente.setTelefono(nuevoCliente.getTelefono());
+            clienteExistente.setTipoCliente(nuevoCliente.getTipoCliente());
+
+            // Guardar cambios
+            DataController.guardarDatos();
+
+            GestorBitacora.registrarEvento("Sistema", "Actualización de Cliente", true,
+                    "Cliente actualizado: " + nuevoCliente.getIdentificador() + " - "
+                            + nuevoCliente.getNombreCompleto());
+        } else {
+            GestorBitacora.registrarEvento("Sistema", "Actualización de Cliente", false,
+                    "No se encontró cliente con identificador: " + nuevoCliente.getIdentificador());
+        }
+    }
+
+    public static Cliente obtenerClientePorId(String idCliente) {
+        for (Cliente cliente : DataController.getClientes()) {
+            if (cliente.getIdentificador().equals(idCliente)) {
+                return cliente;
+            }
+        }
+        return null; // Cliente no encontrado
+    }
+
+    public static boolean eliminarAutomovil(String identificador, String placa) {
+        // Buscar el cliente
+        Cliente cliente = buscarClientePorIdentificador(identificador);
+        if (cliente == null) {
+            GestorBitacora.registrarEvento("Sistema", "Eliminación de automóvil", false,
+                    "No se encontró cliente con identificador: " + identificador);
+            return false;
+        }
+
+        // Buscar el automóvil
+        Automovil automovil = cliente.buscarAutomovil(placa);
+        if (automovil == null) {
+            GestorBitacora.registrarEvento("Sistema", "Eliminación de automóvil", false,
+                    "No se encontró automóvil con placa: " + placa + " para cliente: " + cliente.getNombreCompleto());
+            return false;
+        }
+
+        // Eliminar el automóvil
+        cliente.eliminarAutomovil(automovil.getPlaca());
+
+        // Guardar cambios
+        DataController.guardarDatos();
+
+        GestorBitacora.registrarEvento("Sistema", "Eliminación de automóvil", true,
+                "Automóvil eliminado: " + placa + " para cliente: " + cliente.getNombreCompleto());
+
+        return true;
+    }
+
+    public static boolean actualizarAutomovil(String identificador, Automovil auto) {
+        // Buscar el cliente
+        Cliente cliente = buscarClientePorIdentificador(identificador);
+        if (cliente == null) {
+            GestorBitacora.registrarEvento("Sistema", "Actualización de automóvil", false,
+                    "No se encontró cliente con identificador: " + identificador);
+            return false;
+        }
+
+        // Buscar el automóvil
+        Automovil automovil = cliente.buscarAutomovil(auto.getPlaca());
+        if (automovil == null) {
+            GestorBitacora.registrarEvento("Sistema", "Actualización de automóvil", false,
+                    "No se encontró automóvil con placa: " + auto.getPlaca() + " para cliente: "
+                            + cliente.getNombreCompleto());
+            return false;
+        }
+
+        // Actualizar los datos del automóvil
+        automovil.setMarca(auto.getMarca());
+        automovil.setModelo(auto.getModelo());
+
+        // Guardar cambios
+        DataController.guardarDatos();
+
+        GestorBitacora.registrarEvento("Sistema", "Actualización de automóvil", true,
+                "Automóvil actualizado: " + auto.getPlaca() + " para cliente: " + cliente.getNombreCompleto());
+
+        return true; // Ahora devuelve true al completar correctamente
     }
 }

@@ -659,67 +659,48 @@ public class AdminView extends BaseView {
         }
     }
 
+    /**
+     * Método para cargar servicios desde un archivo
+     */
     private void cargarArchivoServicios() {
-        JFileChooser fileChooser = new JFileChooser();
-        int result = fileChooser.showOpenDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File archivo = fileChooser.getSelectedFile();
-            int count = 0, errores = 0;
-            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-                String linea;
-                while ((linea = br.readLine()) != null) {
-                    String[] partes = linea.split(",");
-                    if (partes.length != 3) {
-                        errores++;
-                        continue;
-                    }
-                    try {
-                        String n = partes[0].trim();
-                        String d = partes[1].trim();
-                        double p = Double.parseDouble(partes[2].trim());
-                        if (n.isEmpty() || d.isEmpty() || p < 0)
-                            throw new Exception();
-                        boolean ok = ServicioController.registrarServicio(n, d, d, p) != null;
-                        if (ok)
-                            count++;
-                        else
-                            errores++;
-                    } catch (Exception ex) {
-                        errores++;
-                    }
+        try {
+            File archivo = CargadorArchivos.seleccionarArchivo(this, "Seleccionar archivo de servicios",
+                    "Archivos TMS (*.tms)", "tms");
+            if (archivo != null) {
+                int resultado = CargadorArchivos.cargarServicios(archivo);
+                if (resultado > 0) {
+                    JOptionPane.showMessageDialog(this,
+                            "Se cargaron " + resultado + " servicios correctamente.",
+                            "Carga exitosa", JOptionPane.INFORMATION_MESSAGE);
+                    cargarDatos(); // Actualizar la tabla
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "No se pudo cargar ningún servicio del archivo.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                cargarDatos();
-                JOptionPane.showMessageDialog(this, "Carga finalizada.\nAgregados: " + count + "\nErrores: " + errores);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error al leer el archivo.", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar archivo: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     // ------------------- CLIENTES -------------------
     private JPanel inicializarPanelClientes() {
         JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(COLOR_LIGHT);
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
         JPanel topPanel = new JPanel(new BorderLayout());
-        topPanel.setBackground(COLOR_LIGHT);
-
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        searchPanel.setBackground(COLOR_LIGHT);
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
-        JLabel lblBuscar = crearEtiqueta("Buscar:");
-        JTextField txtBuscar = crearCampoTexto();
-        txtBuscar.setPreferredSize(new Dimension(200, 35));
-        JButton btnBuscar = crearBotonSecundario("Buscar");
+        JLabel lblBuscar = new JLabel("Buscar:");
+        JTextField txtBuscar = new JTextField(20);
+        JButton btnBuscar = crearBotonPrimario("Buscar");
         btnBuscar.addActionListener(e -> buscarCliente(txtBuscar.getText()));
 
         searchPanel.add(lblBuscar);
         searchPanel.add(txtBuscar);
         searchPanel.add(btnBuscar);
-
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
-        buttonPanel.setBackground(COLOR_LIGHT);
 
         JButton btnAgregar = crearBotonPrimario("Agregar");
         btnAgregar.setForeground(Color.WHITE);
@@ -736,6 +717,11 @@ public class AdminView extends BaseView {
         JButton btnCargar = crearBotonPrimario("Cargar Archivo");
         btnCargar.setForeground(Color.WHITE);
         btnCargar.setBackground(new Color(100, 100, 100));
+
+        btnAgregar.addActionListener(e -> agregarCliente());
+        btnEditar.addActionListener(e -> editarCliente());
+        btnEliminar.addActionListener(e -> eliminarCliente());
+        btnCargar.addActionListener(e -> cargarArchivoClientes()); // Conectamos correctamente el evento
 
         buttonPanel.add(btnAgregar);
         buttonPanel.add(btnEditar);
@@ -777,23 +763,296 @@ public class AdminView extends BaseView {
     }
 
     private void agregarCliente() {
-        // Implementa según tus modelos y controladores
-        JOptionPane.showMessageDialog(this, "Funcionalidad de agregar cliente aquí.");
+        JTextField identificador = new JTextField();
+        JTextField nombre = new JTextField();
+        JTextField apellido = new JTextField();
+        JTextField usuario = new JTextField();
+        JPasswordField password = new JPasswordField();
+        JComboBox<String> tipoCliente = new JComboBox<>(new String[] { "normal", "oro" });
+
+        Object[] campos = {
+                "Identificador (DPI):", identificador,
+                "Nombre:", nombre,
+                "Apellido:", apellido,
+                "Usuario:", usuario,
+                "Contraseña:", password,
+                "Tipo de Cliente:", tipoCliente
+        };
+
+        int res = JOptionPane.showConfirmDialog(this, campos, "Agregar Cliente", JOptionPane.OK_CANCEL_OPTION);
+        if (res == JOptionPane.OK_OPTION) {
+            try {
+                String id = identificador.getText().trim();
+                String n = nombre.getText().trim();
+                String a = apellido.getText().trim();
+                String u = usuario.getText().trim();
+                String p = new String(password.getPassword()).trim();
+                String t = tipoCliente.getSelectedItem().toString();
+
+                if (id.isEmpty() || n.isEmpty() || a.isEmpty() || u.isEmpty() || p.isEmpty())
+                    throw new Exception("Todos los campos son obligatorios.");
+
+                Cliente nuevoCliente = ClienteController.registrarCliente(id, n, a, u, p);
+
+                if (nuevoCliente != null) {
+                    // Establecer tipo de cliente si es oro
+                    if (t.equals("oro")) {
+                        nuevoCliente.setTipoCliente("oro");
+                        ClienteController.actualizarCliente(nuevoCliente);
+                    }
+
+                    cargarDatos();
+                    JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.");
+
+                    // Preguntar si desea agregar automóviles para este cliente
+                    int addCars = JOptionPane.showConfirmDialog(this,
+                            "¿Desea agregar automóviles para este cliente ahora?",
+                            "Agregar automóviles", JOptionPane.YES_NO_OPTION);
+
+                    if (addCars == JOptionPane.YES_OPTION) {
+                        agregarAutomovil(nuevoCliente);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "Error al agregar cliente. Puede que el identificador o usuario ya exista.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void agregarAutomovil(Cliente cliente) {
+        JTextField placa = new JTextField();
+        JTextField marca = new JTextField();
+        JTextField modelo = new JTextField();
+
+        Object[] campos = {
+                "Placa:", placa,
+                "Marca:", marca,
+                "Modelo:", modelo
+        };
+
+        int res = JOptionPane.showConfirmDialog(this, campos,
+                "Agregar Automóvil para " + cliente.getNombreCompleto(),
+                JOptionPane.OK_CANCEL_OPTION);
+
+        if (res == JOptionPane.OK_OPTION) {
+            try {
+                String p = placa.getText().trim();
+                String m = marca.getText().trim();
+                String mo = modelo.getText().trim();
+
+                if (p.isEmpty() || m.isEmpty() || mo.isEmpty())
+                    throw new Exception("Placa, marca y modelo son obligatorios.");
+
+                boolean ok = ClienteController.registrarAutomovil(cliente.getIdentificador(), p, m, mo, "");
+                if (ok) {
+                    cargarDatos();
+                    JOptionPane.showMessageDialog(this, "Automóvil agregado correctamente.");
+                    // Preguntar si desea agregar más automóviles
+                    int addMore = JOptionPane.showConfirmDialog(this,
+                            "¿Desea agregar otro automóvil para este cliente?",
+                            "Agregar más automóviles", JOptionPane.YES_NO_OPTION);
+
+                    if (addMore == JOptionPane.YES_OPTION) {
+                        agregarAutomovil(cliente);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "Error al agregar automóvil. Verifique que la placa no esté repetida para este cliente y que los datos sean válidos.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void editarAutomovil(Cliente cliente, String placa) {
+        // Buscar el automóvil por placa
+        Automovil auto = null;
+        for (Automovil a : cliente.getAutomoviles()) {
+            if (a.getPlaca().equals(placa)) {
+                auto = a;
+                break;
+            }
+        }
+
+        if (auto == null) {
+            JOptionPane.showMessageDialog(this, "No se encontró el automóvil.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        JTextField marca = new JTextField(auto.getMarca());
+        JTextField modelo = new JTextField(auto.getModelo());
+
+        Object[] campos = {
+                "Placa:", new JLabel(placa),
+                "Marca:", marca,
+                "Modelo:", modelo
+        };
+
+        int res = JOptionPane.showConfirmDialog(this, campos,
+                "Editar Automóvil", JOptionPane.OK_CANCEL_OPTION);
+
+        if (res == JOptionPane.OK_OPTION) {
+            try {
+                String m = marca.getText().trim();
+                String mo = modelo.getText().trim();
+
+                if (m.isEmpty() || mo.isEmpty())
+                    throw new Exception("Marca y modelo son obligatorios.");
+
+                auto.setMarca(m);
+                auto.setModelo(mo);
+
+                boolean ok = ClienteController.actualizarAutomovil(cliente.getIdentificador(), auto);
+
+                if (ok) {
+                    JOptionPane.showMessageDialog(this, "Automóvil actualizado correctamente.");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al actualizar automóvil.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     private void editarCliente() {
-        // Implementa según tus modelos y controladores
-        JOptionPane.showMessageDialog(this, "Funcionalidad de editar cliente aquí.");
+        int filaSeleccionada = tablaClientes.getSelectedRow();
+        if (filaSeleccionada < 0) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un cliente para editar.",
+                    "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String idCliente = tablaClientes.getValueAt(filaSeleccionada, 0).toString();
+        Cliente cliente = ClienteController.obtenerClientePorId(idCliente);
+
+        if (cliente == null) {
+            JOptionPane.showMessageDialog(this, "No se encontró el cliente.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        JTextField nombre = new JTextField(cliente.getNombre());
+        JTextField apellido = new JTextField(cliente.getApellido());
+        JTextField usuario = new JTextField(cliente.getNombreUsuario());
+        JPasswordField password = new JPasswordField();
+        password.setEnabled(false);
+        JCheckBox chkCambiarPass = new JCheckBox("Cambiar contraseña");
+        JComboBox<String> tipoCliente = new JComboBox<>(new String[] { "normal", "oro" });
+        tipoCliente.setSelectedItem(cliente.getTipoCliente());
+
+        chkCambiarPass.addActionListener(e -> {
+            password.setEnabled(chkCambiarPass.isSelected());
+            if (chkCambiarPass.isSelected()) {
+                password.setText("");
+            }
+        });
+
+        JPanel panelPass = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        panelPass.add(chkCambiarPass);
+
+        Object[] campos = {
+                "Identificador:", new JLabel(cliente.getIdentificador()),
+                "Nombre:", nombre,
+                "Apellido:", apellido,
+                "Usuario:", usuario,
+                "Tipo de Cliente:", tipoCliente,
+                panelPass, password
+        };
+
+        int res = JOptionPane.showConfirmDialog(this, campos, "Editar Cliente", JOptionPane.OK_CANCEL_OPTION);
+        if (res == JOptionPane.OK_OPTION) {
+            try {
+                String n = nombre.getText().trim();
+                String a = apellido.getText().trim();
+                String u = usuario.getText().trim();
+                String t = tipoCliente.getSelectedItem().toString();
+
+                if (n.isEmpty() || a.isEmpty() || u.isEmpty())
+                    throw new Exception("Nombre, apellido y usuario son obligatorios.");
+
+                cliente.setNombre(n);
+                cliente.setApellido(a);
+                cliente.setNombreUsuario(u);
+                cliente.setTipoCliente(t);
+
+                if (chkCambiarPass.isSelected()) {
+                    String p = new String(password.getPassword()).trim();
+                    if (p.isEmpty())
+                        throw new Exception("La contraseña no puede estar vacía.");
+                    cliente.setContrasena(p);
+                }
+
+                ClienteController.actualizarCliente(cliente);
+                cargarDatos();
+                JOptionPane.showMessageDialog(this, "Cliente actualizado correctamente.");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     private void eliminarCliente() {
-        // Implementa según tus modelos y controladores
-        JOptionPane.showMessageDialog(this, "Funcionalidad de eliminar cliente aquí.");
+        int filaSeleccionada = tablaClientes.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            String idCliente = tablaClientes.getValueAt(filaSeleccionada, 0).toString();
+            String nombre = tablaClientes.getValueAt(filaSeleccionada, 1).toString();
+
+            int confirmacion = JOptionPane.showConfirmDialog(this,
+                    "¿Está seguro de eliminar el cliente '" + nombre + "'?\n" +
+                            "Se eliminarán también todos sus automóviles y registros asociados.",
+                    "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                boolean eliminado = ClienteController.eliminarCliente(idCliente);
+
+                if (eliminado) {
+                    cargarDatos();
+                    JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.");
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "No se pudo eliminar el cliente.\n" +
+                                    "Puede tener órdenes de trabajo o facturas pendientes.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un cliente para eliminar.",
+                    "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     private void cargarArchivoClientes() {
-        // Implementa según tus modelos y controladores
-        JOptionPane.showMessageDialog(this, "Funcionalidad de carga masiva de clientes aquí.");
+        try {
+            File archivo = CargadorArchivos.seleccionarArchivo(this, "Seleccionar archivo de clientes",
+                    "Archivos TMC (*.tmca)", "tmca");
+            if (archivo != null) {
+                int resultado = CargadorArchivos.cargarClientes(archivo);
+                if (resultado > 0) {
+                    JOptionPane.showMessageDialog(this,
+                            "Se cargaron " + resultado + " clientes correctamente.",
+                            "Carga exitosa", JOptionPane.INFORMATION_MESSAGE);
+                    cargarDatos(); // Actualizar la tabla
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "No se pudo cargar ningún cliente del archivo.",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar archivo: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     // ------------------- PROGRESO DE AUTOMÓVILES -------------------

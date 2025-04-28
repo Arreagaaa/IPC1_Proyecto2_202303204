@@ -116,13 +116,13 @@ public class Cliente extends Persona {
      * 
      * @return
      */
-    public boolean agregarAutomovil(Automovil automovil) {
-        if (automovil != null) {
-            // Asignar referencia al cliente
-            automovil.setCliente(this);
-            automoviles.add(automovil);
+    public boolean agregarAutomovil(Automovil auto) {
+        // Si ya existe un auto con esa placa en este cliente, retorna false
+        if (buscarAutomovil(auto.getPlaca()) != null) {
+            return false;
         }
-        return false;
+        automoviles.add(auto);
+        return true;
     }
 
     /**
