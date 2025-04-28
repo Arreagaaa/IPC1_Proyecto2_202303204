@@ -3,6 +3,7 @@ package com.tallermecanico.views;
 import com.tallermecanico.controllers.*;
 import com.tallermecanico.models.*;
 import com.tallermecanico.models.personas.Cliente;
+import com.tallermecanico.utils.GeneradorPDF;
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -14,10 +15,8 @@ public class ClienteView extends BaseView {
     private JTabbedPane tabbedPane;
     private DefaultTableModel modeloAutomoviles;
     private DefaultTableModel modeloServiciosPendientes;
-    private DefaultTableModel modeloFacturas;
     private JTable tablaAutomoviles;
     private JTable tablaServiciosPendientes;
-    private JTable tablaFacturas;
 
     public ClienteView(Cliente cliente) {
         super("Taller Mecánico - Cliente");
@@ -58,7 +57,7 @@ public class ClienteView extends BaseView {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         // Info del cliente
-        String tipoCliente = "Cliente " + (clienteActual.getTipoCliente().equals("oro") ? "Oro 🌟" : "Normal");
+        String tipoCliente = "Cliente " + (clienteActual.getTipoCliente().equals("oro") ? "Oro " : "Normal");
         JLabel lblBienvenida = new JLabel("Bienvenido, " + clienteActual.getNombreCompleto() +
                 " | " + tipoCliente + " | ID: " + clienteActual.getIdentificador());
         lblBienvenida.setForeground(Color.WHITE);
@@ -213,61 +212,54 @@ public class ClienteView extends BaseView {
         panel.setBackground(COLOR_LIGHT);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Panel de título
-        JPanel titlePanel = new JPanel(new BorderLayout());
-        titlePanel.setBackground(COLOR_LIGHT);
         JLabel titleLabel = new JLabel("Mis Facturas");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         titleLabel.setForeground(COLOR_PRIMARY_DARK);
-        titlePanel.add(titleLabel, BorderLayout.WEST);
-        panel.add(titlePanel, BorderLayout.NORTH);
+        panel.add(titleLabel, BorderLayout.NORTH);
 
-        // Crear tabla y modelo
-        String[] columnas = { "#", "Vehículo", "Servicio", "Fecha", "Total", "Estado", "Acciones" };
-        modeloFacturas = new DefaultTableModel(columnas, 0) {
+        String[] columnas = {"Factura", "Vehículo", "Servicio", "Total", "Estado", "Acciones"};
+        DefaultTableModel modeloFacturas = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 6; // Solo la columna de acciones es editable
+                return column == 5; // Solo la columna de acciones es editable
             }
         };
 
-        tablaFacturas = new JTable(modeloFacturas);
+        JTable tablaFacturas = new JTable(modeloFacturas);
         JScrollPane scrollPane = new JScrollPane(tablaFacturas);
-        scrollPane.setBorder(BorderFactory.createLineBorder(COLOR_PRIMARY, 1));
-
-        // Configurar tabla
-        tablaFacturas.setFillsViewportHeight(true);
         estilizarTabla(tablaFacturas);
 
-        // Ajustar anchos de columna
-        TableColumnModel columnModel = tablaFacturas.getColumnModel();
-        columnModel.getColumn(0).setPreferredWidth(60);
-        columnModel.getColumn(1).setPreferredWidth(150);
-        columnModel.getColumn(2).setPreferredWidth(150);
-        columnModel.getColumn(3).setPreferredWidth(120);
-        columnModel.getColumn(4).setPreferredWidth(80);
-        columnModel.getColumn(5).setPreferredWidth(100);
-        columnModel.getColumn(6).setPreferredWidth(100);
+        // Llenar la tabla con las facturas del cliente
+        Vector<Factura> facturas = FacturaController.obtenerFacturasPorCliente(clienteActual);
+        for (Factura factura : facturas) {
+            modeloFacturas.addRow(new Object[]{
+                factura.getId(),
+                factura.getAutomovil().getMarca() + " " + factura.getAutomovil().getModelo(),
+                factura.getServicioAsociado().getNombre(),
+                "Q" + factura.getTotal(),
+                factura.getEstado(),
+                "Descargar PDF"
+            });
+        }
 
-        // Añadir botón de pagar factura en la columna de acciones
-        tablaFacturas.getColumnModel().getColumn(6).setCellRenderer(new ButtonRenderer("Pagar"));
-        tablaFacturas.getColumnModel().getColumn(6).setCellEditor(new ButtonEditor(new JCheckBox(), "Pagar") {
+        // Botón para descargar PDF
+        tablaFacturas.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer("Descargar PDF"));
+        tablaFacturas.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JCheckBox(), "Descargar PDF") {
             @Override
             public void buttonClicked() {
                 int row = tablaFacturas.getSelectedRow();
-                if (row >= 0) {
-                    int numeroFactura = (int) modeloFacturas.getValueAt(row, 0);
-                    pagarFactura(numeroFactura);
+                if (row >= 0 && row < modeloFacturas.getRowCount()) {
+                    int facturaId = (int) modeloFacturas.getValueAt(row, 0);
+                    Factura factura = FacturaController.obtenerFacturaPorId(facturaId);
+                    if (factura != null) {
+                        GeneradorPDF.generarFacturaPDF(factura);
+                        JOptionPane.showMessageDialog(null, "Factura PDF generada correctamente.");
+                    }
                 }
             }
         });
 
-        // Panel central con la tabla
-        JPanel centerPanel = new JPanel(new BorderLayout());
-        centerPanel.setBackground(COLOR_LIGHT);
-        centerPanel.add(scrollPane, BorderLayout.CENTER);
-        panel.add(centerPanel, BorderLayout.CENTER);
-
+        panel.add(scrollPane, BorderLayout.CENTER);
         return panel;
     }
 
@@ -285,18 +277,26 @@ public class ClienteView extends BaseView {
 
         // Cargar servicios pendientes
         actualizarTablaServiciosPendientes();
-
-        // Cargar facturas
-        actualizarTablaFacturas();
     }
 
     private void registrarAutomovil() {
         // Implementar el formulario para registrar un nuevo automóvil
         JTextField txtPlaca = new JTextField();
         JTextField txtMarca = new JTextField();
+        txtMarca.setToolTipText("Ejemplo: honda, mazda, toyota");
+
         JTextField txtModelo = new JTextField();
+        txtModelo.setToolTipText("Ejemplo: civic 2005, 3 2017, corolla 2010");
+
+        JLabel ayuda = new JLabel("<html><span style='color: #1976D2;'>"
+                + "Marca: <b>honda, mazda, toyota</b> &nbsp;&nbsp; "
+                + "Modelo: <b>civic 2005, 3 2017, corolla 2010</b>"
+                + "</span></html>");
+        ayuda.setFont(new Font("Arial", Font.PLAIN, 12));
+        ayuda.setForeground(new Color(25, 118, 210));
 
         Object[] message = {
+                ayuda,
                 "Placa:", txtPlaca,
                 "Marca:", txtMarca,
                 "Modelo:", txtModelo
@@ -421,25 +421,6 @@ public class ClienteView extends BaseView {
         }
     }
 
-    private void actualizarTablaFacturas() {
-        modeloFacturas.setRowCount(0);
-        Vector<Factura> facturas = FacturaController.obtenerFacturasCliente(clienteActual);
-        for (Factura factura : facturas) {
-            String acciones = factura.getEstado().equals("PENDIENTE") ? "Pagar" : "";
-
-            modeloFacturas.addRow(new Object[] {
-                    factura.getNumero(),
-                    factura.getOrdenTrabajo().getAutomovil().getMarca() + " "
-                            + factura.getOrdenTrabajo().getAutomovil().getModelo(),
-                    factura.getOrdenTrabajo().getServicio().getNombre(),
-                    factura.getFechaEmision(),
-                    String.format("Q %.2f", factura.getTotal()),
-                    factura.getEstado(),
-                    acciones
-            });
-        }
-    }
-
     private void iniciarActualizacionAutomatica() {
         // Actualizar automáticamente los servicios en progreso cada 5 segundos
         new Timer(5000, e -> {
@@ -447,29 +428,6 @@ public class ClienteView extends BaseView {
                 actualizarTablaServiciosPendientes();
             }
         }).start();
-    }
-
-    private void pagarFactura(int numeroFactura) {
-        Factura factura = FacturaController.buscarFacturaPorNumero(numeroFactura);
-
-        if (factura != null && factura.getEstado().equals("PENDIENTE")) {
-            int confirmacion = JOptionPane.showConfirmDialog(this,
-                    "¿Desea pagar la factura #" + numeroFactura + " por un total de Q" +
-                            String.format("%.2f", factura.getTotal()) + "?",
-                    "Confirmar Pago", JOptionPane.YES_NO_OPTION);
-
-            if (confirmacion == JOptionPane.YES_OPTION) {
-                boolean exito = FacturaController.pagarFactura(factura);
-
-                if (exito) {
-                    JOptionPane.showMessageDialog(this, "Factura pagada correctamente.");
-                    actualizarTablaFacturas();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error al procesar el pago.",
-                            "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
     }
 
     private void cerrarSesion() {
@@ -480,7 +438,7 @@ public class ClienteView extends BaseView {
 
     @Override
     protected void inicializarComponentes() {
-        // Ya inicializado en el constructor, no necesitamos duplicar código
+        tabbedPane.addTab("Mis Facturas", inicializarPanelFacturas());
     }
 
     /**

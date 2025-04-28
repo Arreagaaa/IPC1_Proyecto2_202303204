@@ -3,6 +3,8 @@ package com.tallermecanico.models;
 import java.io.Serializable;
 import java.util.Vector;
 
+import com.tallermecanico.models.personas.Persona;
+
 /**
  * Representa un servicio ofrecido por el taller
  */
@@ -201,4 +203,5 @@ public class Servicio implements Serializable {
         }
         return cantidad.toString().toCharArray();
     }
+
 }

@@ -13,37 +13,34 @@ import java.util.Vector;
 public class RepuestoController {
 
     /**
+     * Modelo de datos para la tabla de repuestos
+     */
+    private static javax.swing.table.DefaultTableModel modeloRepuestos = new javax.swing.table.DefaultTableModel();
+
+    /**
      * Registra un nuevo repuesto en el sistema
      * 
      * @return el repuesto creado o null si falló
      */
-    public static Repuesto registrarRepuesto(String nombre, String marca, String modelo,
-            int existencias, double precio) {
-        // Verificar que los datos sean válidos
-        if (existencias < 0 || precio <= 0) {
-            GestorBitacora.registrarEvento("Sistema", "Registro de repuesto", false,
-                    "Datos inválidos: existencias o precio negativos");
-            return null;
-        }
+    public static Repuesto registrarRepuesto(String nombre, String marca, String modelo, int existencias,
+            double precio) {
+        String id = generarNuevoId(); // Debe generar un ID único tipo String
+        Repuesto r = new Repuesto(id, nombre, marca, modelo, existencias, precio);
+        DataController.getRepuestos().add(r); // Debe agregarlo a la lista global
+        DataController.guardarDatos(); // Debe guardar los datos si usas persistencia
+        // cargarDatos(); // Removed as the method is undefined
+        modeloRepuestos.fireTableDataChanged();
+        return r;
+    }
 
-        // Crear el nuevo repuesto
+    private static String generarNuevoId() {
+        // Generar un nuevo ID único para el repuesto
         int nuevoId = DataController.getNuevoIdRepuesto();
-        Repuesto nuevoRepuesto = new Repuesto();
-
-        // Agregarlo al vector de repuestos
-        DataController.getRepuestos().add(nuevoRepuesto);
-
-        // Guardar cambios
-        DataController.guardarDatos();
-
-        GestorBitacora.registrarEvento("Sistema", "Registro de repuesto", true,
-                "Repuesto registrado: " + nuevoId + " - " + nombre);
-
-        return nuevoRepuesto;
+        return String.valueOf(nuevoId);
     }
 
     /**
-     * Registra un repuesto con un ID específico
+     * Registra un repuesto con un ID específico, verificando duplicados
      */
     public static Repuesto registrarRepuestoConId(String idRepuesto, String nombre, String marca, String modelo,
             int existencias, double precio) {
@@ -52,9 +49,19 @@ public class RepuestoController {
             return null;
         }
 
-        // Crear el repuesto con ID específico
+        // SOLUCIÓN: Verificar si ya existe un repuesto con este ID
+        for (Repuesto existente : DataController.getRepuestos()) {
+            if (existente.getId().equals(idRepuesto)) {
+                // Ya existe, no crear duplicado
+                GestorBitacora.registrarEvento("Sistema", "Registro de repuesto", false,
+                        "Se intentó registrar un repuesto con ID duplicado: " + idRepuesto);
+                return existente; // Retornamos el existente en lugar de null
+            }
+        }
+
+        // Crear el repuesto con ID específico solo si no existe
         Repuesto repuesto = new Repuesto();
-        repuesto.setId(idRepuesto); // Método que debes agregar a la clase Repuesto
+        repuesto.setId(idRepuesto);
         repuesto.setNombre(nombre);
         repuesto.setMarca(marca);
         repuesto.setModelo(modelo);
@@ -64,6 +71,9 @@ public class RepuestoController {
         // Agregar el repuesto al vector
         DataController.getRepuestos().add(repuesto);
 
+        GestorBitacora.registrarEvento("Sistema", "Registro de repuesto", true,
+                "Repuesto registrado: " + idRepuesto + " - " + nombre);
+
         return repuesto;
     }
 
@@ -72,14 +82,14 @@ public class RepuestoController {
      * 
      * @return true si se actualizó correctamente
      */
-    public static boolean actualizarRepuesto(int id, String nombre, String marca,
+    public static boolean actualizarRepuesto(String idRepuesto, String nombre, String marca,
             String modelo, int existencias, double precio) {
         // Buscar el repuesto
-        Repuesto repuesto = buscarRepuestoPorId(id);
+        Repuesto repuesto = buscarRepuestoPorId(idRepuesto);
 
         if (repuesto == null) {
             GestorBitacora.registrarEvento("Sistema", "Actualización de repuesto", false,
-                    "No se encontró repuesto con ID: " + id);
+                    "No se encontró repuesto con ID: " + idRepuesto);
             return false;
         }
 
@@ -101,7 +111,7 @@ public class RepuestoController {
         DataController.guardarDatos();
 
         GestorBitacora.registrarEvento("Sistema", "Actualización de repuesto", true,
-                "Repuesto actualizado: " + id);
+                "Repuesto actualizado: " + idRepuesto);
 
         return true;
     }
@@ -109,42 +119,13 @@ public class RepuestoController {
     /**
      * Actualiza un repuesto existente (versión adaptada)
      * 
-     * @param idRepuesto  ID del repuesto a actualizar
-     * @param nombre      Nuevo nombre
-     * @param descripcion Nueva descripción (se usará para marca/modelo)
-     * @param precio      Nuevo precio
-     * @param cantidad    Nueva cantidad (se usará para existencias)
-     * @return true si la operación fue exitosa
+     * @deprecated Usar la versión con String idRepuesto
      */
+    @Deprecated
     public static boolean actualizarRepuesto(int idRepuesto, String nombre, String descripcion, double precio,
             int cantidad) {
-        // Buscar el repuesto por su ID
-        Repuesto repuesto = buscarRepuestoPorId(idRepuesto);
-
-        if (repuesto == null) {
-            GestorBitacora.registrarEvento("Sistema", "Actualizar Repuesto", false,
-                    "No se encontró repuesto con ID: " + idRepuesto);
-            return false;
-        }
-
-        // Actualizar propiedades que sabemos que existen
-        repuesto.setNombre(nombre);
-        repuesto.setPrecio(precio);
-
-        // Usar marca y modelo como alternativa a descripción
-        repuesto.setMarca(descripcion);
-        repuesto.setModelo(descripcion);
-
-        // Usar setExistencias en lugar de setCantidad
-        repuesto.setExistencias(cantidad);
-
-        // Guardar cambios
-        DataController.guardarDatos();
-
-        GestorBitacora.registrarEvento("Sistema", "Actualizar Repuesto", true,
-                "Repuesto #" + idRepuesto + " actualizado: " + nombre);
-
-        return true;
+        // NO USAR, ELIMINAR O ADAPTAR A STRING
+        return false;
     }
 
     /**
@@ -152,25 +133,25 @@ public class RepuestoController {
      * 
      * @return true si se eliminó correctamente
      */
-    public static boolean eliminarRepuesto(int id) {
+    public static boolean eliminarRepuesto(String idRepuesto) {
         Vector<Repuesto> repuestos = DataController.getRepuestos();
 
         for (int i = 0; i < repuestos.size(); i++) {
-            if (repuestos.get(i).getId().equals(String.valueOf(id))) {
+            if (repuestos.get(i).getId().equals(String.valueOf(idRepuesto))) {
                 repuestos.remove(i);
 
                 // Guardar cambios
                 DataController.guardarDatos();
 
                 GestorBitacora.registrarEvento("Sistema", "Eliminación de repuesto", true,
-                        "Repuesto eliminado: " + id);
+                        "Repuesto eliminado: " + idRepuesto);
 
                 return true;
             }
         }
 
         GestorBitacora.registrarEvento("Sistema", "Eliminación de repuesto", false,
-                "No se encontró repuesto con ID: " + id);
+                "No se encontró repuesto con ID: " + idRepuesto);
 
         return false;
     }
@@ -178,38 +159,12 @@ public class RepuestoController {
     /**
      * Ajusta el inventario de un repuesto
      * 
-     * @return true si se ajustó correctamente
+     * @deprecated Usar la versión con String idRepuesto
      */
+    @Deprecated
     public static boolean ajustarInventario(int id, int cantidad) {
-        // Buscar el repuesto
-        Repuesto repuesto = buscarRepuestoPorId(id);
-
-        if (repuesto == null) {
-            GestorBitacora.registrarEvento("Sistema", "Ajuste de inventario", false,
-                    "No se encontró repuesto con ID: " + id);
-            return false;
-        }
-
-        // Aplicar el ajuste
-        int nuevasExistencias = repuesto.getExistencias() + cantidad;
-
-        // Verificar que no quede negativo
-        if (nuevasExistencias < 0) {
-            GestorBitacora.registrarEvento("Sistema", "Ajuste de inventario", false,
-                    "El ajuste dejaría existencias negativas");
-            return false;
-        }
-
-        repuesto.setExistencias(nuevasExistencias);
-
-        // Guardar cambios
-        DataController.guardarDatos();
-
-        String tipoAjuste = cantidad > 0 ? "incremento" : "decremento";
-        GestorBitacora.registrarEvento("Sistema", "Ajuste de inventario", true,
-                "Repuesto " + id + ": " + tipoAjuste + " de " + Math.abs(cantidad) + " unidades");
-
-        return true;
+        // NO USAR, ELIMINAR O ADAPTAR A STRING
+        return false;
     }
 
     /**
@@ -217,9 +172,9 @@ public class RepuestoController {
      * 
      * @return el repuesto encontrado o null
      */
-    public static Repuesto buscarRepuestoPorId(int id) {
+    public static Repuesto buscarRepuestoPorId(String idRepuesto) {
         for (Repuesto repuesto : DataController.getRepuestos()) {
-            if (repuesto.getId().equals(String.valueOf(id))) {
+            if (repuesto.getId().equals(idRepuesto)) {
                 return repuesto;
             }
         }
@@ -230,7 +185,7 @@ public class RepuestoController {
      * Obtiene todos los repuestos del sistema
      */
     public static Vector<Repuesto> obtenerTodosLosRepuestos() {
-        return DataController.getRepuestos();
+        return new Vector<>(DataController.getRepuestos());
     }
 
     /**
@@ -349,12 +304,17 @@ public class RepuestoController {
      * @return true si la operación fue exitosa
      */
     public static boolean agregarRepuesto(String nombre, String descripcion, double precio, int cantidad) {
-        // Generar un nuevo ID para el repuesto
-        int nuevoId = DataController.getNuevoIdRepuesto();
+        // Generar un nuevo ID como String
+        String nuevoId = String.valueOf(DataController.getNuevoIdRepuesto());
 
-        // Crear el repuesto usando el constructor que existe
-        // Formato: (id, nombre, marca, modelo, existencias, precio)
+        // Crear el repuesto usando el constructor adecuado
         Repuesto nuevoRepuesto = new Repuesto();
+        nuevoRepuesto.setId(nuevoId);
+        nuevoRepuesto.setNombre(nombre);
+        nuevoRepuesto.setMarca(descripcion);
+        nuevoRepuesto.setModelo(descripcion);
+        nuevoRepuesto.setExistencias(cantidad);
+        nuevoRepuesto.setPrecio(precio);
 
         // Agregar a la lista
         DataController.getRepuestos().add(nuevoRepuesto);
@@ -396,5 +356,37 @@ public class RepuestoController {
         }
 
         return repuestos;
+    }
+
+    /**
+     * Elimina duplicados del vector de repuestos basándose en el ID
+     * 
+     * @return cantidad de duplicados eliminados
+     */
+    public static int eliminarRepuestosDuplicados() {
+        Vector<Repuesto> repuestos = DataController.getRepuestos();
+        Vector<Repuesto> unicos = new Vector<>();
+        Vector<String> idsAgregados = new Vector<>();
+        int eliminados = 0;
+
+        for (Repuesto r : repuestos) {
+            if (!idsAgregados.contains(r.getId())) {
+                unicos.add(r);
+                idsAgregados.add(r.getId());
+            } else {
+                eliminados++;
+                System.out.println("Eliminando repuesto duplicado: " + r.getId() + " - " + r.getNombre());
+            }
+        }
+
+        // Actualizar el vector sin duplicados
+        if (eliminados > 0) {
+            DataController.setRepuestos(unicos);
+            DataController.guardarDatos();
+            GestorBitacora.registrarEvento("Sistema", "Limpieza de datos", true,
+                    "Se eliminaron " + eliminados + " repuestos duplicados");
+        }
+
+        return eliminados;
     }
 }

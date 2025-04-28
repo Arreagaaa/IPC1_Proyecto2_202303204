@@ -765,3 +765,1805 @@
 2025-04-27 15:36:29 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
 2025-04-27 15:39:46 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
 2025-04-27 15:39:46 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 15:46:28 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:46:29 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 15:46:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 15:46:29 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:47:08 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 15:48:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 15:48:09 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 15:52:54 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 15:52:55 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 15:52:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 15:52:55 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 15:53:02 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 15:55:44 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 15:56:07 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 15:56:13 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 15:56:13 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 16:01:34 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 16:01:34 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 19:56:57 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 19:56:57 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 19:56:57 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 19:56:57 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 19:56:57 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 19:57:06 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 19:57:18 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 19:57:22 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 19:57:22 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 19:57:33 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 19:57:33 | Sistema | Crear Orden | ÉXITO | Orden #1 creada para cliente: ref ref, automóvil: ref, servicio: Diagnóstico
+2025-04-27 19:57:34 | Sistema | Cola Espera | ÉXITO | Orden #1 iniciando espera de 12 segundos
+2025-04-27 19:57:46 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 19:57:46 | Sistema | Asignar Mecánico | ÉXITO | Orden #1 asignada al mecánico Jake elPerro
+2025-04-27 19:57:46 | Sistema | Cola Espera | ÉXITO | Orden #1 tiempo de espera completado
+2025-04-27 19:57:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 19:57:47 | Sistema | Finalizar Orden | ÉXITO | Orden #1 finalizada
+2025-04-27 19:57:47 | Sistema | En Servicio | ÉXITO | Orden #1 servicio completado automáticamente
+2025-04-27 19:57:47 | Sistema | Finalizado | ÉXITO | Orden #1 iniciando tiempo finalizado de 1 segundos
+2025-04-27 19:57:48 | Sistema | Agregar Factura | ÉXITO | Factura #1 agregada.
+2025-04-27 19:57:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 19:57:48 | Sistema | Generar Factura | ÉXITO | Factura #1 generada para orden #1
+2025-04-27 19:57:48 | Sistema | Finalizado | ÉXITO | Orden #1 factura generada automáticamente
+2025-04-27 19:58:40 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 19:58:52 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 20:00:05 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 30 - test
+2025-04-27 20:00:10 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 20:00:14 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:00:14 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:01:39 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 20:02:10 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 31 - ref
+2025-04-27 20:02:25 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 20:02:31 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:02:31 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:02:39 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:02:39 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 20:11:23 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:11:23 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:11:23 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:11:28 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:11:28 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:11:52 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 20:14:05 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:14:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:14:05 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:14:11 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:14:11 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:18:35 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:18:35 | Sistema | Crear Orden | ÉXITO | Orden #2 creada para cliente: ref ref, automóvil: reef, servicio: Revision Aire
+2025-04-27 20:18:36 | Sistema | Cola Espera | ÉXITO | Orden #2 iniciando espera de 12 segundos
+2025-04-27 20:18:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:18:48 | Sistema | Asignar Mecánico | ÉXITO | Orden #2 asignada al mecánico Jake elPerro
+2025-04-27 20:18:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:18:48 | Sistema | Cola Espera | ÉXITO | Orden #2 tiempo de espera completado
+2025-04-27 20:18:48 | Sistema | Finalizar Orden | ÉXITO | Orden #2 finalizada
+2025-04-27 20:18:48 | Sistema | En Servicio | ÉXITO | Orden #2 servicio completado automáticamente
+2025-04-27 20:18:48 | Sistema | Finalizado | ÉXITO | Orden #2 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:18:49 | Sistema | Agregar Factura | ÉXITO | Factura #2 agregada.
+2025-04-27 20:18:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:18:49 | Sistema | Generar Factura | ÉXITO | Factura #2 generada para orden #2
+2025-04-27 20:18:49 | Sistema | Finalizado | ÉXITO | Orden #2 factura generada automáticamente
+2025-04-27 20:18:53 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 20:19:22 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 20:19:32 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 20:20:51 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:20:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:20:51 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:20:57 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:20:57 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:22:43 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:22:43 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:22:43 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:22:46 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:22:46 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:23:36 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:23:36 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:23:36 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:23:39 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:23:39 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:23:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:23:49 | Sistema | Crear Orden | ÉXITO | Orden #3 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:23:49 | Sistema | Cola Espera | ÉXITO | Orden #3 iniciando espera de 12 segundos
+2025-04-27 20:24:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:01 | Sistema | Asignar Mecánico | ÉXITO | Orden #3 asignada al mecánico Jake elPerro
+2025-04-27 20:24:01 | Sistema | Cola Espera | ÉXITO | Orden #3 tiempo de espera completado
+2025-04-27 20:24:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:02 | Sistema | Finalizar Orden | ÉXITO | Orden #3 finalizada
+2025-04-27 20:24:02 | Sistema | En Servicio | ÉXITO | Orden #3 servicio completado automáticamente
+2025-04-27 20:24:02 | Sistema | Finalizado | ÉXITO | Orden #3 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:24:02 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 20:24:03 | Sistema | Agregar Factura | ÉXITO | Factura #3 agregada.
+2025-04-27 20:24:03 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:03 | Sistema | Generar Factura | ÉXITO | Factura #3 generada para orden #3
+2025-04-27 20:24:03 | Sistema | Finalizado | ÉXITO | Orden #3 factura generada automáticamente
+2025-04-27 20:24:38 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:24:38 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:24:45 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:45 | Sistema | Crear Orden | ÉXITO | Orden #4 creada para cliente: ref ref, automóvil: reef, servicio: Mantenimiento Aire
+2025-04-27 20:24:45 | Sistema | Cola Espera | ÉXITO | Orden #4 iniciando espera de 12 segundos
+2025-04-27 20:24:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:49 | Sistema | Crear Orden | ÉXITO | Orden #5 creada para cliente: ref ref, automóvil: reef, servicio: Reemplazo Radiador
+2025-04-27 20:24:49 | Sistema | Cola Espera | ÉXITO | Orden #5 iniciando espera de 12 segundos
+2025-04-27 20:24:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:52 | Sistema | Crear Orden | ÉXITO | Orden #6 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:24:52 | Sistema | Cola Espera | ÉXITO | Orden #6 iniciando espera de 12 segundos
+2025-04-27 20:24:54 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:54 | Sistema | Crear Orden | ÉXITO | Orden #7 creada para cliente: ref ref, automóvil: reef, servicio: Cambio Pistones
+2025-04-27 20:24:54 | Sistema | Cola Espera | ÉXITO | Orden #7 iniciando espera de 12 segundos
+2025-04-27 20:24:57 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:57 | Sistema | Asignar Mecánico | ÉXITO | Orden #4 asignada al mecánico Jake elPerro
+2025-04-27 20:24:58 | Sistema | Cola Espera | ÉXITO | Orden #4 tiempo de espera completado
+2025-04-27 20:24:59 | Sistema | Promoción Cliente | ÉXITO | Cliente ref ref promocionado a Cliente Oro
+2025-04-27 20:24:59 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:24:59 | Sistema | Finalizar Orden | ÉXITO | Orden #4 finalizada
+2025-04-27 20:24:59 | Sistema | En Servicio | ÉXITO | Orden #4 servicio completado automáticamente
+2025-04-27 20:24:59 | Sistema | Finalizado | ÉXITO | Orden #4 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:25:00 | Sistema | Agregar Factura | ÉXITO | Factura #4 agregada.
+2025-04-27 20:25:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:00 | Sistema | Generar Factura | ÉXITO | Factura #4 generada para orden #4
+2025-04-27 20:25:00 | Sistema | Finalizado | ÉXITO | Orden #4 factura generada automáticamente
+2025-04-27 20:25:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:02 | Sistema | Asignar Mecánico | ÉXITO | Orden #5 asignada al mecánico Jake elPerro
+2025-04-27 20:25:02 | Sistema | Cola Espera | ÉXITO | Orden #5 tiempo de espera completado
+2025-04-27 20:25:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:02 | Sistema | Finalizar Orden | ÉXITO | Orden #5 finalizada
+2025-04-27 20:25:02 | Sistema | En Servicio | ÉXITO | Orden #5 servicio completado automáticamente
+2025-04-27 20:25:02 | Sistema | Finalizado | ÉXITO | Orden #5 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:25:02 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 20:25:03 | Sistema | Agregar Factura | ÉXITO | Factura #5 agregada.
+2025-04-27 20:25:03 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:03 | Sistema | Generar Factura | ÉXITO | Factura #5 generada para orden #5
+2025-04-27 20:25:03 | Sistema | Finalizado | ÉXITO | Orden #5 factura generada automáticamente
+2025-04-27 20:25:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:05 | Sistema | Asignar Mecánico | ÉXITO | Orden #6 asignada al mecánico Jake elPerro
+2025-04-27 20:25:05 | Sistema | Cola Espera | ÉXITO | Orden #6 tiempo de espera completado
+2025-04-27 20:25:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:05 | Sistema | Finalizar Orden | ÉXITO | Orden #6 finalizada
+2025-04-27 20:25:05 | Sistema | En Servicio | ÉXITO | Orden #6 servicio completado automáticamente
+2025-04-27 20:25:05 | Sistema | Finalizado | ÉXITO | Orden #6 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:25:06 | Sistema | Agregar Factura | ÉXITO | Factura #6 agregada.
+2025-04-27 20:25:06 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:06 | Sistema | Generar Factura | ÉXITO | Factura #6 generada para orden #6
+2025-04-27 20:25:06 | Sistema | Finalizado | ÉXITO | Orden #6 factura generada automáticamente
+2025-04-27 20:25:07 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:07 | Sistema | Asignar Mecánico | ÉXITO | Orden #7 asignada al mecánico Jake elPerro
+2025-04-27 20:25:07 | Sistema | Cola Espera | ÉXITO | Orden #7 tiempo de espera completado
+2025-04-27 20:25:07 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:07 | Sistema | Finalizar Orden | ÉXITO | Orden #7 finalizada
+2025-04-27 20:25:07 | Sistema | En Servicio | ÉXITO | Orden #7 servicio completado automáticamente
+2025-04-27 20:25:07 | Sistema | Finalizado | ÉXITO | Orden #7 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:25:08 | Sistema | Agregar Factura | ÉXITO | Factura #7 agregada.
+2025-04-27 20:25:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:08 | Sistema | Generar Factura | ÉXITO | Factura #7 generada para orden #7
+2025-04-27 20:25:08 | Sistema | Finalizado | ÉXITO | Orden #7 factura generada automáticamente
+2025-04-27 20:25:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:09 | Sistema | Asignar Mecánico | ÉXITO | Orden #6 asignada al mecánico Jake elPerro
+2025-04-27 20:25:10 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:10 | Sistema | Finalizar Orden | ÉXITO | Orden #6 finalizada
+2025-04-27 20:25:10 | Sistema | En Servicio | ÉXITO | Orden #6 servicio completado automáticamente
+2025-04-27 20:25:10 | Sistema | Finalizado | ÉXITO | Orden #6 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:25:11 | Sistema | Agregar Factura | ÉXITO | Factura #8 agregada.
+2025-04-27 20:25:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:25:11 | Sistema | Generar Factura | ÉXITO | Factura #8 generada para orden #6
+2025-04-27 20:25:11 | Sistema | Finalizado | ÉXITO | Orden #6 factura generada automáticamente
+2025-04-27 20:26:08 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:26:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:09 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:26:29 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:26:29 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:26:36 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:36 | Sistema | Crear Orden | ÉXITO | Orden #8 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:26:36 | Sistema | Cola Espera | ÉXITO | Orden #8 iniciando espera de 12 segundos
+2025-04-27 20:26:39 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:39 | Sistema | Crear Orden | ÉXITO | Orden #9 creada para cliente: ref ref, automóvil: reef, servicio: Reemplazo Radiador
+2025-04-27 20:26:39 | Sistema | Cola Espera | ÉXITO | Orden #9 iniciando espera de 12 segundos
+2025-04-27 20:26:41 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:41 | Sistema | Crear Orden | ÉXITO | Orden #10 creada para cliente: ref ref, automóvil: reef, servicio: Cambio Pistones
+2025-04-27 20:26:41 | Sistema | Cola Espera | ÉXITO | Orden #10 iniciando espera de 12 segundos
+2025-04-27 20:26:45 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:45 | Sistema | Crear Orden | ÉXITO | Orden #11 creada para cliente: ref ref, automóvil: reef, servicio: Revision Aire
+2025-04-27 20:26:45 | Sistema | Cola Espera | ÉXITO | Orden #11 iniciando espera de 12 segundos
+2025-04-27 20:26:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:48 | Sistema | Asignar Mecánico | ÉXITO | Orden #8 asignada al mecánico Jake elPerro
+2025-04-27 20:26:48 | Sistema | Cola Espera | ÉXITO | Orden #8 tiempo de espera completado
+2025-04-27 20:26:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:49 | Sistema | Crear Orden | ÉXITO | Orden #12 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:26:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:49 | Sistema | Cola Espera | ÉXITO | Orden #12 iniciando espera de 12 segundos
+2025-04-27 20:26:49 | Sistema | Finalizar Orden | ÉXITO | Orden #8 finalizada
+2025-04-27 20:26:49 | Sistema | En Servicio | ÉXITO | Orden #8 servicio completado automáticamente
+2025-04-27 20:26:49 | Sistema | Finalizado | ÉXITO | Orden #8 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:26:50 | Sistema | Agregar Factura | ÉXITO | Factura #9 agregada.
+2025-04-27 20:26:50 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:50 | Sistema | Generar Factura | ÉXITO | Factura #9 generada para orden #8
+2025-04-27 20:26:50 | Sistema | Finalizado | ÉXITO | Orden #8 factura generada automáticamente
+2025-04-27 20:26:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:51 | Sistema | Asignar Mecánico | ÉXITO | Orden #9 asignada al mecánico Jake elPerro
+2025-04-27 20:26:51 | Sistema | Cola Espera | ÉXITO | Orden #9 tiempo de espera completado
+2025-04-27 20:26:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:51 | Sistema | Finalizar Orden | ÉXITO | Orden #9 finalizada
+2025-04-27 20:26:51 | Sistema | En Servicio | ÉXITO | Orden #9 servicio completado automáticamente
+2025-04-27 20:26:51 | Sistema | Finalizado | ÉXITO | Orden #9 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:26:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:52 | Sistema | Crear Orden | ÉXITO | Orden #13 creada para cliente: ref ref, automóvil: reef, servicio: Mantenimiento Aire
+2025-04-27 20:26:52 | Sistema | Cola Espera | ÉXITO | Orden #13 iniciando espera de 12 segundos
+2025-04-27 20:26:52 | Sistema | Agregar Factura | ÉXITO | Factura #10 agregada.
+2025-04-27 20:26:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:52 | Sistema | Generar Factura | ÉXITO | Factura #10 generada para orden #9
+2025-04-27 20:26:52 | Sistema | Finalizado | ÉXITO | Orden #9 factura generada automáticamente
+2025-04-27 20:26:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:53 | Sistema | Asignar Mecánico | ÉXITO | Orden #10 asignada al mecánico Jake elPerro
+2025-04-27 20:26:53 | Sistema | Cola Espera | ÉXITO | Orden #10 tiempo de espera completado
+2025-04-27 20:26:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:53 | Sistema | Finalizar Orden | ÉXITO | Orden #10 finalizada
+2025-04-27 20:26:53 | Sistema | En Servicio | ÉXITO | Orden #10 servicio completado automáticamente
+2025-04-27 20:26:53 | Sistema | Finalizado | ÉXITO | Orden #10 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:26:54 | Sistema | Agregar Factura | ÉXITO | Factura #11 agregada.
+2025-04-27 20:26:54 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:54 | Sistema | Generar Factura | ÉXITO | Factura #11 generada para orden #10
+2025-04-27 20:26:54 | Sistema | Finalizado | ÉXITO | Orden #10 factura generada automáticamente
+2025-04-27 20:26:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:56 | Sistema | Crear Orden | ÉXITO | Orden #14 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:26:56 | Sistema | Cola Espera | ÉXITO | Orden #14 iniciando espera de 12 segundos
+2025-04-27 20:26:57 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:57 | Sistema | Asignar Mecánico | ÉXITO | Orden #11 asignada al mecánico Jake elPerro
+2025-04-27 20:26:57 | Sistema | Cola Espera | ÉXITO | Orden #11 tiempo de espera completado
+2025-04-27 20:26:57 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:57 | Sistema | Finalizar Orden | ÉXITO | Orden #11 finalizada
+2025-04-27 20:26:57 | Sistema | En Servicio | ÉXITO | Orden #11 servicio completado automáticamente
+2025-04-27 20:26:57 | Sistema | Finalizado | ÉXITO | Orden #11 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:26:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:58 | Sistema | Crear Orden | ÉXITO | Orden #15 creada para cliente: ref ref, automóvil: reef, servicio: Cambio Pistones
+2025-04-27 20:26:58 | Sistema | Cola Espera | ÉXITO | Orden #15 iniciando espera de 12 segundos
+2025-04-27 20:26:58 | Sistema | Agregar Factura | ÉXITO | Factura #12 agregada.
+2025-04-27 20:26:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:26:58 | Sistema | Generar Factura | ÉXITO | Factura #12 generada para orden #11
+2025-04-27 20:26:58 | Sistema | Finalizado | ÉXITO | Orden #11 factura generada automáticamente
+2025-04-27 20:27:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:01 | Sistema | Crear Orden | ÉXITO | Orden #16 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:27:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:01 | Sistema | Asignar Mecánico | ÉXITO | Orden #12 asignada al mecánico Jake elPerro
+2025-04-27 20:27:01 | Sistema | Cola Espera | ÉXITO | Orden #12 tiempo de espera completado
+2025-04-27 20:27:01 | Sistema | Cola Espera | ÉXITO | Orden #16 iniciando espera de 12 segundos
+2025-04-27 20:27:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:01 | Sistema | Finalizar Orden | ÉXITO | Orden #12 finalizada
+2025-04-27 20:27:01 | Sistema | En Servicio | ÉXITO | Orden #12 servicio completado automáticamente
+2025-04-27 20:27:01 | Sistema | Finalizado | ÉXITO | Orden #12 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:02 | Sistema | Agregar Factura | ÉXITO | Factura #13 agregada.
+2025-04-27 20:27:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:02 | Sistema | Generar Factura | ÉXITO | Factura #13 generada para orden #12
+2025-04-27 20:27:02 | Sistema | Finalizado | ÉXITO | Orden #12 factura generada automáticamente
+2025-04-27 20:27:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:04 | Sistema | Asignar Mecánico | ÉXITO | Orden #13 asignada al mecánico Jake elPerro
+2025-04-27 20:27:04 | Sistema | Cola Espera | ÉXITO | Orden #13 tiempo de espera completado
+2025-04-27 20:27:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:04 | Sistema | Finalizar Orden | ÉXITO | Orden #13 finalizada
+2025-04-27 20:27:04 | Sistema | En Servicio | ÉXITO | Orden #13 servicio completado automáticamente
+2025-04-27 20:27:04 | Sistema | Finalizado | ÉXITO | Orden #13 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:05 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 20:27:05 | Sistema | Agregar Factura | ÉXITO | Factura #14 agregada.
+2025-04-27 20:27:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:05 | Sistema | Generar Factura | ÉXITO | Factura #14 generada para orden #13
+2025-04-27 20:27:05 | Sistema | Finalizado | ÉXITO | Orden #13 factura generada automáticamente
+2025-04-27 20:27:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:08 | Sistema | Asignar Mecánico | ÉXITO | Orden #14 asignada al mecánico Jake elPerro
+2025-04-27 20:27:08 | Sistema | Cola Espera | ÉXITO | Orden #14 tiempo de espera completado
+2025-04-27 20:27:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:08 | Sistema | Finalizar Orden | ÉXITO | Orden #14 finalizada
+2025-04-27 20:27:08 | Sistema | En Servicio | ÉXITO | Orden #14 servicio completado automáticamente
+2025-04-27 20:27:08 | Sistema | Finalizado | ÉXITO | Orden #14 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:09 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 20:27:09 | Sistema | Agregar Factura | ÉXITO | Factura #15 agregada.
+2025-04-27 20:27:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:09 | Sistema | Generar Factura | ÉXITO | Factura #15 generada para orden #14
+2025-04-27 20:27:09 | Sistema | Finalizado | ÉXITO | Orden #14 factura generada automáticamente
+2025-04-27 20:27:10 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:10 | Sistema | Asignar Mecánico | ÉXITO | Orden #15 asignada al mecánico Jake elPerro
+2025-04-27 20:27:10 | Sistema | Cola Espera | ÉXITO | Orden #15 tiempo de espera completado
+2025-04-27 20:27:10 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:10 | Sistema | Finalizar Orden | ÉXITO | Orden #15 finalizada
+2025-04-27 20:27:10 | Sistema | En Servicio | ÉXITO | Orden #15 servicio completado automáticamente
+2025-04-27 20:27:10 | Sistema | Finalizado | ÉXITO | Orden #15 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:11 | Sistema | Agregar Factura | ÉXITO | Factura #16 agregada.
+2025-04-27 20:27:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:11 | Sistema | Generar Factura | ÉXITO | Factura #16 generada para orden #15
+2025-04-27 20:27:11 | Sistema | Finalizado | ÉXITO | Orden #15 factura generada automáticamente
+2025-04-27 20:27:13 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:13 | Sistema | Asignar Mecánico | ÉXITO | Orden #16 asignada al mecánico Jake elPerro
+2025-04-27 20:27:13 | Sistema | Cola Espera | ÉXITO | Orden #16 tiempo de espera completado
+2025-04-27 20:27:13 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:13 | Sistema | Finalizar Orden | ÉXITO | Orden #16 finalizada
+2025-04-27 20:27:13 | Sistema | En Servicio | ÉXITO | Orden #16 servicio completado automáticamente
+2025-04-27 20:27:13 | Sistema | Finalizado | ÉXITO | Orden #16 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:14 | Sistema | Agregar Factura | ÉXITO | Factura #17 agregada.
+2025-04-27 20:27:14 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:14 | Sistema | Generar Factura | ÉXITO | Factura #17 generada para orden #16
+2025-04-27 20:27:14 | Sistema | Finalizado | ÉXITO | Orden #16 factura generada automáticamente
+2025-04-27 20:27:15 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 20:27:32 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:27:32 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:27:36 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:36 | Sistema | Crear Orden | ÉXITO | Orden #17 creada para cliente: ref ref, automóvil: ref, servicio: Diagnóstico
+2025-04-27 20:27:36 | Sistema | Cola Espera | ÉXITO | Orden #17 iniciando espera de 12 segundos
+2025-04-27 20:27:38 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:38 | Sistema | Crear Orden | ÉXITO | Orden #18 creada para cliente: ref ref, automóvil: ref, servicio: Diagnóstico
+2025-04-27 20:27:39 | Sistema | Cola Espera | ÉXITO | Orden #18 iniciando espera de 12 segundos
+2025-04-27 20:27:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:40 | Sistema | Crear Orden | ÉXITO | Orden #19 creada para cliente: ref ref, automóvil: P0FEF5847, servicio: Diagnóstico
+2025-04-27 20:27:41 | Sistema | Cola Espera | ÉXITO | Orden #19 iniciando espera de 12 segundos
+2025-04-27 20:27:42 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:42 | Sistema | Crear Orden | ÉXITO | Orden #20 creada para cliente: ref ref, automóvil: P0ETE475, servicio: Diagnóstico
+2025-04-27 20:27:43 | Sistema | Cola Espera | ÉXITO | Orden #20 iniciando espera de 12 segundos
+2025-04-27 20:27:45 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:45 | Sistema | Crear Orden | ÉXITO | Orden #21 creada para cliente: ref ref, automóvil: reeef, servicio: Diagnóstico
+2025-04-27 20:27:46 | Sistema | Cola Espera | ÉXITO | Orden #21 iniciando espera de 12 segundos
+2025-04-27 20:27:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:48 | Sistema | Asignar Mecánico | ÉXITO | Orden #17 asignada al mecánico Jake elPerro
+2025-04-27 20:27:48 | Sistema | Cola Espera | ÉXITO | Orden #17 tiempo de espera completado
+2025-04-27 20:27:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:48 | Sistema | Finalizar Orden | ÉXITO | Orden #17 finalizada
+2025-04-27 20:27:48 | Sistema | En Servicio | ÉXITO | Orden #17 servicio completado automáticamente
+2025-04-27 20:27:48 | Sistema | Finalizado | ÉXITO | Orden #17 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:48 | Sistema | Crear Orden | ÉXITO | Orden #22 creada para cliente: ref ref, automóvil: reef, servicio: Cambio Pistones
+2025-04-27 20:27:49 | Sistema | Cola Espera | ÉXITO | Orden #22 iniciando espera de 12 segundos
+2025-04-27 20:27:49 | Sistema | Agregar Factura | ÉXITO | Factura #18 agregada.
+2025-04-27 20:27:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:49 | Sistema | Generar Factura | ÉXITO | Factura #18 generada para orden #17
+2025-04-27 20:27:49 | Sistema | Finalizado | ÉXITO | Orden #17 factura generada automáticamente
+2025-04-27 20:27:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:51 | Sistema | Asignar Mecánico | ÉXITO | Orden #18 asignada al mecánico Jake elPerro
+2025-04-27 20:27:51 | Sistema | Cola Espera | ÉXITO | Orden #18 tiempo de espera completado
+2025-04-27 20:27:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:51 | Sistema | Finalizar Orden | ÉXITO | Orden #18 finalizada
+2025-04-27 20:27:51 | Sistema | En Servicio | ÉXITO | Orden #18 servicio completado automáticamente
+2025-04-27 20:27:51 | Sistema | Finalizado | ÉXITO | Orden #18 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:51 | Sistema | Crear Orden | ÉXITO | Orden #23 creada para cliente: ref ref, automóvil: reef, servicio: Revision Aire
+2025-04-27 20:27:52 | Sistema | Cola Espera | ÉXITO | Orden #23 iniciando espera de 12 segundos
+2025-04-27 20:27:52 | Sistema | Agregar Factura | ÉXITO | Factura #19 agregada.
+2025-04-27 20:27:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:52 | Sistema | Generar Factura | ÉXITO | Factura #19 generada para orden #18
+2025-04-27 20:27:52 | Sistema | Finalizado | ÉXITO | Orden #18 factura generada automáticamente
+2025-04-27 20:27:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:53 | Sistema | Asignar Mecánico | ÉXITO | Orden #19 asignada al mecánico Jake elPerro
+2025-04-27 20:27:53 | Sistema | Cola Espera | ÉXITO | Orden #19 tiempo de espera completado
+2025-04-27 20:27:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:53 | Sistema | Finalizar Orden | ÉXITO | Orden #19 finalizada
+2025-04-27 20:27:53 | Sistema | En Servicio | ÉXITO | Orden #19 servicio completado automáticamente
+2025-04-27 20:27:53 | Sistema | Finalizado | ÉXITO | Orden #19 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:54 | Sistema | Agregar Factura | ÉXITO | Factura #20 agregada.
+2025-04-27 20:27:54 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:54 | Sistema | Generar Factura | ÉXITO | Factura #20 generada para orden #19
+2025-04-27 20:27:54 | Sistema | Finalizado | ÉXITO | Orden #19 factura generada automáticamente
+2025-04-27 20:27:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:55 | Sistema | Asignar Mecánico | ÉXITO | Orden #20 asignada al mecánico Jake elPerro
+2025-04-27 20:27:55 | Sistema | Cola Espera | ÉXITO | Orden #20 tiempo de espera completado
+2025-04-27 20:27:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:55 | Sistema | Finalizar Orden | ÉXITO | Orden #20 finalizada
+2025-04-27 20:27:55 | Sistema | En Servicio | ÉXITO | Orden #20 servicio completado automáticamente
+2025-04-27 20:27:55 | Sistema | Finalizado | ÉXITO | Orden #20 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:55 | Sistema | Crear Orden | ÉXITO | Orden #24 creada para cliente: ref ref, automóvil: reef, servicio: Reemplazo Radiador
+2025-04-27 20:27:56 | Sistema | Cola Espera | ÉXITO | Orden #24 iniciando espera de 12 segundos
+2025-04-27 20:27:56 | Sistema | Agregar Factura | ÉXITO | Factura #21 agregada.
+2025-04-27 20:27:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:56 | Sistema | Generar Factura | ÉXITO | Factura #21 generada para orden #20
+2025-04-27 20:27:56 | Sistema | Finalizado | ÉXITO | Orden #20 factura generada automáticamente
+2025-04-27 20:27:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:58 | Sistema | Asignar Mecánico | ÉXITO | Orden #21 asignada al mecánico Jake elPerro
+2025-04-27 20:27:58 | Sistema | Cola Espera | ÉXITO | Orden #21 tiempo de espera completado
+2025-04-27 20:27:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:58 | Sistema | Finalizar Orden | ÉXITO | Orden #21 finalizada
+2025-04-27 20:27:58 | Sistema | En Servicio | ÉXITO | Orden #21 servicio completado automáticamente
+2025-04-27 20:27:58 | Sistema | Finalizado | ÉXITO | Orden #21 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:27:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:58 | Sistema | Crear Orden | ÉXITO | Orden #25 creada para cliente: ref ref, automóvil: reef, servicio: Mantenimiento Aire
+2025-04-27 20:27:59 | Sistema | Cola Espera | ÉXITO | Orden #25 iniciando espera de 12 segundos
+2025-04-27 20:27:59 | Sistema | Agregar Factura | ÉXITO | Factura #22 agregada.
+2025-04-27 20:27:59 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:27:59 | Sistema | Generar Factura | ÉXITO | Factura #22 generada para orden #21
+2025-04-27 20:27:59 | Sistema | Finalizado | ÉXITO | Orden #21 factura generada automáticamente
+2025-04-27 20:28:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:01 | Sistema | Asignar Mecánico | ÉXITO | Orden #22 asignada al mecánico Jake elPerro
+2025-04-27 20:28:01 | Sistema | Cola Espera | ÉXITO | Orden #22 tiempo de espera completado
+2025-04-27 20:28:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:01 | Sistema | Finalizar Orden | ÉXITO | Orden #22 finalizada
+2025-04-27 20:28:01 | Sistema | En Servicio | ÉXITO | Orden #22 servicio completado automáticamente
+2025-04-27 20:28:01 | Sistema | Finalizado | ÉXITO | Orden #22 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:02 | Sistema | Agregar Factura | ÉXITO | Factura #23 agregada.
+2025-04-27 20:28:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:02 | Sistema | Generar Factura | ÉXITO | Factura #23 generada para orden #22
+2025-04-27 20:28:02 | Sistema | Finalizado | ÉXITO | Orden #22 factura generada automáticamente
+2025-04-27 20:28:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:02 | Sistema | Crear Orden | ÉXITO | Orden #26 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:28:03 | Sistema | Cola Espera | ÉXITO | Orden #26 iniciando espera de 12 segundos
+2025-04-27 20:28:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:04 | Sistema | Asignar Mecánico | ÉXITO | Orden #23 asignada al mecánico Jake elPerro
+2025-04-27 20:28:04 | Sistema | Cola Espera | ÉXITO | Orden #23 tiempo de espera completado
+2025-04-27 20:28:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:04 | Sistema | Finalizar Orden | ÉXITO | Orden #23 finalizada
+2025-04-27 20:28:04 | Sistema | En Servicio | ÉXITO | Orden #23 servicio completado automáticamente
+2025-04-27 20:28:04 | Sistema | Finalizado | ÉXITO | Orden #23 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:05 | Sistema | Agregar Factura | ÉXITO | Factura #24 agregada.
+2025-04-27 20:28:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:05 | Sistema | Generar Factura | ÉXITO | Factura #24 generada para orden #23
+2025-04-27 20:28:05 | Sistema | Finalizado | ÉXITO | Orden #23 factura generada automáticamente
+2025-04-27 20:28:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:05 | Sistema | Crear Orden | ÉXITO | Orden #27 creada para cliente: ref ref, automóvil: reef, servicio: Cambio Pistones
+2025-04-27 20:28:06 | Sistema | Cola Espera | ÉXITO | Orden #27 iniciando espera de 12 segundos
+2025-04-27 20:28:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:08 | Sistema | Asignar Mecánico | ÉXITO | Orden #24 asignada al mecánico Jake elPerro
+2025-04-27 20:28:08 | Sistema | Cola Espera | ÉXITO | Orden #24 tiempo de espera completado
+2025-04-27 20:28:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:08 | Sistema | Finalizar Orden | ÉXITO | Orden #24 finalizada
+2025-04-27 20:28:08 | Sistema | En Servicio | ÉXITO | Orden #24 servicio completado automáticamente
+2025-04-27 20:28:08 | Sistema | Finalizado | ÉXITO | Orden #24 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:08 | Sistema | Crear Orden | ÉXITO | Orden #28 creada para cliente: ref ref, automóvil: reef, servicio: Revision Aire
+2025-04-27 20:28:09 | Sistema | Cola Espera | ÉXITO | Orden #28 iniciando espera de 12 segundos
+2025-04-27 20:28:09 | Sistema | Agregar Factura | ÉXITO | Factura #25 agregada.
+2025-04-27 20:28:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:09 | Sistema | Generar Factura | ÉXITO | Factura #25 generada para orden #24
+2025-04-27 20:28:09 | Sistema | Finalizado | ÉXITO | Orden #24 factura generada automáticamente
+2025-04-27 20:28:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:11 | Sistema | Asignar Mecánico | ÉXITO | Orden #25 asignada al mecánico Jake elPerro
+2025-04-27 20:28:11 | Sistema | Cola Espera | ÉXITO | Orden #25 tiempo de espera completado
+2025-04-27 20:28:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:11 | Sistema | Finalizar Orden | ÉXITO | Orden #25 finalizada
+2025-04-27 20:28:11 | Sistema | En Servicio | ÉXITO | Orden #25 servicio completado automáticamente
+2025-04-27 20:28:11 | Sistema | Finalizado | ÉXITO | Orden #25 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:11 | Sistema | Crear Orden | ÉXITO | Orden #29 creada para cliente: ref ref, automóvil: reef, servicio: Reemplazo Radiador
+2025-04-27 20:28:12 | Sistema | Cola Espera | ÉXITO | Orden #29 iniciando espera de 12 segundos
+2025-04-27 20:28:12 | Sistema | Agregar Factura | ÉXITO | Factura #26 agregada.
+2025-04-27 20:28:12 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:12 | Sistema | Generar Factura | ÉXITO | Factura #26 generada para orden #25
+2025-04-27 20:28:12 | Sistema | Finalizado | ÉXITO | Orden #25 factura generada automáticamente
+2025-04-27 20:28:14 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:14 | Sistema | Crear Orden | ÉXITO | Orden #30 creada para cliente: ref ref, automóvil: reef, servicio: Mantenimiento Aire
+2025-04-27 20:28:15 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:15 | Sistema | Asignar Mecánico | ÉXITO | Orden #26 asignada al mecánico Jake elPerro
+2025-04-27 20:28:15 | Sistema | Cola Espera | ÉXITO | Orden #26 tiempo de espera completado
+2025-04-27 20:28:15 | Sistema | Cola Espera | ÉXITO | Orden #30 iniciando espera de 12 segundos
+2025-04-27 20:28:15 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:15 | Sistema | Finalizar Orden | ÉXITO | Orden #26 finalizada
+2025-04-27 20:28:15 | Sistema | En Servicio | ÉXITO | Orden #26 servicio completado automáticamente
+2025-04-27 20:28:15 | Sistema | Finalizado | ÉXITO | Orden #26 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:16 | Sistema | Agregar Factura | ÉXITO | Factura #27 agregada.
+2025-04-27 20:28:16 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:16 | Sistema | Generar Factura | ÉXITO | Factura #27 generada para orden #26
+2025-04-27 20:28:16 | Sistema | Finalizado | ÉXITO | Orden #26 factura generada automáticamente
+2025-04-27 20:28:17 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:17 | Sistema | Crear Orden | ÉXITO | Orden #31 creada para cliente: ref ref, automóvil: reef, servicio: Diagnóstico
+2025-04-27 20:28:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:18 | Sistema | Asignar Mecánico | ÉXITO | Orden #27 asignada al mecánico Jake elPerro
+2025-04-27 20:28:18 | Sistema | Cola Espera | ÉXITO | Orden #27 tiempo de espera completado
+2025-04-27 20:28:18 | Sistema | Cola Espera | ÉXITO | Orden #31 iniciando espera de 12 segundos
+2025-04-27 20:28:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:18 | Sistema | Finalizar Orden | ÉXITO | Orden #27 finalizada
+2025-04-27 20:28:18 | Sistema | En Servicio | ÉXITO | Orden #27 servicio completado automáticamente
+2025-04-27 20:28:18 | Sistema | Finalizado | ÉXITO | Orden #27 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:19 | Sistema | Agregar Factura | ÉXITO | Factura #28 agregada.
+2025-04-27 20:28:19 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:19 | Sistema | Generar Factura | ÉXITO | Factura #28 generada para orden #27
+2025-04-27 20:28:19 | Sistema | Finalizado | ÉXITO | Orden #27 factura generada automáticamente
+2025-04-27 20:28:21 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:21 | Sistema | Asignar Mecánico | ÉXITO | Orden #28 asignada al mecánico Jake elPerro
+2025-04-27 20:28:21 | Sistema | Cola Espera | ÉXITO | Orden #28 tiempo de espera completado
+2025-04-27 20:28:21 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:21 | Sistema | Finalizar Orden | ÉXITO | Orden #28 finalizada
+2025-04-27 20:28:21 | Sistema | En Servicio | ÉXITO | Orden #28 servicio completado automáticamente
+2025-04-27 20:28:21 | Sistema | Finalizado | ÉXITO | Orden #28 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:22 | Sistema | Agregar Factura | ÉXITO | Factura #29 agregada.
+2025-04-27 20:28:22 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:22 | Sistema | Generar Factura | ÉXITO | Factura #29 generada para orden #28
+2025-04-27 20:28:22 | Sistema | Finalizado | ÉXITO | Orden #28 factura generada automáticamente
+2025-04-27 20:28:24 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:24 | Sistema | Asignar Mecánico | ÉXITO | Orden #29 asignada al mecánico Jake elPerro
+2025-04-27 20:28:24 | Sistema | Cola Espera | ÉXITO | Orden #29 tiempo de espera completado
+2025-04-27 20:28:24 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:24 | Sistema | Finalizar Orden | ÉXITO | Orden #29 finalizada
+2025-04-27 20:28:24 | Sistema | En Servicio | ÉXITO | Orden #29 servicio completado automáticamente
+2025-04-27 20:28:24 | Sistema | Finalizado | ÉXITO | Orden #29 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:25 | Sistema | Agregar Factura | ÉXITO | Factura #30 agregada.
+2025-04-27 20:28:25 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:25 | Sistema | Generar Factura | ÉXITO | Factura #30 generada para orden #29
+2025-04-27 20:28:25 | Sistema | Finalizado | ÉXITO | Orden #29 factura generada automáticamente
+2025-04-27 20:28:27 | mecanico | Inicio de sesión | ÉXITO | Empleado inició sesión: Jake elPerro
+2025-04-27 20:28:27 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:27 | Sistema | Asignar Mecánico | ÉXITO | Orden #30 asignada al mecánico Jake elPerro
+2025-04-27 20:28:27 | Sistema | Cola Espera | ÉXITO | Orden #30 tiempo de espera completado
+2025-04-27 20:28:27 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:27 | Sistema | Finalizar Orden | ÉXITO | Orden #30 finalizada
+2025-04-27 20:28:27 | Sistema | En Servicio | ÉXITO | Orden #30 servicio completado automáticamente
+2025-04-27 20:28:27 | Sistema | Finalizado | ÉXITO | Orden #30 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:28 | Sistema | Agregar Factura | ÉXITO | Factura #31 agregada.
+2025-04-27 20:28:28 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:28 | Sistema | Generar Factura | ÉXITO | Factura #31 generada para orden #30
+2025-04-27 20:28:28 | Sistema | Finalizado | ÉXITO | Orden #30 factura generada automáticamente
+2025-04-27 20:28:30 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:30 | Sistema | Asignar Mecánico | ÉXITO | Orden #31 asignada al mecánico Jake elPerro
+2025-04-27 20:28:30 | Sistema | Cola Espera | ÉXITO | Orden #31 tiempo de espera completado
+2025-04-27 20:28:30 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:30 | Sistema | Finalizar Orden | ÉXITO | Orden #31 finalizada
+2025-04-27 20:28:30 | Sistema | En Servicio | ÉXITO | Orden #31 servicio completado automáticamente
+2025-04-27 20:28:30 | Sistema | Finalizado | ÉXITO | Orden #31 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:30 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:30 | Sistema | Asignar Mecánico | ÉXITO | Orden #31 asignada al mecánico Jake elPerro
+2025-04-27 20:28:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:31 | Sistema | Finalizar Orden | ÉXITO | Orden #31 finalizada
+2025-04-27 20:28:31 | Sistema | En Servicio | ÉXITO | Orden #31 servicio completado automáticamente
+2025-04-27 20:28:31 | Sistema | Finalizado | ÉXITO | Orden #31 iniciando tiempo finalizado de 1 segundos
+2025-04-27 20:28:32 | Sistema | Agregar Factura | ÉXITO | Factura #32 agregada.
+2025-04-27 20:28:32 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:28:32 | Sistema | Generar Factura | ÉXITO | Factura #32 generada para orden #31
+2025-04-27 20:28:32 | Sistema | Finalizado | ÉXITO | Orden #31 factura generada automáticamente
+2025-04-27 20:28:45 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:28:45 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:30:21 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 20:52:49 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:52:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:52:49 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 20:52:55 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 20:52:55 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 20:53:20 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 20:53:20 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 20:53:20 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:00:31 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:00:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:00:31 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:00:39 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:00:40 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: admin - Cannot invoke "javax.swing.table.DefaultTableModel.setRowCount(int)" because "this.modeloFacturas" is null
+2025-04-27 21:01:00 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:01:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:01:00 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:01:06 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:01:11 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:01:31 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:01:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:01:31 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:01:38 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:01:39 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: admin - Cannot invoke "javax.swing.table.DefaultTableModel.setRowCount(int)" because "this.modeloFacturas" is null
+2025-04-27 21:05:47 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:05:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:05:47 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:05:52 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:06:06 | Sistema | Generación de Factura | ÉXITO | Factura PDF generada: reportes/Factura_1_2025-04-27_21-06-05.pdf
+2025-04-27 21:06:15 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:17 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:27 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 21:06:29 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:30 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:35 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:36 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 21:06:37 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:38 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:46 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 21:06:47 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:48 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 21:06:49 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:50 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:06:55 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:07:00 | ref | Autenticación de cliente | ÉXITO | Cliente autenticado: ref ref
+2025-04-27 21:07:00 | ref | Inicio de sesión | ÉXITO | Cliente inició sesión: ref ref
+2025-04-27 21:07:07 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:07:07 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:07:54 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:07:54 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:07:54 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:08:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:08:11 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:08:14 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:08:14 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:08:14 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:08:20 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:08:25 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 21:08:25 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 21:08:25 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 21:08:25 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 21:08:25 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:08:25 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 21:08:32 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:08:32 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: admin - Cannot invoke "java.util.List.indexOf(Object)" because "this.empleados" is null
+2025-04-27 21:08:35 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:08:35 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:08:37 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:08:37 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:08:37 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:08:41 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:08:41 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: admin - Cannot invoke "java.util.List.indexOf(Object)" because "this.empleados" is null
+2025-04-27 21:08:45 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:08:45 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:10:04 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:10:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:10:04 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:10:12 | admin | Inicio de sesión | ÉXITO | Empleado inició sesión: Administrador General
+2025-04-27 21:10:12 | Sistema | Error crítico de inicio de sesión | ERROR | Error al procesar inicio de sesión para usuario: admin - Cannot invoke "java.util.List.indexOf(Object)" because "this.empleados" is null
+2025-04-27 21:15:29 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:15:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:15:29 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:15:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:22:35 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:22:35 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:22:35 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:22:42 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:22:51 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:22:54 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:22:54 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:24:13 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:24:13 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:24:13 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:24:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:24:32 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:24:36 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:24:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:24:41 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:24:41 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:32:33 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:32:33 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:32:33 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:32:38 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:32:45 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 1 - Pistón
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 2 - Bujía
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 3 - Filtro Aire
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 4 - Radiador
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 5 - Amortiguador
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 6 - Alternador
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 7 - Pastillas Freno
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 8 - Embrague
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 9 - Sensor Oxigeno
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 10 - Faro Delantero
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 11 - Correa Tiempo
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 12 - Termostato
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 13 - Disco Freno
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 14 - Bobina Encendido
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 15 - Bomba Agua
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 16 - Compresor Aire
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 17 - Manguera Radiador
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 18 - Palanca Cambios
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 19 - Luz Freno
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 20 - Parabrisas
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 21 - Espejo Retrovisor
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 22 - Filtro Cabina
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 23 - Motor Arranque
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 24 - Rotula Suspension
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 25 - Radiador
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 26 - Sensor Temperatura
+2025-04-27 21:33:03 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 27 - Alternador
+2025-04-27 21:33:04 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 28 - Pastillas Freno
+2025-04-27 21:33:04 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 29 - Faro Trasero
+2025-04-27 21:33:04 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 30 - Bomba Gasolina
+2025-04-27 21:33:28 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 21:33:28 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 21:33:28 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 21:33:28 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 21:33:28 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:33:28 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 21:33:33 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:33:33 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:33:35 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:33:35 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:33:35 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:33:38 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:33:38 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:34:02 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 21:34:02 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 21:34:02 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 21:34:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 21:34:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 21:34:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 21:34:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 21:34:04 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 21:34:04 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 21:34:06 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:34:06 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:34:11 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:34:43 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 21:34:43 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 21:34:43 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 21:34:43 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 21:34:43 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:34:43 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 21:34:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:34:47 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:34:49 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 21:34:49 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 21:34:49 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 21:34:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 21:34:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 21:34:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 21:34:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 21:34:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 21:34:51 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 21:34:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:34:53 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:35:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:36:48 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:37:01 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-04-27 21:37:01 | Sistema | Registro de cliente | ÉXITO | Cliente registrado con DPI: 1111111111111
+2025-04-27 21:37:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:28 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:28 | Sistema | Crear Orden | ÉXITO | Orden #1 creada para cliente: ref ref, automóvil: REF, servicio: Cambio Pastillas
+2025-04-27 21:37:28 | Sistema | Cola Espera | ÉXITO | Orden #1 iniciando espera de 12 segundos
+2025-04-27 21:37:34 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:34 | Sistema | Crear Orden | ÉXITO | Orden #2 creada para cliente: ref ref, automóvil: REF, servicio: Reemplazo Pastillas
+2025-04-27 21:37:34 | Sistema | Cola Espera | ÉXITO | Orden #2 iniciando espera de 12 segundos
+2025-04-27 21:37:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:40 | Sistema | Asignar Mecánico | ÉXITO | Orden #1 asignada al mecánico Jake elPerro
+2025-04-27 21:37:40 | Sistema | Cola Espera | ÉXITO | Orden #1 tiempo de espera completado
+2025-04-27 21:37:41 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:41 | Sistema | Finalizar Orden | ÉXITO | Orden #1 finalizada
+2025-04-27 21:37:41 | Sistema | En Servicio | ÉXITO | Orden #1 servicio completado automáticamente
+2025-04-27 21:37:41 | Sistema | Finalizado | ÉXITO | Orden #1 iniciando tiempo finalizado de 1 segundos
+2025-04-27 21:37:42 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:42 | Sistema | Agregar Factura | ÉXITO | Factura #1 agregada.
+2025-04-27 21:37:42 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:42 | Sistema | Generar Factura | ÉXITO | Factura #1 generada para orden #1
+2025-04-27 21:37:42 | Sistema | Finalizado | ÉXITO | Orden #1 factura generada automáticamente
+2025-04-27 21:37:46 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:46 | Sistema | Asignar Mecánico | ÉXITO | Orden #2 asignada al mecánico Jake elPerro
+2025-04-27 21:37:46 | Sistema | Cola Espera | ÉXITO | Orden #2 tiempo de espera completado
+2025-04-27 21:37:46 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:46 | Sistema | Finalizar Orden | ÉXITO | Orden #2 finalizada
+2025-04-27 21:37:46 | Sistema | En Servicio | ÉXITO | Orden #2 servicio completado automáticamente
+2025-04-27 21:37:46 | Sistema | Finalizado | ÉXITO | Orden #2 iniciando tiempo finalizado de 1 segundos
+2025-04-27 21:37:47 | Sistema | Agregar Factura | ÉXITO | Factura #2 agregada.
+2025-04-27 21:37:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:37:47 | Sistema | Generar Factura | ÉXITO | Factura #2 generada para orden #2
+2025-04-27 21:37:47 | Sistema | Finalizado | ÉXITO | Orden #2 factura generada automáticamente
+2025-04-27 21:38:02 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:38:23 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 21:38:23 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 21:41:52 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:41:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:42:26 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:42:26 | Sistema | Crear Orden | ÉXITO | Orden #3 creada para cliente: ref ref, automóvil: REF, servicio: Diagnóstico
+2025-04-27 21:42:27 | Sistema | Cola Espera | ÉXITO | Orden #3 iniciando espera de 12 segundos
+2025-04-27 21:42:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:42:40 | Sistema | Asignar Mecánico | ÉXITO | Orden #3 asignada al mecánico Jake elPerro
+2025-04-27 21:42:40 | Sistema | Cola Espera | ÉXITO | Orden #3 tiempo de espera completado
+2025-04-27 21:42:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:42:40 | Sistema | Finalizar Orden | ÉXITO | Orden #3 finalizada
+2025-04-27 21:42:40 | Sistema | En Servicio | ÉXITO | Orden #3 servicio completado automáticamente
+2025-04-27 21:42:40 | Sistema | Finalizado | ÉXITO | Orden #3 iniciando tiempo finalizado de 1 segundos
+2025-04-27 21:42:41 | Sistema | Agregar Factura | ÉXITO | Factura #3 agregada.
+2025-04-27 21:42:41 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:42:41 | Sistema | Generar Factura | ÉXITO | Factura #3 generada para orden #3
+2025-04-27 21:42:41 | Sistema | Finalizado | ÉXITO | Orden #3 factura generada automáticamente
+2025-04-27 21:43:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:43:08 | Sistema | Crear Orden | ÉXITO | Orden #4 creada para cliente: ref ref, automóvil: REEF, servicio: Revision Aire
+2025-04-27 21:43:09 | Sistema | Cola Espera | ÉXITO | Orden #4 iniciando espera de 12 segundos
+2025-04-27 21:43:21 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:43:21 | Sistema | Asignar Mecánico | ÉXITO | Orden #4 asignada al mecánico Jake elPerro
+2025-04-27 21:43:21 | Sistema | Cola Espera | ÉXITO | Orden #4 tiempo de espera completado
+2025-04-27 21:43:21 | Sistema | Promoción Cliente | ÉXITO | Cliente ref ref promocionado a Cliente Oro
+2025-04-27 21:43:21 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:43:21 | Sistema | Finalizar Orden | ÉXITO | Orden #4 finalizada
+2025-04-27 21:43:21 | Sistema | En Servicio | ÉXITO | Orden #4 servicio completado automáticamente
+2025-04-27 21:43:21 | Sistema | Finalizado | ÉXITO | Orden #4 iniciando tiempo finalizado de 1 segundos
+2025-04-27 21:43:22 | Sistema | Agregar Factura | ÉXITO | Factura #4 agregada.
+2025-04-27 21:43:22 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:43:22 | Sistema | Generar Factura | ÉXITO | Factura #4 generada para orden #4
+2025-04-27 21:43:22 | Sistema | Finalizado | ÉXITO | Orden #4 factura generada automáticamente
+2025-04-27 21:43:43 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:46:01 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:46:01 | Sistema | Limpieza de datos | ÉXITO | Se eliminaron 30 repuestos duplicados
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 21:46:01 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Pistones para honda civic 2005
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento Frenos para toyota corolla 2010
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Filtro para nissan sentra 2015
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Motor para ford focus 2012
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Suspension Completa para chevrolet malibu 2018
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio General para hyundai accent 2013
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Pastillas para mazda 3 2017
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Embrague para volkswagen golf 2009
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Sensor para kia rio 2014
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Luces para honda crv 2016
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Correa para subaru impreza 2011
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Electrico para nissan sentra 2015
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Encendido para ford focus 2012
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Revision Aire para honda civic 2005
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Radiador para honda civic 2005
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Ajuste Motor para toyota corolla 2010
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Filtros para nissan sentra 2015
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Refrigeracion para ford focus 2012
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Suspension para chevrolet malibu 2018
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Diagnostico Sistema para hyundai accent 2013
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Pastillas para mazda 3 2017
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Embrague para volkswagen golf 2009
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Luces para kia rio 2014
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Ajuste Luces para honda crv 2016
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento General para subaru impreza 2011
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Diagnostico Frenos para toyota corolla 2010
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Cabina para nissan sentra 2015
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Motor para ford focus 2012
+2025-04-27 21:46:01 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento Aire para honda civic 2005
+2025-04-27 21:46:01 | Sistema | Carga de servicios | ERROR | Servicios cargados: 0 de 29 líneas.
+2025-04-27 21:46:03 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 21:46:03 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: PQW123
+2025-04-27 21:46:03 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 21:46:03 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: ZYX321
+2025-04-27 21:46:03 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 21:46:03 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: KLM345
+2025-04-27 21:46:03 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 21:46:03 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: BBB777
+2025-04-27 21:46:03 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 21:46:03 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: PLK222
+2025-04-27 21:46:03 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 21:46:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:46:04 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:46:10 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:46:22 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:46:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:46:35 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:46:35 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:46:37 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 21:46:38 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Pistones para honda civic 2005
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento Frenos para toyota corolla 2010
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Filtro para nissan sentra 2015
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Motor para ford focus 2012
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Suspension Completa para chevrolet malibu 2018
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio General para hyundai accent 2013
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Pastillas para mazda 3 2017
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Embrague para volkswagen golf 2009
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Sensor para kia rio 2014
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Luces para honda crv 2016
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Correa para subaru impreza 2011
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Electrico para nissan sentra 2015
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Encendido para ford focus 2012
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Revision Aire para honda civic 2005
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Radiador para honda civic 2005
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Ajuste Motor para toyota corolla 2010
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Filtros para nissan sentra 2015
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Refrigeracion para ford focus 2012
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Suspension para chevrolet malibu 2018
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Diagnostico Sistema para hyundai accent 2013
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Pastillas para mazda 3 2017
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Embrague para volkswagen golf 2009
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Luces para kia rio 2014
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Ajuste Luces para honda crv 2016
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento General para subaru impreza 2011
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Diagnostico Frenos para toyota corolla 2010
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Cabina para nissan sentra 2015
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Motor para ford focus 2012
+2025-04-27 21:46:38 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento Aire para honda civic 2005
+2025-04-27 21:46:38 | Sistema | Carga de servicios | ERROR | Servicios cargados: 0 de 29 líneas.
+2025-04-27 21:46:39 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 21:46:39 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: PQW123
+2025-04-27 21:46:39 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 21:46:39 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: ZYX321
+2025-04-27 21:46:39 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 21:46:39 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: KLM345
+2025-04-27 21:46:39 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 21:46:39 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: BBB777
+2025-04-27 21:46:39 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 21:46:39 | Sistema | Registro de automóvil | ERROR | Ya existe un automóvil con placa: PLK222
+2025-04-27 21:46:39 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 21:46:44 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:46:44 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:47:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:49:52 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:49:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:49:52 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:49:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:50:07 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:50:21 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:50:28 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:50:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:50:29 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:50:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:50:31 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:50:58 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:50:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:50:58 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:51:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 1 - Pistón
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 2 - Bujía
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 3 - Filtro Aire
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 4 - Radiador
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 5 - Amortiguador
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 6 - Alternador
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 7 - Pastillas Freno
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 8 - Embrague
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 9 - Sensor Oxigeno
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 10 - Faro Delantero
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 11 - Correa Tiempo
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 12 - Termostato
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 13 - Disco Freno
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 14 - Bobina Encendido
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 15 - Bomba Agua
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 16 - Compresor Aire
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 17 - Manguera Radiador
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 18 - Palanca Cambios
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 19 - Luz Freno
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 20 - Parabrisas
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 21 - Espejo Retrovisor
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 22 - Filtro Cabina
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 23 - Motor Arranque
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 24 - Rotula Suspension
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 25 - Radiador
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 26 - Sensor Temperatura
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 27 - Alternador
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 28 - Pastillas Freno
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 29 - Faro Trasero
+2025-04-27 21:51:22 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 30 - Bomba Gasolina
+2025-04-27 21:51:47 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 21:51:47 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 21:51:47 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 21:51:47 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 21:51:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:51:47 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 21:51:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:51:56 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:51:58 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:51:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:51:58 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:52:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP001 - Pistón
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP002 - Bujía
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP003 - Filtro Aire
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP004 - Radiador
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP005 - Amortiguador
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP006 - Alternador
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP007 - Pastillas Freno
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP008 - Embrague
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP009 - Sensor Oxigeno
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP010 - Faro Delantero
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP011 - Correa Tiempo
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP012 - Termostato
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP013 - Disco Freno
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP014 - Bobina Encendido
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP015 - Bomba Agua
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP016 - Compresor Aire
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP017 - Manguera Radiador
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP018 - Palanca Cambios
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP019 - Luz Freno
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP020 - Parabrisas
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP021 - Espejo Retrovisor
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP022 - Filtro Cabina
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP023 - Motor Arranque
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP024 - Rotula Suspension
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP025 - Radiador
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP026 - Sensor Temperatura
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP027 - Alternador
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP028 - Pastillas Freno
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP029 - Faro Trasero
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP030 - Bomba Gasolina
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 21:52:07 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 21:52:07 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 21:52:07 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 21:52:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 21:52:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 21:52:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 21:52:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 21:52:08 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 21:52:08 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 21:54:22 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 21:54:22 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 21:54:22 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 21:54:22 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 21:54:22 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:54:24 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 21:54:27 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:54:27 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:54:31 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:54:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:54:31 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:54:41 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP001 - Pistón
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP002 - Bujía
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP003 - Filtro Aire
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP004 - Radiador
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP005 - Amortiguador
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP006 - Alternador
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP007 - Pastillas Freno
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP008 - Embrague
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP009 - Sensor Oxigeno
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP010 - Faro Delantero
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP011 - Correa Tiempo
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP012 - Termostato
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP013 - Disco Freno
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP014 - Bobina Encendido
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP015 - Bomba Agua
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP016 - Compresor Aire
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP017 - Manguera Radiador
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP018 - Palanca Cambios
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP019 - Luz Freno
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP020 - Parabrisas
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP021 - Espejo Retrovisor
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP022 - Filtro Cabina
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP023 - Motor Arranque
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP024 - Rotula Suspension
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP025 - Radiador
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP026 - Sensor Temperatura
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP027 - Alternador
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP028 - Pastillas Freno
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP029 - Faro Trasero
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP030 - Bomba Gasolina
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 21:54:50 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 21:54:50 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 21:54:50 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 21:54:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 21:54:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 21:54:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 21:54:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 21:54:51 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 21:54:51 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 21:54:56 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 21:54:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:54:58 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 21:55:00 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 21:55:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:55:00 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 21:55:03 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:55:08 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 21:55:08 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 22:12:49 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:12:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:12:49 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:12:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:13:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:13:28 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 1 - ref
+2025-04-27 22:14:06 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:14:06 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:14:06 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:14:10 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:14:29 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:14:29 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 22:15:15 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:15:15 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:15:15 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:15:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:23:42 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:23:42 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:23:42 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:23:50 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:24:05 | Sistema | Actualización de repuesto | ÉXITO | Repuesto actualizado: REP030
+2025-04-27 22:24:10 | Sistema | Eliminación de repuesto | ÉXITO | Repuesto eliminado: REP030
+2025-04-27 22:25:05 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 2 - ref
+2025-04-27 22:25:50 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 3 - aaa
+2025-04-27 22:26:20 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 22:26:20 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 22:26:20 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 22:26:20 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 22:26:20 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:26:20 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 22:26:24 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:26:24 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 22:27:59 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:27:59 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:27:59 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:28:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP001 - Pistón
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP002 - Bujía
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP003 - Filtro Aire
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP004 - Radiador
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP005 - Amortiguador
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP006 - Alternador
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP007 - Pastillas Freno
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP008 - Embrague
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP009 - Sensor Oxigeno
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP010 - Faro Delantero
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP011 - Correa Tiempo
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP012 - Termostato
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP013 - Disco Freno
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP014 - Bobina Encendido
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP015 - Bomba Agua
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP016 - Compresor Aire
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP017 - Manguera Radiador
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP018 - Palanca Cambios
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP019 - Luz Freno
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP020 - Parabrisas
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP021 - Espejo Retrovisor
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP022 - Filtro Cabina
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP023 - Motor Arranque
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP024 - Rotula Suspension
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP025 - Radiador
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP026 - Sensor Temperatura
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP027 - Alternador
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP028 - Pastillas Freno
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP029 - Faro Trasero
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP030 - Bomba Gasolina
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 22:28:16 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP001 agregado al servicio 1
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP016 agregado al servicio 1
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 1
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP002 agregado al servicio 2
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP012 agregado al servicio 2
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP021 agregado al servicio 2
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP003 agregado al servicio 3
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP013 agregado al servicio 3
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 3
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP004 agregado al servicio 4
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 4
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP023 agregado al servicio 4
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP005 agregado al servicio 5
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP015 agregado al servicio 5
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP024 agregado al servicio 5
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP006 agregado al servicio 6
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP017 agregado al servicio 6
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP026 agregado al servicio 6
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP007 agregado al servicio 7
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP008 agregado al servicio 8
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP018 agregado al servicio 8
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP027 agregado al servicio 8
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP009 agregado al servicio 9
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP019 agregado al servicio 9
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP028 agregado al servicio 9
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP010 agregado al servicio 10
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP020 agregado al servicio 10
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP029 agregado al servicio 10
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP011 agregado al servicio 11
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP030 agregado al servicio 11
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP013 agregado al servicio 12
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 12
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 13
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP023 agregado al servicio 13
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP016 agregado al servicio 14
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 14
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 15
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP001 agregado al servicio 15
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP002 agregado al servicio 16
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP012 agregado al servicio 16
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP003 agregado al servicio 17
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 17
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP004 agregado al servicio 18
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 18
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP005 agregado al servicio 19
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP024 agregado al servicio 19
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP017 agregado al servicio 20
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP026 agregado al servicio 20
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP007 agregado al servicio 21
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP008 agregado al servicio 22
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP018 agregado al servicio 22
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP019 agregado al servicio 23
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP009 agregado al servicio 23
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP010 agregado al servicio 24
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP029 agregado al servicio 24
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP011 agregado al servicio 25
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP030 agregado al servicio 25
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP002 agregado al servicio 26
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP021 agregado al servicio 26
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 27
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP003 agregado al servicio 27
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP023 agregado al servicio 28
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 28
+2025-04-27 22:28:16 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP016 agregado al servicio 29
+2025-04-27 22:28:16 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 29
+2025-04-27 22:28:16 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 22:28:16 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 22:28:16 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 22:28:16 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 22:28:16 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 22:28:16 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 22:28:16 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 22:28:29 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 1 - ref
+2025-04-27 22:31:55 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:31:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:31:56 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:32:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:32:28 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: 2 - ref
+2025-04-27 22:33:12 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 22:33:27 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-04-27 22:33:27 | Sistema | Registro de cliente | ÉXITO | Cliente registrado con DPI: 1111111111111
+2025-04-27 22:33:31 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:02 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:02 | Sistema | Crear Orden | ÉXITO | Orden #1 creada para cliente: ref ref, automóvil: REF, servicio: Cambio Pastillas
+2025-04-27 22:34:03 | Sistema | Cola Espera | ÉXITO | Orden #1 iniciando espera de 12 segundos
+2025-04-27 22:34:06 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:06 | Sistema | Crear Orden | ÉXITO | Orden #2 creada para cliente: ref ref, automóvil: REF, servicio: Reemplazo Pastillas
+2025-04-27 22:34:06 | Sistema | Cola Espera | ÉXITO | Orden #2 iniciando espera de 12 segundos
+2025-04-27 22:34:15 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:15 | Sistema | Asignar Mecánico | ÉXITO | Orden #1 asignada al mecánico Jake elPerro
+2025-04-27 22:34:15 | Sistema | Cola Espera | ÉXITO | Orden #1 tiempo de espera completado
+2025-04-27 22:34:16 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:16 | Sistema | Finalizar Orden | ÉXITO | Orden #1 finalizada
+2025-04-27 22:34:16 | Sistema | En Servicio | ÉXITO | Orden #1 servicio completado automáticamente
+2025-04-27 22:34:16 | Sistema | Finalizado | ÉXITO | Orden #1 iniciando tiempo finalizado de 1 segundos
+2025-04-27 22:34:17 | Sistema | Agregar Factura | ÉXITO | Factura #1 agregada.
+2025-04-27 22:34:17 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:17 | Sistema | Generar Factura | ÉXITO | Factura #1 generada para orden #1
+2025-04-27 22:34:17 | Sistema | Finalizado | ÉXITO | Orden #1 factura generada automáticamente
+2025-04-27 22:34:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:18 | Sistema | Asignar Mecánico | ÉXITO | Orden #2 asignada al mecánico Jake elPerro
+2025-04-27 22:34:18 | Sistema | Cola Espera | ÉXITO | Orden #2 tiempo de espera completado
+2025-04-27 22:34:18 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:18 | Sistema | Finalizar Orden | ÉXITO | Orden #2 finalizada
+2025-04-27 22:34:18 | Sistema | En Servicio | ÉXITO | Orden #2 servicio completado automáticamente
+2025-04-27 22:34:18 | Sistema | Finalizado | ÉXITO | Orden #2 iniciando tiempo finalizado de 1 segundos
+2025-04-27 22:34:19 | Sistema | Agregar Factura | ÉXITO | Factura #2 agregada.
+2025-04-27 22:34:19 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:19 | Sistema | Generar Factura | ÉXITO | Factura #2 generada para orden #2
+2025-04-27 22:34:19 | Sistema | Finalizado | ÉXITO | Orden #2 factura generada automáticamente
+2025-04-27 22:34:23 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:34:28 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:33 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:34:35 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:41 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:43 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:34:44 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:50 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:34:50 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:53 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:34:54 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:57 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:58 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:34:58 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:34:59 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:35:01 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:35:05 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 22:35:07 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:35:14 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:35:14 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-04-27 22:37:05 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-04-27 22:37:05 | Sistema | Limpieza de datos | ÉXITO | Se eliminaron 1 repuestos duplicados
+2025-04-27 22:37:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:37:05 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-04-27 22:37:10 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:37:17 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:37:22 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:37:24 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:37:26 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:37:27 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:37:29 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:37:33 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 22:37:37 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:37:44 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:38:05 | Sistema | Limpieza de datos | ÉXITO | Archivo de datos eliminado correctamente
+2025-04-27 22:38:05 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario administrador por defecto
+2025-04-27 22:38:05 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-04-27 22:38:05 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-04-27 22:38:05 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:38:05 | Sistema | Reinicio | ÉXITO | Datos del sistema reiniciados completamente
+2025-04-27 22:38:09 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP001 - Pistón
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP002 - Bujía
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP003 - Filtro Aire
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP004 - Radiador
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP005 - Amortiguador
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP006 - Alternador
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP007 - Pastillas Freno
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP008 - Embrague
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP009 - Sensor Oxigeno
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP010 - Faro Delantero
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP011 - Correa Tiempo
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP012 - Termostato
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP013 - Disco Freno
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP014 - Bobina Encendido
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP015 - Bomba Agua
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP016 - Compresor Aire
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP017 - Manguera Radiador
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP018 - Palanca Cambios
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP019 - Luz Freno
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP020 - Parabrisas
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP021 - Espejo Retrovisor
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP022 - Filtro Cabina
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP023 - Motor Arranque
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP024 - Rotula Suspension
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP025 - Radiador
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP026 - Sensor Temperatura
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP027 - Alternador
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP028 - Pastillas Freno
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP029 - Faro Trasero
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP030 - Bomba Gasolina
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-04-27 22:38:13 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP001 agregado al servicio 1
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP016 agregado al servicio 1
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 1
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP002 agregado al servicio 2
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP012 agregado al servicio 2
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP021 agregado al servicio 2
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP003 agregado al servicio 3
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP013 agregado al servicio 3
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 3
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP004 agregado al servicio 4
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 4
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP023 agregado al servicio 4
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP005 agregado al servicio 5
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP015 agregado al servicio 5
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP024 agregado al servicio 5
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP006 agregado al servicio 6
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP017 agregado al servicio 6
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP026 agregado al servicio 6
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP007 agregado al servicio 7
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP008 agregado al servicio 8
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP018 agregado al servicio 8
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP027 agregado al servicio 8
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP009 agregado al servicio 9
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP019 agregado al servicio 9
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP028 agregado al servicio 9
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP010 agregado al servicio 10
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP020 agregado al servicio 10
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP029 agregado al servicio 10
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP011 agregado al servicio 11
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP030 agregado al servicio 11
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP013 agregado al servicio 12
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 12
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 13
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP023 agregado al servicio 13
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP016 agregado al servicio 14
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 14
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 15
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP001 agregado al servicio 15
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP002 agregado al servicio 16
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP012 agregado al servicio 16
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP003 agregado al servicio 17
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 17
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP004 agregado al servicio 18
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 18
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP005 agregado al servicio 19
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP024 agregado al servicio 19
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP017 agregado al servicio 20
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP026 agregado al servicio 20
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP007 agregado al servicio 21
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP008 agregado al servicio 22
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP018 agregado al servicio 22
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP019 agregado al servicio 23
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP009 agregado al servicio 23
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP010 agregado al servicio 24
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP029 agregado al servicio 24
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP011 agregado al servicio 25
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP030 agregado al servicio 25
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP002 agregado al servicio 26
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP021 agregado al servicio 26
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP022 agregado al servicio 27
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP003 agregado al servicio 27
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP023 agregado al servicio 28
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP014 agregado al servicio 28
+2025-04-27 22:38:13 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP016 agregado al servicio 29
+2025-04-27 22:38:13 | Sistema | Agregar repuesto a servicio | ÉXITO | Repuesto REP025 agregado al servicio 29
+2025-04-27 22:38:13 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-04-27 22:38:13 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-04-27 22:38:13 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-04-27 22:38:13 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-04-27 22:38:13 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-04-27 22:38:13 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-04-27 22:38:13 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-04-27 22:38:52 | Sistema | Actualización de repuesto | ÉXITO | Repuesto actualizado: 1
+2025-04-27 22:38:57 | Sistema | Eliminación de repuesto | ÉXITO | Repuesto eliminado: 1
+2025-04-27 22:39:04 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-04-27 22:39:17 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-04-27 22:39:17 | Sistema | Registro de cliente | ÉXITO | Cliente registrado con DPI: 1111111111111
+2025-04-27 22:39:21 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:36 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:36 | Sistema | Crear Orden | ÉXITO | Orden #1 creada para cliente: ref ref, automóvil: REF, servicio: Cambio Pistones
+2025-04-27 22:39:36 | Sistema | Cola Espera | ÉXITO | Orden #1 iniciando espera de 12 segundos
+2025-04-27 22:39:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:40 | Sistema | Crear Orden | ÉXITO | Orden #2 creada para cliente: ref ref, automóvil: REF, servicio: Reemplazo Radiador
+2025-04-27 22:39:41 | Sistema | Cola Espera | ÉXITO | Orden #2 iniciando espera de 12 segundos
+2025-04-27 22:39:48 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:48 | Sistema | Asignar Mecánico | ÉXITO | Orden #1 asignada al mecánico Jake elPerro
+2025-04-27 22:39:48 | Sistema | Cola Espera | ÉXITO | Orden #1 tiempo de espera completado
+2025-04-27 22:39:49 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:49 | Sistema | Finalizar Orden | ÉXITO | Orden #1 finalizada
+2025-04-27 22:39:49 | Sistema | En Servicio | ÉXITO | Orden #1 servicio completado automáticamente
+2025-04-27 22:39:49 | Sistema | Finalizado | ÉXITO | Orden #1 iniciando tiempo finalizado de 1 segundos
+2025-04-27 22:39:50 | Sistema | Agregar Factura | ÉXITO | Factura #1 agregada.
+2025-04-27 22:39:50 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:50 | Sistema | Generar Factura | ÉXITO | Factura #1 generada para orden #1
+2025-04-27 22:39:50 | Sistema | Finalizado | ÉXITO | Orden #1 factura generada automáticamente
+2025-04-27 22:39:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:53 | Sistema | Asignar Mecánico | ÉXITO | Orden #2 asignada al mecánico Jake elPerro
+2025-04-27 22:39:53 | Sistema | Cola Espera | ÉXITO | Orden #2 tiempo de espera completado
+2025-04-27 22:39:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:53 | Sistema | Finalizar Orden | ÉXITO | Orden #2 finalizada
+2025-04-27 22:39:53 | Sistema | En Servicio | ÉXITO | Orden #2 servicio completado automáticamente
+2025-04-27 22:39:53 | Sistema | Finalizado | ÉXITO | Orden #2 iniciando tiempo finalizado de 1 segundos
+2025-04-27 22:39:54 | Sistema | Agregar Factura | ÉXITO | Factura #2 agregada.
+2025-04-27 22:39:54 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:39:54 | Sistema | Generar Factura | ÉXITO | Factura #2 generada para orden #2
+2025-04-27 22:39:54 | Sistema | Finalizado | ÉXITO | Orden #2 factura generada automáticamente
+2025-04-27 22:39:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:40:07 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-04-27 22:40:19 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-04-27 22:40:23 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-04-27 22:40:25 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.

@@ -159,7 +159,7 @@ public class ServicioController {
      * 
      * @return true si se agregó correctamente
      */
-    public static boolean agregarRepuestoAServicio(int idServicio, int idRepuesto) {
+    public static boolean agregarRepuestoAServicio(int idServicio, String idRepuesto) {
         Servicio servicio = buscarServicioPorId(idServicio);
         if (servicio == null) {
             GestorBitacora.registrarEvento("Sistema", "Agregar repuesto a servicio", false,
@@ -240,15 +240,28 @@ public class ServicioController {
     /**
      * Obtiene servicios compatibles con un automóvil específico
      */
-    public static Vector<Servicio> obtenerServiciosCompatibles(Automovil automovil) {
+    public static Vector<Servicio> obtenerServiciosCompatibles(Automovil auto) {
         Vector<Servicio> serviciosCompatibles = new Vector<>();
+        Vector<Servicio> servicios = DataController.getServicios();
 
-        if (automovil == null) {
-            return serviciosCompatibles;
-        }
+        for (Servicio servicio : servicios) {
+            // Caso 1: El servicio es para cualquier marca y cualquier modelo
+            boolean esCualquiera = servicio.getMarca().equalsIgnoreCase("cualquiera") &&
+                    servicio.getModelo().equalsIgnoreCase("cualquiera");
 
-        for (Servicio servicio : DataController.getServicios()) {
-            if (automovil.esCompatibleConServicio(servicio)) {
+            // Caso 2: Coincidencia exacta de marca y modelo
+            boolean coincideExacto = servicio.getMarca().equalsIgnoreCase(auto.getMarca()) &&
+                    servicio.getModelo().equalsIgnoreCase(auto.getModelo());
+
+            // Caso 3: Coincidencia de marca con modelo "cualquiera"
+            boolean coincideMarca = servicio.getMarca().equalsIgnoreCase(auto.getMarca()) &&
+                    servicio.getModelo().equalsIgnoreCase("cualquiera");
+
+            // Caso 4: Modelo específico para cualquier marca
+            boolean coincideModelo = servicio.getMarca().equalsIgnoreCase("cualquiera") &&
+                    servicio.getModelo().equalsIgnoreCase(auto.getModelo());
+
+            if (esCualquiera || coincideExacto || coincideMarca || coincideModelo) {
                 serviciosCompatibles.add(servicio);
             }
         }

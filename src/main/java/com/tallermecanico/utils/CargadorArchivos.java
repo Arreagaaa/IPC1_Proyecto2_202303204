@@ -1,11 +1,8 @@
 package com.tallermecanico.utils;
 
 import com.tallermecanico.controllers.ClienteController;
-import com.tallermecanico.controllers.DataController;
 import com.tallermecanico.controllers.RepuestoController;
 import com.tallermecanico.controllers.ServicioController;
-import com.tallermecanico.models.Automovil;
-import com.tallermecanico.models.Repuesto;
 import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
 
@@ -18,12 +15,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 /**
  * Utilidad para cargar y gestionar archivos en el sistema
@@ -277,7 +270,7 @@ public class CargadorArchivos {
                         for (String idStr : idsRepuestos) {
                             if (!idStr.trim().isEmpty()) {
                                 try {
-                                    int idRepuesto = Integer.parseInt(idStr.trim());
+                                    String idRepuesto = idStr.trim();
                                     boolean agregado = ServicioController.agregarRepuestoAServicio(servicio.getId(),
                                             idRepuesto);
 

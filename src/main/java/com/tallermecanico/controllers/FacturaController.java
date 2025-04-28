@@ -200,4 +200,41 @@ public class FacturaController {
                     "No se pudo agregar la factura, es nula.");
         }
     }
+
+    public static Vector<Factura> obtenerFacturasPorCliente(Cliente clienteActual) {
+        Vector<Factura> facturasCliente = new Vector<>();
+
+        for (Factura factura : DataController.getFacturas()) {
+            if (factura.getOrdenTrabajo().getCliente().getIdentificador().equals(clienteActual)) {
+                facturasCliente.add(factura);
+            }
+        }
+
+        return facturasCliente;
+    }
+
+    public static Factura obtenerFacturaPorId(int facturaId) {
+        for (Factura factura : DataController.getFacturas()) {
+            if (factura.getNumero() == facturaId) {
+                return factura;
+            }
+        }
+        return null;
+    }
+
+    public static boolean actualizarFactura(Factura factura) {
+        if (factura == null) {
+            return false;
+        }
+        for (int i = 0; i < DataController.getFacturas().size(); i++) {
+            if (DataController.getFacturas().get(i).getNumero() == factura.getNumero()) {
+                DataController.getFacturas().set(i, factura);
+                DataController.guardarDatos();
+                GestorBitacora.registrarEvento("Sistema", "Actualizar Factura", true,
+                        "Factura #" + factura.getNumero() + " actualizada.");
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -12,6 +12,7 @@ import com.tallermecanico.utils.GestorBitacora;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Vista de inicio de sesión del sistema
@@ -134,112 +135,97 @@ public class LoginView extends BaseView {
      * Realiza el proceso de inicio de sesión
      */
     private void iniciarSesion() {
-        String usuario = txtUsuario.getText();
-        String contraseña = new String(txtPassword.getPassword());
+        String usuario = txtUsuario.getText().trim();
+        String password = new String(txtPassword.getPassword());
 
-        // Validar campos vacíos
-        if (usuario.isEmpty() || contraseña.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Por favor complete todos los campos",
-                    "Campos requeridos",
-                    JOptionPane.WARNING_MESSAGE);
+        if (usuario.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese usuario y contraseña.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        try {
-            // Buscar empleado
-            Empleado empleado = EmpleadoController.buscarEmpleadoPorUsuario(usuario);
+        // PRIMERO: Verificar si hay ADMIN por defecto
+        DataController.verificarAdministradorPorDefecto();
 
-            if (empleado != null && empleado.getContrasena().equals(contraseña)) {
-                System.out.println("Tipo de empleado encontrado: " + empleado.getClass().getName());
+        // SEGUNDO: Obtener empleados de nuevo (ahora que verificamos defaults)
+        empleados = DataController.getEmpleados();
 
-                GestorBitacora.registrarEvento(
-                        usuario,
-                        "Inicio de sesión",
-                        true,
-                        "Empleado inició sesión: " + empleado.getNombreCompleto());
+        // TERCERO: Comprobar que no sea null
+        if (empleados == null) {
+            System.out.println("¡CUIDADO! Lista de empleados es NULL. Creando lista vacía.");
+            empleados = new Vector<>();
+        }
 
-                // Redirigir según el tipo de empleado
-                if (empleado instanceof Administrador) {
-                    System.out.println("Creando vista de administrador...");
-                    AdminView adminView = new AdminView(empleado);
-                    adminView.setVisible(true);
-                    dispose();
-                } else if (empleado instanceof Mecanico) {
-                    System.out.println("Creando vista de mecánico...");
-                    MecanicoView mecanicoView = new MecanicoView((Mecanico) empleado);
-                    mecanicoView.setVisible(true);
-                    dispose();
-                } else {
-                    System.err.println("ERROR: Tipo de empleado inesperado: " + empleado.getClass().getName());
-                    // Corregir el tipo de empleado en memoria si es el admin por defecto
-                    if ("admin".equals(empleado.getNombreUsuario())) {
-                        Empleado nuevoAdmin = new Administrador(
-                                empleado.getIdentificador(),
-                                empleado.getNombre(),
-                                empleado.getApellido(),
-                                empleado.getNombreUsuario());
+        // Ahora sí buscar en empleados (no debería ser null)
+        Object usuarioEncontrado = null; // Usar Object en lugar de Usuario
 
-                        // Reemplazar en el vector de empleados
-                        int index = empleados.indexOf(empleado);
-                        if (index >= 0) {
-                            empleados.set(index, nuevoAdmin);
-                            DataController.guardarDatos();
-                            // Reintentar con el nuevo objeto
-                            AdminView adminView = new AdminView(nuevoAdmin);
-                            adminView.setVisible(true);
-                            dispose();
-                            return;
-                        }
+        // Debug para ver cuántos empleados hay
+        System.out.println("Empleados encontrados: " + empleados.size());
+
+        for (Empleado empleado : empleados) {
+            if (empleado.getNombreUsuario().equals(usuario) && empleado.getPassword().equals(password)) {
+                usuarioEncontrado = empleado;
+                System.out.println(
+                        "Empleado encontrado: " + empleado.getNombreCompleto() + ", Tipo: " + empleado.getTipo());
+                break;
+            }
+        }
+
+        // Buscar en clientes si no se encontró en empleados
+        if (usuarioEncontrado == null) {
+            Vector<Cliente> clientes = DataController.getClientes();
+            if (clientes != null) {
+                for (Cliente cliente : clientes) {
+                    if (cliente.getNombreUsuario().equals(usuario) && cliente.getPassword().equals(password)) {
+                        usuarioEncontrado = cliente;
+                        break;
                     }
-
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Tipo de empleado no reconocido: " + empleado.getClass().getName(),
-                            "Error de sistema",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-            } else {
-                // Buscar cliente
-                Cliente cliente = ClienteController.autenticarCliente(usuario, contraseña);
-                if (cliente != null) {
-                    GestorBitacora.registrarEvento(
-                            usuario,
-                            "Inicio de sesión",
-                            true,
-                            "Cliente inició sesión: " + cliente.getNombreCompleto());
-                    ClienteView clienteView = new ClienteView(cliente);
-                    clienteView.setVisible(true);
-                    dispose();
-                } else {
-                    GestorBitacora.registrarEvento(
-                            "Sistema",
-                            "Intento de inicio de sesión fallido",
-                            false,
-                            "Usuario intentó iniciar sesión con credenciales incorrectas: " + usuario);
-
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Usuario o contraseña incorrectos",
-                            "Error de autenticación",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             }
-        } catch (Exception e) {
-            // Capturar cualquier excepción para evitar que el programa se cierre
-            e.printStackTrace();
+        }
 
-            GestorBitacora.registrarEvento(
-                    "Sistema",
-                    "Error crítico de inicio de sesión",
-                    false,
-                    "Error al procesar inicio de sesión para usuario: " + usuario + " - " + e.getMessage());
+        if (usuarioEncontrado != null) {
+            dispose(); // Cerrar ventana de login
 
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Ha ocurrido un error al procesar el inicio de sesión.\nError: " + e.getMessage(),
-                    "Error de sistema",
+            // Verificar tipo de usuario y abrir la vista correspondiente
+            if (usuarioEncontrado instanceof Administrador) {
+                System.out.println("Creando vista de administrador...");
+                new AdminView((Empleado) usuarioEncontrado).setVisible(true);
+            } else if (usuarioEncontrado instanceof Mecanico) {
+                System.out.println("Creando vista de mecánico...");
+                new MecanicoView((Empleado) usuarioEncontrado).setVisible(true);
+            } else if (usuarioEncontrado instanceof Cliente) {
+                System.out.println("Creando vista de cliente...");
+                new ClienteView((Cliente) usuarioEncontrado).setVisible(true);
+            } else if (usuarioEncontrado instanceof Empleado) {
+                // Si es un empleado genérico, verificar su tipo manualmente
+                Empleado emp = (Empleado) usuarioEncontrado;
+                String tipo = emp.getTipo().toLowerCase();
+
+                if (tipo.equals("admin") || tipo.equals("administrador")) {
+                    System.out.println("Creando vista de administrador (por tipo)...");
+                    // Convertir a Administrador si es necesario o usar como Empleado genérico
+                    new AdminView(emp).setVisible(true);
+                } else if (tipo.equals("mecanico")) {
+                    System.out.println("Creando vista de mecánico (por tipo)...");
+                    new MecanicoView(emp).setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Tipo de empleado no reconocido: " + tipo,
+                            "Error de inicio de sesión",
+                            JOptionPane.ERROR_MESSAGE);
+                    new LoginView().setVisible(true);
+                }
+            } else {
+                System.out.println("ERROR: Tipo de usuario no reconocido: " + usuarioEncontrado.getClass().getName());
+                JOptionPane.showMessageDialog(null,
+                        "Tipo de usuario no reconocido",
+                        "Error de inicio de sesión",
+                        JOptionPane.ERROR_MESSAGE);
+                new LoginView().setVisible(true);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos.", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }

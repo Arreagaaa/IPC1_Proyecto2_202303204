@@ -7,6 +7,7 @@ import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
 import com.tallermecanico.models.personas.Empleado;
 import com.tallermecanico.models.personas.Administrador;
+import com.tallermecanico.models.personas.Mecanico;
 import com.tallermecanico.models.Automovil;
 import com.tallermecanico.utils.GestorBitacora;
 import com.tallermecanico.utils.Serializador;
@@ -85,21 +86,64 @@ public class DataController {
      * Si no existe, crea un administrador por defecto.
      */
     public static void verificarAdministradorPorDefecto() {
-        boolean existe = false;
-        for (Empleado emp : empleados) {
-            if ("admin".equals(emp.getNombreUsuario())) {
-                existe = true;
+        // Verificar administrador por defecto
+        boolean existeAdmin = false;
+        for (Empleado empleado : getEmpleados()) {
+            if (empleado.getTipo().equalsIgnoreCase("administrador")) {
+                existeAdmin = true;
                 break;
             }
         }
-        if (!existe) {
-            // Crear un administrador (asegúrate que el tipo "admin" sea correcto)
-            Empleado admin = new Administrador("1", "Administrador", "General", "admin");
-            empleados.add(admin);
-            guardarDatos();
-            GestorBitacora.registrarEvento("Sistema", "Creación de administrador", true,
-                    "Administrador por defecto creado");
+
+        if (!existeAdmin) {
+            // Crear administrador por defecto
+            Empleado admin = new Empleado("admin", "Administrador", "General", "admin", "admin", "administrador");
+            getEmpleados().add(admin);
+            GestorBitacora.registrarEvento("Sistema", "Creación de usuarios", true,
+                    "Se creó el usuario administrador por defecto");
         }
+
+        // Verificar mecánico por defecto
+        boolean existeMecanico = false;
+        for (Empleado empleado : getEmpleados()) {
+            if (empleado.getTipo().equalsIgnoreCase("mecanico")) {
+                existeMecanico = true;
+                break;
+            }
+        }
+
+        if (!existeMecanico) {
+            // Crear mecánico por defecto
+            Mecanico mecanico = new Mecanico("M001", "Jake", "elPerro", "mecanico", "123456");
+            mecanico.setDisponible(true);
+            getEmpleados().add(mecanico);
+            GestorBitacora.registrarEvento("Sistema", "Creación de usuarios", true,
+                    "Se creó el usuario mecánico por defecto");
+        }
+
+        // Verificar servicio de diagnóstico por defecto
+        boolean existeDiagnostico = false;
+        for (Servicio servicio : getServicios()) {
+            if (servicio.getNombre().equalsIgnoreCase("Diagnóstico") &&
+                    servicio.getMarca().equalsIgnoreCase("cualquiera") &&
+                    servicio.getModelo().equalsIgnoreCase("cualquiera")) {
+                existeDiagnostico = true;
+                break;
+            }
+        }
+
+        if (!existeDiagnostico) {
+            // Crear servicio de diagnóstico genérico
+            Servicio diagnostico = new Servicio(contadorFacturas, "Diagnóstico", "cualquiera", "cualquiera",
+                    contadorFacturas);
+            diagnostico.setPrecioManoObra(100.0); // Precio básico de diagnóstico
+            getServicios().add(diagnostico);
+            GestorBitacora.registrarEvento("Sistema", "Creación de servicio", true,
+                    "Se creó el servicio de diagnóstico por defecto");
+        }
+
+        // Guardar los cambios
+        Serializador.guardarDatos(null);
     }
 
     /**
@@ -649,5 +693,9 @@ public class DataController {
         public int getUltimoNumeroFactura() {
             return ultimoNumeroFactura;
         }
+    }
+
+    public static void setRepuestos(Vector<Repuesto> unicos) {
+        DataController.repuestos = unicos;
     }
 }

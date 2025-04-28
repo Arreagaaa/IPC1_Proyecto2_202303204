@@ -1,6 +1,7 @@
 package com.tallermecanico;
 
 import com.tallermecanico.controllers.DataController;
+import com.tallermecanico.controllers.RepuestoController;
 import com.tallermecanico.utils.CargadorArchivos;
 import com.tallermecanico.utils.GestorHilos;
 import com.tallermecanico.utils.Serializador;
@@ -23,28 +24,35 @@ public class Main {
 
         // Iniciar la aplicación en el Event Dispatch Thread (EDT)
         SwingUtilities.invokeLater(() -> {
-            // Inicializar datos (cargar desde archivos serializados si existen)
+            // Inicializar datos desde archivos serializados
             Serializador.inicializarDatos();
 
-            // Intentar cargar datos iniciales desde archivos si el sistema está vacío
-            if (sistemaSinDatos()) {
-                // PRIMERO: Cargar repuestos (antes que cualquier otra cosa)
-                File repuestosFile = new File("repuestos.tmr");
-                System.out.println("Archivo repuestos.tmr existe: " + repuestosFile.exists() +
-                        " (Ruta: " + repuestosFile.getAbsolutePath() + ")");
-                int repuestosCargados = CargadorArchivos.cargarRepuestos(repuestosFile);
-                System.out.println("Repuestos cargados: " + repuestosCargados);
-
-                // SEGUNDO: Verificar que haya repuestos cargados antes de continuar
-                if (repuestosCargados > 0) {
-                    // TERCERO: Cargar servicios y clientes
-                    CargadorArchivos.cargarDatosIniciales();
-                } else {
-                    System.err.println("ADVERTENCIA: No se pudieron cargar repuestos, los servicios podrían fallar");
-                }
+            // Limpiar duplicados si existen
+            int duplicadosEliminados = RepuestoController.eliminarRepuestosDuplicados();
+            if (duplicadosEliminados > 0) {
+                System.out.println("Se eliminaron " + duplicadosEliminados + " repuestos duplicados");
             }
 
-            // Verificar si existe un administrador por defecto, y crearlo si no existe
+            // Cargar archivos SOLO SI el sistema está vacío
+            if (sistemaSinDatos()) {
+                System.out.println("Sistema sin datos detectado. Cargando archivos iniciales...");
+
+                // Cargar repuestos
+                File repuestosFile = new File("repuestos.tmr");
+                if (repuestosFile.exists()) {
+                    int repuestosCargados = CargadorArchivos.cargarRepuestos(repuestosFile);
+                    System.out.println("Repuestos cargados: " + repuestosCargados);
+                } else {
+                    System.out.println("Archivo repuestos.tmr no encontrado en: " + repuestosFile.getAbsolutePath());
+                }
+
+                // Cargar servicios y clientes
+                CargadorArchivos.cargarDatosIniciales();
+            } else {
+                System.out.println("Sistema con datos existentes. No se cargarán archivos iniciales.");
+            }
+
+            // Verificar si existe un administrador por defecto
             DataController.verificarAdministradorPorDefecto();
 
             // Iniciar hilos del sistema
@@ -74,7 +82,7 @@ public class Main {
     }
 
     /**
-     * Verifica si el sistema está vacío (sin datos)
+     * Verifica si el sistema no tiene datos cargados
      */
     private static boolean sistemaSinDatos() {
         // Verificar los vectores principales

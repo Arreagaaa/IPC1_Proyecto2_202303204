@@ -263,4 +263,33 @@ public class Factura implements Serializable {
         this.fechaEmision = date;
     }
 
+    public Object getId() {
+        // Devuelve el ID de la factura
+        return numero;
+    }
+
+    public Automovil getAutomovil() {
+        // Devuelve el automovil asociado a la factura
+        return ordenTrabajo.getAutomovil();
+    }
+
+    public Servicio getServicioAsociado() {
+        // Devuelve el servicio asociado a la factura
+        return ordenTrabajo.getServicio();
+    }
+
+    public Object getIva() {
+        // Devuelve el IVA de la factura
+        return calcularTotal() * 0.12;
+    }
+
+    public void setEstado(String nuevoEstado) {
+        // Cambia el estado de la factura
+        if (nuevoEstado.equals("Pagada")) {
+            this.pagada = true;
+        } else if (nuevoEstado.equals("Pendiente")) {
+            this.pagada = false;
+        }
+    }
+
 }

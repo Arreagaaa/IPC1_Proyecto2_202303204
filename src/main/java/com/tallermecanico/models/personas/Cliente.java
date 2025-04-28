@@ -192,4 +192,8 @@ public class Cliente extends Persona {
             }
         }
     }
+
+    public Object getPassword() {
+        return getContrasena();
+    }
 }

@@ -1,19 +1,24 @@
 package com.tallermecanico.utils;
 
+import com.tallermecanico.controllers.RepuestoController;
 import com.tallermecanico.models.Automovil;
 import com.tallermecanico.models.Repuesto;
 import com.tallermecanico.models.Servicio;
 import com.tallermecanico.models.personas.Cliente;
+import com.tallermecanico.models.Factura;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.Map;
 import java.util.Vector;
 import java.text.SimpleDateFormat;
+
+import javax.swing.JOptionPane;
 
 /**
  * Clase utilitaria para generar reportes en PDF
@@ -504,6 +509,207 @@ public class GeneradorPDF {
             GestorBitacora.registrarEvento("Sistema", "Generación de PDF", false,
                     "Error al generar reporte de automóviles más repetidos: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * Genera un PDF de una factura
+     * 
+     * @param factura La factura a generar en PDF
+     */
+    public static void generarFacturaPDF(Factura factura) {
+        try {
+            // Crear directorio si no existe
+            crearDirectorioSiNoExiste();
+
+            // Crear nombre de archivo con timestamp
+            String timestamp = dateFormat.format(new Date());
+            String rutaArchivo = RUTA_REPORTES + "Factura_" + factura.getId() + "_" + timestamp + ".pdf";
+
+            // Crear documento
+            Document document = new Document(PageSize.A4);
+            PdfWriter.getInstance(document, new FileOutputStream(rutaArchivo));
+            document.open();
+
+            // Agregar título principal
+            Paragraph titulo = new Paragraph("TALLER MECÁNICO USAC", TITULO);
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            document.add(titulo);
+
+            Paragraph subTitulo = new Paragraph("FACTURA DE SERVICIO", SUBTITULO);
+            subTitulo.setAlignment(Element.ALIGN_CENTER);
+            document.add(subTitulo);
+            document.add(Chunk.NEWLINE);
+
+            // Información de la factura
+            Paragraph infoFactura = new Paragraph();
+            infoFactura.add(
+                    new Chunk("Factura No.: " + factura.getId(), FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12)));
+            infoFactura.add(Chunk.TABBING);
+            infoFactura.add(new Chunk("Fecha: " + dateFormat.format(new Date()), TEXTO_NORMAL));
+            document.add(infoFactura);
+            document.add(Chunk.NEWLINE);
+
+            // Información del cliente
+            document.add(new Paragraph("DATOS DEL CLIENTE", SUBTITULO));
+            PdfPTable tablaCliente = new PdfPTable(2);
+            tablaCliente.setWidthPercentage(100);
+
+            agregarCeldaEncabezado(tablaCliente, "Cliente", new BaseColor(66, 139, 202));
+            agregarCeldaEncabezado(tablaCliente, "Información", new BaseColor(66, 139, 202));
+
+            tablaCliente.addCell("Nombre");
+            tablaCliente.addCell(factura.getCliente().getNombreCompleto());
+
+            tablaCliente.addCell("ID");
+            tablaCliente.addCell(factura.getCliente().getIdentificador());
+
+            tablaCliente.addCell("Tipo");
+            if (factura.getCliente() instanceof Cliente) {
+                Cliente cliente = (Cliente) factura.getCliente();
+                tablaCliente.addCell("Cliente " + (cliente.getTipoCliente().equals("oro") ? "Oro" : "Normal"));
+            } else {
+                tablaCliente.addCell("Cliente Normal");
+            }
+
+            document.add(tablaCliente);
+            document.add(Chunk.NEWLINE);
+
+            // Información del vehículo
+            document.add(new Paragraph("INFORMACIÓN DEL VEHÍCULO", SUBTITULO));
+            PdfPTable tablaVehiculo = new PdfPTable(2);
+            tablaVehiculo.setWidthPercentage(100);
+
+            agregarCeldaEncabezado(tablaVehiculo, "Detalle", new BaseColor(66, 139, 202));
+            agregarCeldaEncabezado(tablaVehiculo, "Valor", new BaseColor(66, 139, 202));
+
+            tablaVehiculo.addCell("Placa");
+            tablaVehiculo.addCell(factura.getAutomovil().getPlaca());
+
+            tablaVehiculo.addCell("Marca");
+            tablaVehiculo.addCell(factura.getAutomovil().getMarca());
+
+            tablaVehiculo.addCell("Modelo");
+            tablaVehiculo.addCell(factura.getAutomovil().getModelo());
+
+            document.add(tablaVehiculo);
+            document.add(Chunk.NEWLINE);
+
+            // Detalles del servicio
+            document.add(new Paragraph("DETALLES DEL SERVICIO", SUBTITULO));
+            PdfPTable tablaServicio = new PdfPTable(4);
+            tablaServicio.setWidthPercentage(100);
+
+            agregarCeldaEncabezado(tablaServicio, "Servicio", new BaseColor(66, 139, 202));
+            agregarCeldaEncabezado(tablaServicio, "Descripción", new BaseColor(66, 139, 202));
+            agregarCeldaEncabezado(tablaServicio, "Precio", new BaseColor(66, 139, 202));
+            agregarCeldaEncabezado(tablaServicio, "Subtotal", new BaseColor(66, 139, 202));
+
+            // Servicio principal
+            tablaServicio.addCell("Mano de obra");
+            tablaServicio.addCell(factura.getServicioAsociado().getNombre());
+            tablaServicio.addCell(String.format("Q%.2f", factura.getServicioAsociado().getPrecioManoObra()));
+            tablaServicio.addCell(String.format("Q%.2f", factura.getServicioAsociado().getPrecioManoObra()));
+
+            // Repuestos usados
+            double totalRepuestos = 0;
+            for (Repuesto repuesto : factura.getServicioAsociado().getRepuestos()) {
+                if (repuesto != null) {
+                    tablaServicio.addCell("Repuesto");
+                    tablaServicio.addCell(repuesto.getNombre());
+                    tablaServicio.addCell(String.format("Q%.2f", repuesto.getPrecio()));
+                    tablaServicio.addCell(String.format("Q%.2f", repuesto.getPrecio()));
+                    totalRepuestos += repuesto.getPrecio();
+                }
+            }
+
+            document.add(tablaServicio);
+            document.add(Chunk.NEWLINE);
+
+            // Totales
+            PdfPTable tablaTotales = new PdfPTable(2);
+            tablaTotales.setWidthPercentage(50);
+            tablaTotales.setHorizontalAlignment(Element.ALIGN_RIGHT);
+
+            PdfPCell celdaSubtotal = new PdfPCell(
+                    new Phrase("SUBTOTAL:", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 10)));
+            celdaSubtotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            celdaSubtotal.setBorderWidth(0);
+            tablaTotales.addCell(celdaSubtotal);
+
+            tablaTotales.addCell(String.format("Q%.2f", factura.calcularSubtotal()));
+
+            PdfPCell celdaIVA = new PdfPCell(
+                    new Phrase("IVA (12%):", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 10)));
+            celdaIVA.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            celdaIVA.setBorderWidth(0);
+            tablaTotales.addCell(celdaIVA);
+
+            tablaTotales.addCell(String.format("Q%.2f", factura.getIva()));
+
+            PdfPCell celdaTotal = new PdfPCell(
+                    new Phrase("TOTAL A PAGAR:", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12)));
+            celdaTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            celdaTotal.setBorderWidth(0);
+            tablaTotales.addCell(celdaTotal);
+
+            PdfPCell celdaValorTotal = new PdfPCell(new Phrase(String.format("Q%.2f", factura.getTotal()),
+                    FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12)));
+            celdaValorTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            tablaTotales.addCell(celdaValorTotal);
+
+            document.add(tablaTotales);
+            document.add(Chunk.NEWLINE);
+
+            // Estado de la factura
+            Paragraph estadoFactura = new Paragraph("Estado: " + factura.getEstado(),
+                    FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12));
+            estadoFactura.setAlignment(Element.ALIGN_CENTER);
+            document.add(estadoFactura);
+
+            // Pie de página
+            document.add(Chunk.NEWLINE);
+            Paragraph piePagina = new Paragraph("¡Gracias por su preferencia!",
+                    FontFactory.getFont(FontFactory.HELVETICA, 10));
+            piePagina.setAlignment(Element.ALIGN_CENTER);
+            document.add(piePagina);
+
+            document.close();
+
+            // Abrir el archivo PDF automáticamente
+            abrirArchivoPDF(rutaArchivo);
+
+            GestorBitacora.registrarEvento("Sistema", "Generación de Factura", true,
+                    "Factura PDF generada: " + rutaArchivo);
+
+        } catch (Exception e) {
+            GestorBitacora.registrarEvento("Sistema", "Generación de Factura", false,
+                    "Error al generar factura PDF: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Abre un archivo PDF con el visor predeterminado
+     * 
+     * @param rutaArchivo Ruta del archivo a abrir
+     */
+    private static void abrirArchivoPDF(String rutaArchivo) {
+        try {
+            File file = new File(rutaArchivo);
+            if (file.exists()) {
+                if (Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().open(file);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "El PDF se guardó en: " + rutaArchivo + "\nPero no se pudo abrir automáticamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "El PDF se guardó correctamente, pero no se pudo abrir: " + e.getMessage(),
+                    "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }
 

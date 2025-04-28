@@ -65,4 +65,8 @@ public class Empleado extends Persona implements Serializable {
     public String getId() {
         return getIdentificador();
     }
+
+    public Object getPassword() {
+        return getContrasena();
+    }
 }

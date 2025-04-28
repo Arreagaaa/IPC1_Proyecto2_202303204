@@ -37,6 +37,7 @@ public class AdminView extends BaseView {
     private static final Color COLOR_SECONDARY = new Color(230, 230, 230);
     private static final Color COLOR_LIGHT = Color.WHITE;
     private static final Color COLOR_TEXT = new Color(40, 40, 40);
+    private static final Color COLOR_PRIMARY_DARK = new Color(0, 90, 160);
 
     public AdminView(Empleado administrador) {
         super("Panel de Administración");
@@ -49,6 +50,13 @@ public class AdminView extends BaseView {
 
     @Override
     protected void inicializarComponentes() {
+        // Inicializar todos los modelos de tabla primero
+        modeloRepuestos = new DefaultTableModel();
+        modeloServicios = new DefaultTableModel();
+        modeloClientes = new DefaultTableModel();
+        modeloProgreso = new DefaultTableModel();
+        modeloFacturas = new DefaultTableModel();
+
         contentPanel.setBackground(COLOR_LIGHT);
 
         JPanel navBar = crearBarraNavegacion(
@@ -101,6 +109,59 @@ public class AdminView extends BaseView {
             }
         });
         menuSistema.add(menuItemLimpiarDatos);
+
+        // Botón para carga masiva de archivos
+        JButton btnCargaMasiva = crearBotonPrimario("Cargar Archivos Masivos");
+        btnCargaMasiva.setBackground(new Color(100, 100, 100));
+        btnCargaMasiva.setForeground(Color.WHITE);
+        btnCargaMasiva.setFocusPainted(false);
+        btnCargaMasiva.setBorderPainted(false);
+        btnCargaMasiva.setOpaque(true);
+        btnCargaMasiva.addActionListener(e -> {
+            try {
+                int option = JOptionPane.showConfirmDialog(this,
+                        "Esta acción cargará archivos masivos de datos.\n¿Desea continuar?",
+                        "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+                if (option == JOptionPane.YES_OPTION) {
+                    // Primero limpiar duplicados para evitar problemas
+                    int duplicadosEliminados = RepuestoController.eliminarRepuestosDuplicados();
+
+                    // Cargar archivos
+                    File repuestosFile = new File("repuestos.tmr");
+                    if (repuestosFile.exists()) {
+                        int repuestosCargados = CargadorArchivos.cargarRepuestos(repuestosFile);
+
+                        // Cargar otros datos
+                        CargadorArchivos.cargarDatosIniciales();
+
+                        // Mostrar resultado
+                        JOptionPane.showMessageDialog(this,
+                                "Carga masiva completada exitosamente.\n" +
+                                        "- Repuestos cargados: " + repuestosCargados + "\n" +
+                                        "- Duplicados eliminados: " + duplicadosEliminados,
+                                "Operación exitosa", JOptionPane.INFORMATION_MESSAGE);
+
+                        // Recargar datos en pantalla
+                        cargarDatos();
+                    } else {
+                        JOptionPane.showMessageDialog(this,
+                                "No se encontró el archivo de repuestos en:\n" + repuestosFile.getAbsolutePath(),
+                                "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this,
+                        "Error durante la carga masiva: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+            }
+        });
+
+        JPanel panelMenu = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        panelMenu.setOpaque(false);
+        panelMenu.add(btnCargaMasiva);
+        menuBar.add(panelMenu);
         menuBar.add(menuSistema);
         setJMenuBar(menuBar);
     }
@@ -121,6 +182,8 @@ public class AdminView extends BaseView {
         JTextField txtBuscar = crearCampoTexto();
         txtBuscar.setPreferredSize(new Dimension(200, 35));
         JButton btnBuscar = crearBotonSecundario("Buscar");
+        btnBuscar.setForeground(COLOR_PRIMARY_DARK);
+
         btnBuscar.addActionListener(e -> buscarRepuesto(txtBuscar.getText()));
 
         searchPanel.add(lblBuscar);
@@ -131,15 +194,24 @@ public class AdminView extends BaseView {
         buttonPanel.setBackground(COLOR_LIGHT);
 
         JButton btnAgregar = crearBotonPrimario("Agregar");
+        btnAgregar.setForeground(Color.WHITE);
+        btnAgregar.setBackground(new Color(0, 120, 215));
+
+        JButton btnEditar = crearBotonPrimario("Editar");
+        btnEditar.setForeground(Color.WHITE);
+        btnEditar.setBackground(new Color(255, 140, 0));
+
+        JButton btnEliminar = crearBotonPrimario("Eliminar");
+        btnEliminar.setForeground(Color.WHITE);
+        btnEliminar.setBackground(new Color(200, 0, 0));
+
+        JButton btnCargar = crearBotonPrimario("Cargar Archivo");
+        btnCargar.setForeground(Color.WHITE);
+        btnCargar.setBackground(new Color(100, 100, 100));
+
         btnAgregar.addActionListener(e -> agregarRepuesto());
-
-        JButton btnEditar = crearBotonSecundario("Editar");
         btnEditar.addActionListener(e -> editarRepuesto());
-
-        JButton btnEliminar = crearBotonSecundario("Eliminar");
         btnEliminar.addActionListener(e -> eliminarRepuesto());
-
-        JButton btnCargar = crearBotonSecundario("Cargar Archivo");
         btnCargar.addActionListener(e -> cargarArchivoRepuestos());
 
         buttonPanel.add(btnAgregar);
@@ -202,91 +274,121 @@ public class AdminView extends BaseView {
                 String n = nombre.getText().trim();
                 String m = marca.getText().trim();
                 String mo = modelo.getText().trim();
-                int ex = Integer.parseInt(existencias.getText().trim());
-                double p = Double.parseDouble(precio.getText().trim());
-                if (n.isEmpty() || m.isEmpty() || mo.isEmpty() || ex < 0 || p < 0)
-                    throw new Exception();
-                boolean ok = RepuestoController.registrarRepuesto(n, m, mo, ex, p) != null;
-                if (ok) {
+                String exStr = existencias.getText().trim();
+                String pStr = precio.getText().trim().replace(",", ".");
+                if (n.isEmpty() || m.isEmpty() || mo.isEmpty() || exStr.isEmpty() || pStr.isEmpty())
+                    throw new Exception("Todos los campos son obligatorios.");
+                int ex = Integer.parseInt(exStr);
+                double p = Double.parseDouble(pStr);
+                if (ex < 0 || p < 0)
+                    throw new Exception("Existencias y precio deben ser positivos.");
+                Repuesto nuevoRepuesto = RepuestoController.registrarRepuesto(n, m, mo, ex, p);
+                if (nuevoRepuesto != null) {
                     cargarDatos();
                     JOptionPane.showMessageDialog(this, "Repuesto agregado correctamente.");
                 } else {
                     JOptionPane.showMessageDialog(this, "Error al agregar repuesto.", "Error",
                             JOptionPane.ERROR_MESSAGE);
                 }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Existencias y precio deben ser numéricos.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Datos inválidos.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
 
     private void editarRepuesto() {
-        int fila = tablaRepuestos.getSelectedRow();
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(this, "Seleccione un repuesto para editar.");
-            return;
-        }
-        int id = (int) modeloRepuestos.getValueAt(fila, 0);
-        Repuesto r = RepuestoController.buscarRepuestoPorId(id);
-        if (r == null) {
-            JOptionPane.showMessageDialog(this, "No se encontró el repuesto.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        JTextField nombre = new JTextField(r.getNombre());
-        JTextField marca = new JTextField(r.getMarca());
-        JTextField modelo = new JTextField(r.getModelo());
-        JTextField existencias = new JTextField(String.valueOf(r.getExistencias()));
-        JTextField precio = new JTextField(String.valueOf(r.getPrecio()));
-
-        Object[] campos = {
-                "Nombre:", nombre,
-                "Marca:", marca,
-                "Modelo:", modelo,
-                "Existencias:", existencias,
-                "Precio:", precio
-        };
-
-        int res = JOptionPane.showConfirmDialog(this, campos, "Editar Repuesto", JOptionPane.OK_CANCEL_OPTION);
-        if (res == JOptionPane.OK_OPTION) {
+        int filaSeleccionada = tablaRepuestos.getSelectedRow();
+        if (filaSeleccionada >= 0) {
             try {
-                String n = nombre.getText().trim();
-                String m = marca.getText().trim();
-                String mo = modelo.getText().trim();
-                int ex = Integer.parseInt(existencias.getText().trim());
-                double p = Double.parseDouble(precio.getText().trim());
-                if (n.isEmpty() || m.isEmpty() || mo.isEmpty() || ex < 0 || p < 0)
-                    throw new Exception();
-                boolean ok = RepuestoController.actualizarRepuesto(id, n, m, mo, ex, p);
-                if (ok) {
-                    cargarDatos();
-                    JOptionPane.showMessageDialog(this, "Repuesto editado correctamente.");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error al editar repuesto.", "Error",
-                            JOptionPane.ERROR_MESSAGE);
+                String idRepuesto = tablaRepuestos.getValueAt(filaSeleccionada, 0).toString();
+                String nombre = tablaRepuestos.getValueAt(filaSeleccionada, 1).toString();
+                String marca = tablaRepuestos.getValueAt(filaSeleccionada, 2).toString();
+                String modelo = tablaRepuestos.getValueAt(filaSeleccionada, 3).toString();
+                int existencias = Integer.parseInt(tablaRepuestos.getValueAt(filaSeleccionada, 4).toString());
+                String precioStr = tablaRepuestos.getValueAt(filaSeleccionada, 5).toString().replace("Q", "").trim();
+                double precio = Double.parseDouble(precioStr.replace(",", "."));
+
+                JTextField txtNombre = new JTextField(nombre);
+                JTextField txtMarca = new JTextField(marca);
+                JTextField txtModelo = new JTextField(modelo);
+                JTextField txtExistencias = new JTextField(String.valueOf(existencias));
+                JTextField txtPrecio = new JTextField(String.format("%.2f", precio));
+
+                Object[] campos = {
+                        "Nombre:", txtNombre,
+                        "Marca:", txtMarca,
+                        "Modelo:", txtModelo,
+                        "Existencias:", txtExistencias,
+                        "Precio:", txtPrecio
+                };
+
+                int res = JOptionPane.showConfirmDialog(this, campos, "Editar Repuesto", JOptionPane.OK_CANCEL_OPTION);
+                if (res == JOptionPane.OK_OPTION) {
+                    String nuevoNombre = txtNombre.getText().trim();
+                    String nuevaMarca = txtMarca.getText().trim();
+                    String nuevoModelo = txtModelo.getText().trim();
+                    int nuevasExistencias = Integer.parseInt(txtExistencias.getText().trim());
+                    double nuevoPrecio = Double.parseDouble(txtPrecio.getText().trim().replace(",", "."));
+
+                    if (nuevoNombre.isEmpty() || nuevaMarca.isEmpty() || nuevoModelo.isEmpty() ||
+                            nuevasExistencias < 0 || nuevoPrecio < 0) {
+                        throw new Exception("Datos inválidos");
+                    }
+
+                    boolean actualizado = RepuestoController.actualizarRepuesto(
+                            idRepuesto, nuevoNombre, nuevaMarca, nuevoModelo, nuevasExistencias, nuevoPrecio);
+
+                    if (actualizado) {
+                        cargarDatos();
+                        JOptionPane.showMessageDialog(this, "Repuesto actualizado correctamente.");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Error al actualizar el repuesto.",
+                                "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Datos inválidos.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error al editar repuesto: " + e.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un repuesto para editar.",
+                    "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     private void eliminarRepuesto() {
-        int fila = tablaRepuestos.getSelectedRow();
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(this, "Seleccione un repuesto para eliminar.");
-            return;
-        }
-        int id = (int) modeloRepuestos.getValueAt(fila, 0);
-        int res = JOptionPane.showConfirmDialog(this, "¿Eliminar repuesto seleccionado?", "Confirmar",
-                JOptionPane.YES_NO_OPTION);
-        if (res == JOptionPane.YES_OPTION) {
-            boolean ok = RepuestoController.eliminarRepuesto(id);
-            if (ok) {
-                cargarDatos();
-                JOptionPane.showMessageDialog(this, "Repuesto eliminado correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al eliminar repuesto.", "Error", JOptionPane.ERROR_MESSAGE);
+        int filaSeleccionada = tablaRepuestos.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            try {
+                String idRepuesto = tablaRepuestos.getValueAt(filaSeleccionada, 0).toString();
+                String nombre = tablaRepuestos.getValueAt(filaSeleccionada, 1).toString();
+
+                int confirmacion = JOptionPane.showConfirmDialog(this,
+                        "¿Está seguro de eliminar el repuesto '" + nombre + "'?",
+                        "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    boolean eliminado = RepuestoController.eliminarRepuesto(idRepuesto);
+
+                    if (eliminado) {
+                        cargarDatos();
+                        JOptionPane.showMessageDialog(this, "Repuesto eliminado correctamente.");
+                    } else {
+                        JOptionPane.showMessageDialog(this,
+                                "No se pudo eliminar el repuesto.\nPodría estar en uso en algún servicio.",
+                                "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar: " + e.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un repuesto para eliminar.",
+                    "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -316,7 +418,8 @@ public class AdminView extends BaseView {
                             if (n.isEmpty() || m.isEmpty() || mo.isEmpty() || ex < 0 || p < 0)
                                 throw new Exception("Datos vacíos o negativos");
 
-                            boolean ok = RepuestoController.registrarRepuesto(n, m, mo, ex, p) != null;
+                            Repuesto nuevoRepuesto = RepuestoController.registrarRepuesto(n, m, mo, ex, p);
+                            boolean ok = nuevoRepuesto != null;
                             if (ok)
                                 count++;
                             else {
@@ -400,15 +503,24 @@ public class AdminView extends BaseView {
         buttonPanel.setBackground(COLOR_LIGHT);
 
         JButton btnAgregar = crearBotonPrimario("Agregar");
+        btnAgregar.setForeground(Color.WHITE);
+        btnAgregar.setBackground(new Color(0, 120, 215));
+
+        JButton btnEditar = crearBotonPrimario("Editar");
+        btnEditar.setForeground(Color.WHITE);
+        btnEditar.setBackground(new Color(255, 140, 0));
+
+        JButton btnEliminar = crearBotonPrimario("Eliminar");
+        btnEliminar.setForeground(Color.WHITE);
+        btnEliminar.setBackground(new Color(200, 0, 0));
+
+        JButton btnCargar = crearBotonPrimario("Cargar Archivo");
+        btnCargar.setForeground(Color.WHITE);
+        btnCargar.setBackground(new Color(100, 100, 100));
+
         btnAgregar.addActionListener(e -> agregarServicio());
-
-        JButton btnEditar = crearBotonSecundario("Editar");
         btnEditar.addActionListener(e -> editarServicio());
-
-        JButton btnEliminar = crearBotonSecundario("Eliminar");
         btnEliminar.addActionListener(e -> eliminarServicio());
-
-        JButton btnCargar = crearBotonSecundario("Cargar Archivo");
         btnCargar.addActionListener(e -> cargarArchivoServicios());
 
         buttonPanel.add(btnAgregar);
@@ -466,9 +578,9 @@ public class AdminView extends BaseView {
             try {
                 String n = nombre.getText().trim();
                 String d = descripcion.getText().trim();
-                double p = Double.parseDouble(precio.getText().trim());
+                double p = Double.parseDouble(precio.getText().trim().replace(",", "."));
                 if (n.isEmpty() || d.isEmpty() || p < 0)
-                    throw new Exception();
+                    throw new Exception("Datos vacíos o negativos");
                 boolean ok = ServicioController.registrarServicio(n, d, d, p) != null;
                 if (ok) {
                     cargarDatos();
@@ -610,16 +722,20 @@ public class AdminView extends BaseView {
         buttonPanel.setBackground(COLOR_LIGHT);
 
         JButton btnAgregar = crearBotonPrimario("Agregar");
-        btnAgregar.addActionListener(e -> agregarCliente());
+        btnAgregar.setForeground(Color.WHITE);
+        btnAgregar.setBackground(new Color(0, 120, 215));
 
-        JButton btnEditar = crearBotonSecundario("Editar");
-        btnEditar.addActionListener(e -> editarCliente());
+        JButton btnEditar = crearBotonPrimario("Editar");
+        btnEditar.setForeground(Color.WHITE);
+        btnEditar.setBackground(new Color(255, 140, 0));
 
-        JButton btnEliminar = crearBotonSecundario("Eliminar");
-        btnEliminar.addActionListener(e -> eliminarCliente());
+        JButton btnEliminar = crearBotonPrimario("Eliminar");
+        btnEliminar.setForeground(Color.WHITE);
+        btnEliminar.setBackground(new Color(200, 0, 0));
 
-        JButton btnCargar = crearBotonSecundario("Cargar Archivo");
-        btnCargar.addActionListener(e -> cargarArchivoClientes());
+        JButton btnCargar = crearBotonPrimario("Cargar Archivo");
+        btnCargar.setForeground(Color.WHITE);
+        btnCargar.setBackground(new Color(100, 100, 100));
 
         buttonPanel.add(btnAgregar);
         buttonPanel.add(btnEditar);
@@ -776,109 +892,372 @@ public class AdminView extends BaseView {
         panel.setBackground(COLOR_LIGHT);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Crear tabla y modelo
-        String[] columnas = { "#", "Cliente", "Vehículo", "Servicio", "Fecha", "Total", "Estado" };
-        modeloFacturas = new DefaultTableModel(columnas, 0) {
+        // Panel de título y filtros
+        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel.setBackground(COLOR_LIGHT);
+
+        JLabel titleLabel = new JLabel("Gestión de Facturas");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        titleLabel.setForeground(COLOR_PRIMARY_DARK);
+        topPanel.add(titleLabel, BorderLayout.WEST);
+
+        // Panel de filtros
+        JPanel filtrosPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        filtrosPanel.setBackground(COLOR_LIGHT);
+
+        JLabel lblFiltro = new JLabel("Filtrar por: ");
+        JComboBox<String> comboEstado = new JComboBox<>(new String[] { "Todos", "Pendiente", "Pagada" });
+        JTextField txtBuscar = new JTextField(15);
+        JButton btnBuscar = crearBotonSecundario("Buscar");
+
+        filtrosPanel.add(lblFiltro);
+        filtrosPanel.add(comboEstado);
+        filtrosPanel.add(txtBuscar);
+        filtrosPanel.add(btnBuscar);
+
+        // Añadir estadísticas de facturas
+        JPanel statsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        statsPanel.setBackground(COLOR_LIGHT);
+
+        JLabel lblTotalFacturas = new JLabel("Total facturas: 0");
+        JLabel lblFacturasPendientes = new JLabel("Pendientes: 0");
+        JLabel lblFacturasPagadas = new JLabel("Pagadas: 0");
+
+        statsPanel.add(lblTotalFacturas);
+        statsPanel.add(new JLabel(" | "));
+        statsPanel.add(lblFacturasPendientes);
+        statsPanel.add(new JLabel(" | "));
+        statsPanel.add(lblFacturasPagadas);
+
+        JPanel headerPanel = new JPanel(new BorderLayout());
+        headerPanel.setBackground(COLOR_LIGHT);
+        headerPanel.add(titleLabel, BorderLayout.NORTH);
+        headerPanel.add(statsPanel, BorderLayout.CENTER);
+        headerPanel.add(filtrosPanel, BorderLayout.SOUTH);
+
+        panel.add(headerPanel, BorderLayout.NORTH);
+
+        // Tabla de facturas
+        String[] columnas = { "ID", "Cliente", "Vehículo", "Servicio", "Total", "Fecha", "Estado", "Acciones" };
+        DefaultTableModel modeloFacturas = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false;
+                return column == 7; // Solo la columna de acciones es editable
+            }
+
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                return String.class;
             }
         };
 
-        tablaFacturas = new JTable(modeloFacturas);
+        JTable tablaFacturas = new JTable(modeloFacturas);
         JScrollPane scrollPane = new JScrollPane(tablaFacturas);
+        scrollPane.setBorder(BorderFactory.createLineBorder(COLOR_PRIMARY, 1));
 
-        // Configurar tabla
         tablaFacturas.setFillsViewportHeight(true);
-        tablaFacturas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         estilizarTabla(tablaFacturas);
 
-        // Cargar datos
-        cargarFacturas();
+        // Configurar anchos de columna
+        TableColumnModel columnModel = tablaFacturas.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(40); // ID
+        columnModel.getColumn(1).setPreferredWidth(150); // Cliente
+        columnModel.getColumn(2).setPreferredWidth(120); // Vehículo
+        columnModel.getColumn(3).setPreferredWidth(150); // Servicio
+        columnModel.getColumn(4).setPreferredWidth(80); // Total
+        columnModel.getColumn(5).setPreferredWidth(100); // Fecha
+        columnModel.getColumn(6).setPreferredWidth(80); // Estado
+        columnModel.getColumn(7).setPreferredWidth(170); // Acciones
 
-        // Añadir botones de acción
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.setBackground(COLOR_LIGHT);
+        // Renderizador especial para la columna de estado
+        tablaFacturas.getColumnModel().getColumn(6).setCellRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column) {
+                JLabel label = (JLabel) super.getTableCellRendererComponent(
+                        table, value, isSelected, hasFocus, row, column);
 
-        JButton btnDetalles = crearBotonSecundario("Ver Detalles");
-        btnDetalles.addActionListener(e -> verDetallesFactura());
+                if (value != null) {
+                    String estado = value.toString();
+                    if (estado.equals("Pendiente")) {
+                        label.setForeground(new Color(214, 69, 65)); // Rojo
+                    } else if (estado.equals("Pagada")) {
+                        label.setForeground(new Color(46, 125, 50)); // Verde
+                    }
+                    label.setFont(new Font("Arial", Font.BOLD, 12));
+                }
+                return label;
+            }
+        });
 
-        JButton btnImprimir = crearBotonSecundario("Imprimir");
-        btnImprimir.addActionListener(e -> imprimirFactura());
+        // Renderer y editor para los botones de acción
+        tablaFacturas.getColumnModel().getColumn(7).setCellRenderer(new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column) {
 
-        buttonPanel.add(btnDetalles);
-        buttonPanel.add(btnImprimir);
+                JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 2, 0));
+                panel.setOpaque(true);
 
-        // Añadir componentes al panel
-        panel.add(new JLabel("Facturas"), BorderLayout.NORTH);
+                if (isSelected) {
+                    panel.setBackground(table.getSelectionBackground());
+                } else {
+                    panel.setBackground(table.getBackground());
+                }
+
+                // Botón para cambiar estado
+                String estado = (String) table.getValueAt(row, 6);
+                String textoCambio = estado.equals("Pendiente") ? "Marcar Pagada" : "Marcar Pendiente";
+                Color colorBoton = estado.equals("Pendiente") ? new Color(46, 125, 50) : new Color(214, 69, 65);
+
+                JButton btnCambiar = new JButton(textoCambio);
+                btnCambiar.setFont(new Font("Arial", Font.BOLD, 10));
+                btnCambiar.setForeground(Color.WHITE);
+                btnCambiar.setBackground(colorBoton);
+                btnCambiar.setBorderPainted(false);
+                btnCambiar.setFocusPainted(false);
+
+                // Botón para ver PDF
+                JButton btnPDF = new JButton("Ver PDF");
+                btnPDF.setFont(new Font("Arial", Font.BOLD, 10));
+                btnPDF.setForeground(Color.WHITE);
+                btnPDF.setBackground(new Color(66, 139, 202));
+                btnPDF.setBorderPainted(false);
+                btnPDF.setFocusPainted(false);
+
+                panel.add(btnCambiar);
+                panel.add(btnPDF);
+
+                return panel;
+            }
+        });
+
+        tablaFacturas.getColumnModel().getColumn(7).setCellEditor(new ButtonPanelEditor() {
+            @Override
+            public void onCambiarEstadoClick(int row) {
+                try {
+                    int facturaId = Integer.parseInt(modeloFacturas.getValueAt(row, 0).toString());
+                    String estadoActual = (String) modeloFacturas.getValueAt(row, 6);
+
+                    // Determinar el nuevo estado
+                    String nuevoEstado = estadoActual.equals("Pendiente") ? "Pagada" : "Pendiente";
+
+                    // Obtener la factura actual
+                    Factura factura = FacturaController.obtenerFacturaPorId(facturaId);
+                    if (factura != null) {
+                        // Asegurar que el estado se actualice correctamente
+                        factura.setEstado(nuevoEstado);
+
+                        // Actualizar en la base de datos
+                        boolean ok = FacturaController.actualizarFactura(factura);
+
+                        if (ok) {
+                            // Actualizar SOLO la celda de estado en la tabla
+                            modeloFacturas.setValueAt(nuevoEstado, row, 6);
+
+                            // Actualizar la vista completa si es necesario
+                            JOptionPane.showMessageDialog(null,
+                                    "Estado de factura actualizado: " + factura.getId() + " → " + nuevoEstado,
+                                    "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+                            // Actualizar estadísticas
+                            actualizarEstadisticasFacturas(lblTotalFacturas, lblFacturasPendientes, lblFacturasPagadas);
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "Error al actualizar estado de factura.",
+                                    "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null,
+                            "Error inesperado: " + e.getMessage(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            @Override
+            public void onVerPDFClick(int row) {
+                int facturaId = Integer.parseInt(modeloFacturas.getValueAt(row, 0).toString());
+                Factura factura = FacturaController.obtenerFacturaPorId(facturaId);
+                if (factura != null) {
+                    GeneradorPDF.generarFacturaPDF(factura);
+                    JOptionPane.showMessageDialog(null, "Factura PDF generada correctamente.");
+                }
+            }
+        });
+
         panel.add(scrollPane, BorderLayout.CENTER);
-        panel.add(buttonPanel, BorderLayout.SOUTH);
+
+        // Panel inferior con botón de actualizar
+        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        bottomPanel.setBackground(COLOR_LIGHT);
+
+        JButton btnActualizar = crearBotonPrimario("Actualizar");
+        bottomPanel.add(btnActualizar);
+
+        panel.add(bottomPanel, BorderLayout.SOUTH);
+
+        // Cargar datos iniciales
+        cargarDatosFacturas(modeloFacturas);
+        actualizarEstadisticasFacturas(lblTotalFacturas, lblFacturasPendientes, lblFacturasPagadas);
+
+        // Configurar la búsqueda/filtro
+        btnBuscar.addActionListener(e -> {
+            String filtroEstado = comboEstado.getSelectedItem().toString();
+            String textoBusqueda = txtBuscar.getText().trim().toLowerCase();
+
+            modeloFacturas.setRowCount(0);
+            Vector<Factura> todasFacturas = FacturaController.obtenerTodasLasFacturas();
+
+            for (Factura factura : todasFacturas) {
+                // Aplicar filtro de estado
+                if (!filtroEstado.equals("Todos") && !factura.getEstado().equals(filtroEstado)) {
+                    continue;
+                }
+
+                // Aplicar filtro de búsqueda por texto
+                boolean coincide = textoBusqueda.isEmpty() ||
+                        factura.getCliente().getNombreCompleto().toLowerCase().contains(textoBusqueda) ||
+                        factura.getAutomovil().getPlaca().toLowerCase().contains(textoBusqueda) ||
+                        factura.getServicioAsociado().getNombre().toLowerCase().contains(textoBusqueda);
+
+                if (coincide) {
+                    modeloFacturas.addRow(new Object[] {
+                            factura.getId(),
+                            factura.getCliente().getNombreCompleto(),
+                            factura.getAutomovil().getMarca() + " " + factura.getAutomovil().getModelo(),
+                            factura.getServicioAsociado().getNombre(),
+                            "Q" + String.format("%.2f", factura.getTotal()),
+                            factura.getFechaEmision(),
+                            factura.getEstado(),
+                            "Acciones" // Placeholder para los botones
+                    });
+                }
+            }
+        });
+
+        // Actualizar datos al hacer clic en el botón
+        btnActualizar.addActionListener(e -> {
+            cargarDatosFacturas(modeloFacturas);
+            actualizarEstadisticasFacturas(lblTotalFacturas, lblFacturasPendientes, lblFacturasPagadas);
+        });
 
         return panel;
     }
 
-    private void cargarFacturas() {
-        modeloFacturas.setRowCount(0);
+    /**
+     * Carga los datos de todas las facturas en la tabla
+     */
+    private void cargarDatosFacturas(DefaultTableModel modelo) {
+        modelo.setRowCount(0);
         Vector<Factura> facturas = FacturaController.obtenerTodasLasFacturas();
+
         for (Factura factura : facturas) {
-            modeloFacturas.addRow(new Object[] {
-                    factura.getNumero(),
+            modelo.addRow(new Object[] {
+                    factura.getId(),
                     factura.getCliente().getNombreCompleto(),
-                    factura.getOrdenTrabajo().getAutomovil().getMarca() + " "
-                            + factura.getOrdenTrabajo().getAutomovil().getModelo(),
-                    factura.getOrdenTrabajo().getServicio().getNombre(),
+                    factura.getAutomovil().getMarca() + " " + factura.getAutomovil().getModelo(),
+                    factura.getServicioAsociado().getNombre(),
+                    "Q" + String.format("%.2f", factura.getTotal()),
                     factura.getFechaEmision(),
-                    String.format("Q %.2f", factura.getTotal()),
-                    factura.getEstado()
+                    factura.getEstado(),
+                    "Acciones" // Placeholder para los botones
             });
         }
     }
 
-    private void verDetallesFactura() {
-        int fila = tablaFacturas.getSelectedRow();
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(this, "Seleccione una factura para ver detalles.");
-            return;
+    /**
+     * Actualiza las etiquetas con estadísticas de facturas
+     */
+    private void actualizarEstadisticasFacturas(JLabel lblTotal, JLabel lblPendientes, JLabel lblPagadas) {
+        Vector<Factura> facturas = FacturaController.obtenerTodasLasFacturas();
+        int total = facturas.size();
+        int pendientes = 0;
+        int pagadas = 0;
+
+        for (Factura factura : facturas) {
+            if (factura.getEstado().equals("Pendiente")) {
+                pendientes++;
+            } else if (factura.getEstado().equals("Pagada")) {
+                pagadas++;
+            }
         }
 
-        int numero = (int) modeloFacturas.getValueAt(fila, 0);
-        Factura factura = FacturaController.buscarFacturaPorNumero(numero);
-
-        if (factura != null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Factura #").append(factura.getNumero()).append("\n\n");
-            sb.append("Cliente: ").append(factura.getCliente().getNombreCompleto()).append("\n");
-            sb.append("Vehículo: ").append(factura.getOrdenTrabajo().getAutomovil().getMarca()).append(" ");
-            sb.append(factura.getOrdenTrabajo().getAutomovil().getModelo()).append(" (")
-                    .append(factura.getOrdenTrabajo().getAutomovil().getPlaca()).append(")\n");
-            sb.append("Servicio: ").append(factura.getOrdenTrabajo().getServicio().getNombre()).append("\n");
-            sb.append("Fecha: ").append(factura.getFechaEmision()).append("\n");
-            sb.append("Total: ").append(String.format("Q %.2f", factura.getTotal())).append("\n");
-            sb.append("Estado: ").append(factura.getEstado());
-
-            JTextArea textArea = new JTextArea(sb.toString());
-            textArea.setEditable(false);
-            JScrollPane scrollPane = new JScrollPane(textArea);
-            scrollPane.setPreferredSize(new Dimension(400, 300));
-
-            JOptionPane.showMessageDialog(this, scrollPane, "Detalles de Factura", JOptionPane.INFORMATION_MESSAGE);
-        }
+        lblTotal.setText("Total facturas: " + total);
+        lblPendientes.setText("Pendientes: " + pendientes);
+        lblPagadas.setText("Pagadas: " + pagadas);
     }
 
-    private void imprimirFactura() {
-        int fila = tablaFacturas.getSelectedRow();
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(this, "Seleccione una factura para imprimir.");
-            return;
+    /**
+     * Editor de celda personalizado para manejar panel con dos botones
+     */
+    private abstract class ButtonPanelEditor extends AbstractCellEditor implements TableCellEditor {
+        private JPanel panel;
+        private JButton btnCambiar;
+        private JButton btnPDF;
+
+        public ButtonPanelEditor() {
+            panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 2, 0));
+
+            btnCambiar = new JButton();
+            btnCambiar.setFont(new Font("Arial", Font.BOLD, 10));
+            btnCambiar.setForeground(Color.WHITE);
+            btnCambiar.setBorderPainted(false);
+            btnCambiar.setFocusPainted(false);
+
+            btnPDF = new JButton("Ver PDF");
+            btnPDF.setFont(new Font("Arial", Font.BOLD, 10));
+            btnPDF.setForeground(Color.WHITE);
+            btnPDF.setBackground(new Color(66, 139, 202));
+            btnPDF.setBorderPainted(false);
+            btnPDF.setFocusPainted(false);
+
+            panel.add(btnCambiar);
+            panel.add(btnPDF);
         }
 
-        int numero = (int) modeloFacturas.getValueAt(fila, 0);
-        Factura factura = FacturaController.buscarFacturaPorNumero(numero);
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value,
+                boolean isSelected, int row, int column) {
 
-        if (factura != null) {
-            // Implementa la lógica de impresión aquí
-            JOptionPane.showMessageDialog(this, "Funcionalidad de impresión de factura aquí.");
+            // Configurar el botón según el estado actual
+            String estado = (String) table.getValueAt(row, 6);
+            String textoCambio = estado.equals("Pendiente") ? "Marcar Pagada" : "Marcar Pendiente";
+            Color colorBoton = estado.equals("Pendiente") ? new Color(46, 125, 50) : new Color(214, 69, 65);
+
+            btnCambiar.setText(textoCambio);
+            btnCambiar.setBackground(colorBoton);
+
+            final int capturedRow = row;
+
+            btnCambiar.addActionListener(e -> {
+                onCambiarEstadoClick(capturedRow);
+                fireEditingStopped();
+            });
+
+            btnPDF.addActionListener(e -> {
+                onVerPDFClick(capturedRow);
+                fireEditingStopped();
+            });
+
+            if (isSelected) {
+                panel.setBackground(table.getSelectionBackground());
+            } else {
+                panel.setBackground(table.getBackground());
+            }
+
+            return panel;
         }
+
+        @Override
+        public Object getCellEditorValue() {
+            return "Acciones";
+        }
+
+        public abstract void onCambiarEstadoClick(int row);
+
+        public abstract void onVerPDFClick(int row);
     }
 
     // ------------------- REPORTES -------------------
@@ -1000,39 +1379,85 @@ public class AdminView extends BaseView {
     }
 
     private void cargarDatos() {
-        // Repuestos
-        modeloRepuestos.setRowCount(0);
-        Vector<Repuesto> repuestos = RepuestoController.obtenerTodosLosRepuestos();
-        for (int i = 0; i < repuestos.size(); i++) {
-            Repuesto r = repuestos.get(i);
-            modeloRepuestos.addRow(new Object[] {
-                    r.getId(), r.getNombre(), r.getMarca(), r.getModelo(), r.getExistencias(),
-                    String.format("Q %.2f", r.getPrecio())
-            });
+        try {
+            // Repuestos
+            if (modeloRepuestos != null) {
+                modeloRepuestos.setRowCount(0);
+                Vector<Repuesto> repuestos = RepuestoController.obtenerTodosLosRepuestos();
+                if (repuestos != null) {
+                    for (Repuesto r : repuestos) {
+                        modeloRepuestos.addRow(new Object[] {
+                                r.getId(), r.getNombre(), r.getMarca(), r.getModelo(), r.getExistencias(),
+                                String.format("Q %.2f", r.getPrecio())
+                        });
+                    }
+                }
+            }
+
+            // Servicios
+            if (modeloServicios != null) {
+                modeloServicios.setRowCount(0);
+                Vector<Servicio> servicios = ServicioController.obtenerTodosLosServicios();
+                if (servicios != null) {
+                    for (Servicio s : servicios) {
+                        modeloServicios.addRow(new Object[] {
+                                s.getId(), s.getNombre(), s.getDescripcion(),
+                                String.format("Q %.2f", s.getPrecioTotal())
+                        });
+                    }
+                }
+            }
+
+            // Clientes
+            if (modeloClientes != null) {
+                modeloClientes.setRowCount(0);
+                Vector<Cliente> clientes = ClienteController.obtenerTodosLosClientes();
+                if (clientes != null) {
+                    for (Cliente c : clientes) {
+                        modeloClientes.addRow(new Object[] {
+                                c.getIdentificador(), c.getNombreCompleto(), c.getNombreUsuario(), c.getTipoCliente(),
+                                c.getAutomoviles() != null ? c.getAutomoviles().size() : 0
+                        });
+                    }
+                }
+            }
+
+            // Progreso
+            if (modeloProgreso != null) {
+                cargarProgreso();
+            }
+
+            // Facturas
+            if (modeloFacturas != null) {
+                cargarFacturas();
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al cargar datos: " + e.getMessage());
+            e.printStackTrace();
         }
-        // Servicios
-        modeloServicios.setRowCount(0);
-        Vector<Servicio> servicios = ServicioController.obtenerTodosLosServicios();
-        for (int i = 0; i < servicios.size(); i++) {
-            Servicio s = servicios.get(i);
-            modeloServicios.addRow(new Object[] {
-                    s.getId(), s.getNombre(), s.getDescripcion(), String.format("Q %.2f", s.getPrecioTotal())
-            });
+    }
+
+    private void cargarFacturas() {
+        // Verificar que el modelo de facturas exista
+        if (modeloFacturas == null) {
+            System.out.println("ADVERTENCIA: modeloFacturas es null en cargarFacturas()");
+            return; // Salir del método si no existe el modelo
         }
-        // Clientes
-        modeloClientes.setRowCount(0);
-        Vector<Cliente> clientes = ClienteController.obtenerTodosLosClientes();
-        for (int i = 0; i < clientes.size(); i++) {
-            Cliente c = clientes.get(i);
-            modeloClientes.addRow(new Object[] {
-                    c.getIdentificador(), c.getNombreCompleto(), c.getNombreUsuario(), c.getTipoCliente(),
-                    c.getAutomoviles().size()
-            });
+
+        modeloFacturas.setRowCount(0);
+        Vector<Factura> facturas = FacturaController.obtenerTodasLasFacturas();
+        if (facturas != null) {
+            for (int i = 0; i < facturas.size(); i++) {
+                Factura f = facturas.get(i);
+                modeloFacturas.addRow(new Object[] {
+                        f.getId(), f.getCliente().getNombreCompleto(), f.getAutomovil().getMarca() + " " +
+                                f.getAutomovil().getModelo(),
+                        f.getServicioAsociado().getNombre(),
+                        String.format("Q %.2f", f.getTotal()), f.getFechaEmision(), f.getEstado()
+                });
+            }
         }
-        // Progreso
-        cargarProgreso();
-        // Facturas
-        cargarFacturas();
     }
 
     protected void estilizarTabla(JTable tabla) {
@@ -1085,14 +1510,15 @@ public class AdminView extends BaseView {
     }
 
     protected JButton crearBotonSecundario(String texto) {
-        JButton button = new JButton(texto);
-        button.setFont(FONT_NORMAL);
-        button.setBackground(COLOR_SECONDARY);
-        button.setForeground(COLOR_TEXT);
-        button.setFocusPainted(false);
-        button.setBorderPainted(false);
-        button.setOpaque(true);
-        return button;
+        JButton btn = new JButton(texto);
+        btn.setBackground(COLOR_SECONDARY);
+        btn.setForeground(Color.WHITE);
+        btn.setFont(new Font("Arial", Font.BOLD, 12));
+        btn.setFocusPainted(false);
+        btn.setBorderPainted(false);
+        btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btn.setOpaque(true);
+        return btn;
     }
 
     private void cerrarSesion() {
