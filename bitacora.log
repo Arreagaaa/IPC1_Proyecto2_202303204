@@ -3351,3 +3351,118 @@
 2025-04-27 23:58:48 | Sistema | Registro de automóvil | ÉXITO | Automóvil registrado: P0EFT7548 para cliente: ref ref
 2025-04-27 23:58:55 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
 2025-04-27 23:58:55 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-05-03 08:43:34 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-05-03 08:43:34 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 08:43:34 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-05-03 08:43:38 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 08:43:38 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-05-03 10:08:24 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-05-03 10:08:24 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:08:24 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-05-03 10:27:06 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP001 - Pistón
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP002 - Bujía
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP003 - Filtro Aire
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP004 - Radiador
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP005 - Amortiguador
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP006 - Alternador
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP007 - Pastillas Freno
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP008 - Embrague
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP009 - Sensor Oxigeno
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP010 - Faro Delantero
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP011 - Correa Tiempo
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP012 - Termostato
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP013 - Disco Freno
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP014 - Bobina Encendido
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP015 - Bomba Agua
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP016 - Compresor Aire
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP017 - Manguera Radiador
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP018 - Palanca Cambios
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP019 - Luz Freno
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP020 - Parabrisas
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP021 - Espejo Retrovisor
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP022 - Filtro Cabina
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP023 - Motor Arranque
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP024 - Rotula Suspension
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP025 - Radiador
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP026 - Sensor Temperatura
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP027 - Alternador
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP028 - Pastillas Freno
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP029 - Faro Trasero
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ÉXITO | Repuesto registrado: REP030 - Bomba Gasolina
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP001
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP002
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP003
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP004
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP005
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP006
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP007
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP008
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP009
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP010
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP011
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP012
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP013
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP014
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP015
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP016
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP017
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP018
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP019
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP020
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP021
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP022
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP023
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP024
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP025
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP026
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP027
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP028
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP029
+2025-05-03 10:27:18 | Sistema | Registro de repuesto | ERROR | Se intentó registrar un repuesto con ID duplicado: REP030
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Pistones para honda civic 2005
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento Frenos para toyota corolla 2010
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Filtro para nissan sentra 2015
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Motor para ford focus 2012
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Suspension Completa para chevrolet malibu 2018
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio General para hyundai accent 2013
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Pastillas para mazda 3 2017
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Embrague para volkswagen golf 2009
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Sensor para kia rio 2014
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Luces para honda crv 2016
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Correa para subaru impreza 2011
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Electrico para nissan sentra 2015
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reparacion Encendido para ford focus 2012
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Revision Aire para honda civic 2005
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Radiador para honda civic 2005
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Ajuste Motor para toyota corolla 2010
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Filtros para nissan sentra 2015
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Refrigeracion para ford focus 2012
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Suspension para chevrolet malibu 2018
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Diagnostico Sistema para hyundai accent 2013
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Pastillas para mazda 3 2017
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Cambio Embrague para volkswagen golf 2009
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Luces para kia rio 2014
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Ajuste Luces para honda crv 2016
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento General para subaru impreza 2011
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Diagnostico Frenos para toyota corolla 2010
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Servicio Cabina para nissan sentra 2015
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Reemplazo Motor para ford focus 2012
+2025-05-03 10:27:18 | Sistema | Registro de servicio | ERROR | Ya existe un servicio idéntico: Mantenimiento Aire para honda civic 2005
+2025-05-03 10:27:18 | Sistema | Carga de servicios | ERROR | Servicios cargados: 0 de 29 líneas.
+2025-05-03 10:27:20 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-05-03 10:27:20 | Sistema | Registro de automóvil | ÉXITO | Automóvil registrado: PQW123 para cliente: Juan Pérez
+2025-05-03 10:27:20 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-05-03 10:27:20 | Sistema | Registro de automóvil | ÉXITO | Automóvil registrado: ZYX321 para cliente: Ana López
+2025-05-03 10:27:20 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-05-03 10:27:20 | Sistema | Registro de automóvil | ÉXITO | Automóvil registrado: KLM345 para cliente: Ricardo Gómez
+2025-05-03 10:27:20 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-05-03 10:27:20 | Sistema | Registro de automóvil | ÉXITO | Automóvil registrado: BBB777 para cliente: María Sánchez
+2025-05-03 10:27:20 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-05-03 10:27:20 | Sistema | Registro de automóvil | ÉXITO | Automóvil registrado: PLK222 para cliente: Luis Ortega
+2025-05-03 10:27:20 | Sistema | Carga de clientes y automóviles | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-05-03 10:28:53 | Sistema | Actualización de repuesto | ÉXITO | Repuesto actualizado: 1
+2025-05-03 10:28:59 | Sistema | Eliminación de repuesto | ÉXITO | Repuesto eliminado: 1
+2025-05-03 10:29:35 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-05-03 10:32:04 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:32:04 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente

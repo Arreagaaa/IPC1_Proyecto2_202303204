@@ -1,0 +1,206 @@
+2025-05-03 10:23:22 | Sistema | Carga de datos | ERROR | Error al cargar datos: datosSistema.dat (El sistema no puede encontrar el archivo especificado)
+2025-05-03 10:23:22 | Sistema | Inicialización | ÉXITO | Inicializando sistema con datos por defecto
+2025-05-03 10:23:22 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-05-03 10:23:22 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-05-03 10:23:22 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:23:22 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-05-03 10:23:27 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-05-03 10:23:27 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-05-03 10:23:27 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-05-03 10:23:27 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:23:27 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-05-03 10:23:30 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:23:30 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-05-03 10:23:42 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:23:59 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:23:59 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-05-03 10:26:35 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-05-03 10:26:35 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-05-03 10:26:35 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-05-03 10:26:35 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:26:35 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-05-03 10:26:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:26:51 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
+2025-05-03 10:29:52 | Sistema | Carga de datos | ÉXITO | Se cargaron los datos del sistema correctamente
+2025-05-03 10:29:52 | Sistema | Creación de usuarios | ÉXITO | Se creó el usuario mecánico por defecto
+2025-05-03 10:29:52 | Sistema | Creación de servicio | ÉXITO | Se creó el servicio de diagnóstico por defecto
+2025-05-03 10:29:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:29:52 | Sistema | Hilos | ÉXITO | Sistema de hilos iniciado correctamente
+2025-05-03 10:29:58 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 1 - Cambio Pistones
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP001
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP016
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP025
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 2 - Mantenimiento Frenos
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP002
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP012
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP021
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 3 - Servicio Filtro
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP003
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP013
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP022
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 4 - Reparacion Motor
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP004
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP014
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP023
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 5 - Suspension Completa
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP005
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP015
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP024
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 6 - Servicio General
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP006
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP017
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP026
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 7 - Cambio Pastillas
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP007
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 8 - Reparacion Embrague
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP008
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP018
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP027
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 9 - Reemplazo Sensor
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP009
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP019
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP028
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 10 - Servicio Luces
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP010
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP020
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP029
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 11 - Reemplazo Correa
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP011
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP030
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 12 - Servicio Electrico
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP013
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP022
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 13 - Reparacion Encendido
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP014
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP023
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 14 - Revision Aire
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP016
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP025
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 15 - Reemplazo Radiador
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP025
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP001
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 16 - Ajuste Motor
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP002
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP012
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 17 - Cambio Filtros
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP003
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP022
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 18 - Servicio Refrigeracion
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP004
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP014
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 19 - Reemplazo Suspension
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP005
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP024
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 20 - Diagnostico Sistema
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP017
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP026
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 21 - Reemplazo Pastillas
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP007
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 22 - Cambio Embrague
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP008
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP018
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 23 - Servicio Luces
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP019
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP009
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 24 - Ajuste Luces
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP010
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP029
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 25 - Mantenimiento General
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP011
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP030
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 26 - Diagnostico Frenos
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP002
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP021
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 27 - Servicio Cabina
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP022
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP003
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 28 - Reemplazo Motor
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP023
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP014
+2025-05-03 10:31:30 | Sistema | Registro de servicio | ÉXITO | Servicio registrado: 29 - Mantenimiento Aire
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP016
+2025-05-03 10:31:30 | Sistema | Agregar repuesto a servicio | ERROR | No se encontró repuesto con ID: REP025
+2025-05-03 10:31:30 | Sistema | Carga de servicios | ÉXITO | Servicios cargados: 29 de 29 líneas.
+2025-05-03 10:31:47 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR001 - Juan Pérez
+2025-05-03 10:31:47 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR002 - Ana López
+2025-05-03 10:31:47 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR003 - Ricardo Gómez
+2025-05-03 10:31:47 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR004 - María Sánchez
+2025-05-03 10:31:48 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: USR005 - Luis Ortega
+2025-05-03 10:31:48 | Sistema | Carga de clientes | ÉXITO | Clientes cargados: 5 de 5 líneas.
+2025-05-03 10:32:01 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-05-03 10:32:27 | Sistema | Registro de cliente | ÉXITO | Cliente registrado: 1111111111111 - ref ref
+2025-05-03 10:32:27 | Sistema | Registro de cliente | ÉXITO | Cliente registrado con DPI: 1111111111111
+2025-05-03 10:32:32 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:37 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:37 | Sistema | Crear Orden | ÉXITO | Orden #1 creada para cliente: ref ref, automóvil: P0GYH884, servicio: Revision Aire
+2025-05-03 10:33:38 | Sistema | Cola Espera | ÉXITO | Orden #1 iniciando espera de 12 segundos
+2025-05-03 10:33:40 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:40 | Sistema | Crear Orden | ÉXITO | Orden #2 creada para cliente: ref ref, automóvil: P0GYH884, servicio: Diagnóstico
+2025-05-03 10:33:40 | Sistema | Cola Espera | ÉXITO | Orden #2 iniciando espera de 12 segundos
+2025-05-03 10:33:44 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:44 | Sistema | Crear Orden | ÉXITO | Orden #3 creada para cliente: ref ref, automóvil: P0GYH884, servicio: Mantenimiento Aire
+2025-05-03 10:33:44 | Sistema | Cola Espera | ÉXITO | Orden #3 iniciando espera de 12 segundos
+2025-05-03 10:33:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:47 | Sistema | Crear Orden | ÉXITO | Orden #4 creada para cliente: ref ref, automóvil: P0GYH884, servicio: Reemplazo Radiador
+2025-05-03 10:33:48 | Sistema | Cola Espera | ÉXITO | Orden #4 iniciando espera de 12 segundos
+2025-05-03 10:33:50 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:50 | Sistema | Asignar Mecánico | ÉXITO | Orden #1 asignada al mecánico Jake elPerro
+2025-05-03 10:33:50 | Sistema | Cola Espera | ÉXITO | Orden #1 tiempo de espera completado
+2025-05-03 10:33:51 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:51 | Sistema | Finalizar Orden | ÉXITO | Orden #1 finalizada
+2025-05-03 10:33:51 | Sistema | En Servicio | ÉXITO | Orden #1 servicio completado automáticamente
+2025-05-03 10:33:51 | Sistema | Finalizado | ÉXITO | Orden #1 iniciando tiempo finalizado de 1 segundos
+2025-05-03 10:33:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:52 | Sistema | Asignar Mecánico | ÉXITO | Orden #2 asignada al mecánico Jake elPerro
+2025-05-03 10:33:52 | Sistema | Cola Espera | ÉXITO | Orden #2 tiempo de espera completado
+2025-05-03 10:33:52 | Sistema | Finalizar Orden | ÉXITO | Orden #2 finalizada
+2025-05-03 10:33:52 | Sistema | En Servicio | ÉXITO | Orden #2 servicio completado automáticamente
+2025-05-03 10:33:52 | Sistema | Agregar Factura | ÉXITO | Factura #1 agregada.
+2025-05-03 10:33:52 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:52 | Sistema | Generar Factura | ÉXITO | Factura #1 generada para orden #1
+2025-05-03 10:33:52 | Sistema | Finalizado | ÉXITO | Orden #1 factura generada automáticamente
+2025-05-03 10:33:52 | Sistema | Finalizado | ÉXITO | Orden #2 iniciando tiempo finalizado de 1 segundos
+2025-05-03 10:33:53 | Sistema | Agregar Factura | ÉXITO | Factura #2 agregada.
+2025-05-03 10:33:53 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:53 | Sistema | Generar Factura | ÉXITO | Factura #2 generada para orden #2
+2025-05-03 10:33:53 | Sistema | Finalizado | ÉXITO | Orden #2 factura generada automáticamente
+2025-05-03 10:33:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:56 | Sistema | Asignar Mecánico | ÉXITO | Orden #3 asignada al mecánico Jake elPerro
+2025-05-03 10:33:56 | Sistema | Cola Espera | ÉXITO | Orden #3 tiempo de espera completado
+2025-05-03 10:33:56 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:56 | Sistema | Finalizar Orden | ÉXITO | Orden #3 finalizada
+2025-05-03 10:33:56 | Sistema | En Servicio | ÉXITO | Orden #3 servicio completado automáticamente
+2025-05-03 10:33:56 | Sistema | Finalizado | ÉXITO | Orden #3 iniciando tiempo finalizado de 1 segundos
+2025-05-03 10:33:57 | Sistema | Agregar Factura | ÉXITO | Factura #3 agregada.
+2025-05-03 10:33:57 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:33:57 | Sistema | Generar Factura | ÉXITO | Factura #3 generada para orden #3
+2025-05-03 10:33:57 | Sistema | Finalizado | ÉXITO | Orden #3 factura generada automáticamente
+2025-05-03 10:34:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:34:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:34:00 | Sistema | Asignar Mecánico | ÉXITO | Orden #4 asignada al mecánico Jake elPerro
+2025-05-03 10:34:00 | Sistema | Cola Espera | ÉXITO | Orden #4 tiempo de espera completado
+2025-05-03 10:34:00 | Sistema | Promoción Cliente | ÉXITO | Cliente ref ref promocionado a Cliente Oro
+2025-05-03 10:34:00 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:34:00 | Sistema | Finalizar Orden | ÉXITO | Orden #4 finalizada
+2025-05-03 10:34:00 | Sistema | En Servicio | ÉXITO | Orden #4 servicio completado automáticamente
+2025-05-03 10:34:00 | Sistema | Finalizado | ÉXITO | Orden #4 iniciando tiempo finalizado de 1 segundos
+2025-05-03 10:34:01 | Sistema | Agregar Factura | ÉXITO | Factura #4 agregada.
+2025-05-03 10:34:01 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:34:01 | Sistema | Generar Factura | ÉXITO | Factura #4 generada para orden #4
+2025-05-03 10:34:01 | Sistema | Finalizado | ÉXITO | Orden #4 factura generada automáticamente
+2025-05-03 10:34:13 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:34:26 | Sistema | Generación de Factura | ÉXITO | Factura PDF generada: reportes/Factura_1_2025-05-03_10-34-25.pdf
+2025-05-03 10:34:46 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:34:54 | Sistema | Actualizar Factura | ÉXITO | Factura #1 actualizada.
+2025-05-03 10:34:58 | Sistema | Generación de Factura | ÉXITO | Factura PDF generada: reportes/Factura_4_2025-05-03_10-34-58.pdf
+2025-05-03 10:35:04 | Sistema | Actualizar Factura | ÉXITO | Factura #2 actualizada.
+2025-05-03 10:35:10 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-05-03 10:35:13 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:35:16 | Sistema | Generación de Factura | ÉXITO | Factura PDF generada: reportes/Factura_2_2025-05-03_10-35-16.pdf
+2025-05-03 10:35:25 | Sistema | Generación de Factura | ÉXITO | Factura PDF generada: reportes/Factura_1_2025-05-03_10-35-25.pdf
+2025-05-03 10:35:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:38:38 | admin | Cierre de sesión | ÉXITO | Administrador cerró sesión: Administrador General
+2025-05-03 10:48:47 | Sistema | Serialización | ÉXITO | Datos guardados correctamente en datos_taller.bin
+2025-05-03 10:48:47 | Sistema | Hilos | ÉXITO | Sistema de hilos detenido correctamente
